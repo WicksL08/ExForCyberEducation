@@ -6,6 +6,8 @@ title: About the Study
   <a class="btn" href="{{ '/about/team/' | relative_url }}">Meet the Research Team</a>
      <a class="btn" href="{{ '/about/ctf-purpose/' | relative_url }}">Purpose of a CTF</a>
   <a class="btn" href="{{ '/about/ethics/' | relative_url }}">Ethics in Learning</a>
+   <a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
+
 </div>
 
 # About the Study 
