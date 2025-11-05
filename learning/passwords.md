@@ -6,7 +6,7 @@ permalink: /learning/passwords/
 
 # Password Cracking & Security Deep Dive 🔑
 
-Understand how passwords are **stored, protected, and tested** in cybersecurity.  
+Understand how passwords are **stored, protected, and tested** in cyber security.  
 This page explores password hashing, cracking techniques, and ethical guidelines for classroom-friendly demonstrations.
 
 ---
@@ -24,7 +24,7 @@ This page explores password hashing, cracking techniques, and ethical guidelines
 
 ## 🧠 Why Password Cracking Is Taught
 
-Cybersecurity experts study password cracking not to “hack” real systems, but to:
+cyber security experts study password cracking not to “hack” real systems, but to:
 - Understand how attackers exploit weak passwords.
 - Demonstrate the importance of hashing and salting.
 - Teach students to **create stronger passwords**.
