@@ -2,6 +2,7 @@
 title: Teacher Toolkit
 ---
 <p><a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a></p>
+[View Syllabus]({{ '/teachers/syllabus/' | relative_url }}){: .btn }
 
 # Teacher Toolkit 👩‍🏫
 
