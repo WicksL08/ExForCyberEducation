@@ -9,15 +9,16 @@ title: Teacher Toolkit
 
 
 
-# Teacher Toolkit 👩‍🏫
+# Teacher Toolkit 
 
 Classroom-ready guidance for running short CTF-style activities.
 
 ## What’s inside
-- Pacing guides (1–2 weeks)
+
 - Pre-/Post- assessment links
 - Standards mapping (Alabama K-12 + NICE)
 - Classroom safety & consent reminders
+  
 
 ## How to use this site
 1. Pick a Challenge track from the [Challenges](/REPO-NAME/challenges/) page.  
