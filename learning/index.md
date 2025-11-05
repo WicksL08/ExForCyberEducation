@@ -3,6 +3,10 @@ layout: default
 title: Learning Lab
 permalink: /learning/
 ---
+<p style="text-align:right;">
+  <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
+</p>
+
 <nav style="text-align:center; margin-bottom:1rem;">
   <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
   <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
