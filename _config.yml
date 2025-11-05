@@ -22,13 +22,7 @@ nav:
     url: /teachers/
   - title: About
     url: /about/
-# Add custom head include
-defaults:
-  - scope:
-      path: ""
-    values:
-      include:
-        head: "_head.html"
+
 
 # SEO
 description: "Capture-the-Flag style cyber security learning, mapped to Alabama K-12 standards."
