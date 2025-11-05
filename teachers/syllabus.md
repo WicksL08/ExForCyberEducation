@@ -43,17 +43,17 @@ Students will be able to:
 Work together, cite sources for OSINT, and submit your own reflections. 
 Cheating/tools that reveal answers directly are not allowed.
 
-## 8. Accessibility & Accommodations
+## 7. Accessibility & Accommodations
 Activities are designed for multiple paths/levels. 
 Teachers may provide printed prompts, extended time, or alternate artifacts. 
 Contact the researcher for additional supports.
 
-## 9. Pre/Post Assessments & Research Note
+## 8. Pre/Post Assessments & Research Note
 Students complete short pre/post items to measure learning/interest.
 Consent/assent procedures will be followed per school/UA policy.
 No names are reported in research outputs.
 
-## 10. Teacher Prep Checklist
+## 9. Teacher Prep Checklist
 - [ ] Share module dates with students and guardians  
 - [ ] Confirm device access and site availability  
 - [ ] Distribute pre/post links  
