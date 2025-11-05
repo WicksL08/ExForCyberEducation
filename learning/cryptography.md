@@ -3,13 +3,6 @@ layout: default
 title: Cryptography Deep Dive
 permalink: /learning/cryptography/
 ---
-<nav style="text-align:center; margin-bottom:1rem;">
-  <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
-  <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
-  <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Cryptography</a>
-  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Passwords</a>
-</nav>
----
 # Cryptography Deep Dive 🔐
 
 Learn how data is protected using **encryption**, **encoding**, and **hashing**.  
@@ -88,5 +81,11 @@ Use [CyberChef](https://gchq.github.io/CyberChef/){:target="_blank"} to:
 4. Observe how each process differs — what’s reversible and what’s not?
 
 ---
+<nav style="text-align:center; margin-bottom:1rem;">
+  <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
+  <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
+  <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Cryptography</a>
+  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Passwords</a>
+</nav>
 
-**Next:** Return to the [Learning Lab]({{ '/learning/' | relative_url }}) for OSINT, Passwords, and more practice modules.
+
