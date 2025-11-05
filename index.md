@@ -6,6 +6,7 @@ title: Ex4CSLearning
   <a href="./challenges/" class="btn">Start Challenges</a>
   <a href="./teachers/" class="btn">Teacher Toolkit</a>
   <a href="./about/" class="btn">About the Study</a>
+  <a href="{{ '/learning/' | relative_url }}" class="btn">Learning</a>
 </div>
 # Ex4CSLearning 
 Explore, learn, and test your cybersecurity skills through fun, hands-on challenges!
