@@ -1,6 +1,9 @@
 ---
 title: Challenges
 ---
+<p style="text-align:right;">
+  <a class="btn" href="{{ '/' | relative_url }}">🏠 Back to Home</a>
+</p>
 
 # Challenges
 
