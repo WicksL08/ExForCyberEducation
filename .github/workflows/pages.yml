@@ -1,4 +1,5 @@
 name: Deploy GitHub Pages
+
 on:
   push:
     branches: ["main"]
@@ -20,28 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Official Jekyll build step (handles Ruby/Bundler for you)
       - name: Build with Jekyll
-        run: |
-          gem install bundler jekyll
-          bundle init
-          echo 'gem "jekyll", "~> 4.3"' >> Gemfile
-          echo 'gem "webrick"' >> Gemfile
-          echo 'gem "jekyll-remote-theme"' >> Gemfile
-          bundle install
-          jekyll build -d _site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site'
+          path: ./_site
 
   deploy:
     environment:
