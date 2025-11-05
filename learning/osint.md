@@ -4,13 +4,13 @@ title: OSINT Deep Dive
 permalink: /learning/osint/
 ---
 
-# OSINT (Open-Source Intelligence) Deep Dive 🔎
+# OSINT (Open-Source Intelligence) Deep Dive 
 
-Learn how cybersecurity analysts and ethical hackers find, verify, and interpret publicly available information — all while following **ethical and legal guidelines**.
+Learn how cybersecurity analysts and ethical hackers find, verify, and interpret publicly available information while following **ethical and legal guidelines**.
 
 ---
 
-## 🧠 What Is OSINT?
+##  What Is OSINT?
 
 **Open-Source Intelligence (OSINT)** means gathering and analyzing information from **public sources** — like websites, social media, government records, and online databases.
 
@@ -19,11 +19,11 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 - Validate **sources and claims**
 - Protect **personal and organizational data**
 
-> 🧩 *Think like a detective, act like a professional.*
+> *Think like a detective, act like a professional.*
 
 ---
 
-## 🧭 OSINT Process Overview
+##  OSINT Process Overview
 
 | Step | Description | Example |
 |------|-------------|----------|
@@ -34,7 +34,7 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 
 ---
 
-## 🧰 Tools & Techniques
+##  Tools & Techniques
 
 **Search Operators (Google):**
 - `site:` → Search a specific website.  
@@ -53,13 +53,13 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 
 ---
 
-## ⚖️ OSINT Ethics & Legal Boundaries
+##  OSINT Ethics & Legal Boundaries
 
-✅ **Allowed:**
+**Allowed:**
 - Public websites, open databases, news sources  
 - Data intentionally shared publicly  
 
-🚫 **Not Allowed:**
+**Not Allowed:**
 - Hacking, guessing passwords, bypassing privacy settings  
 - Accessing private or leaked data  
 
@@ -67,7 +67,7 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 
 ---
 
-## 🧠 Key Vocabulary
+## Key Vocabulary
 
 | Term | Definition |
 |------|-------------|
@@ -79,7 +79,7 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 
 ---
 
-## 🧩 Challenge Idea
+##  Challenge Idea
 
 > Find a local news article, verify when it was published, and identify one related photo’s source.  
 > Screenshot both the article and the verification steps.
