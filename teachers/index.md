@@ -1,11 +1,12 @@
 ---
 title: Teacher Toolkit
 ---
-<p style="text-align:right;">
+<div class="btn-row">
+  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a>
+  <a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">View Standards Mapping</a>
   <a class="btn" href="{{ '/' | relative_url }}">Home</a>
-</p>
-<p><a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a></p>
-<p><a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">View Standards Mapping</a></p>
+</div>
+
 
 
 # Teacher Toolkit 👩‍🏫
