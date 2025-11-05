@@ -74,10 +74,6 @@ body {
   display: block;
 }
 
-.page-header .btn {
-  display: none !important; /* hide GitHub's default button */
-}
-
 .page-header::before {
   content: attr(data-custom-btn);
   display: inline-block;
