@@ -12,7 +12,7 @@ Learn how cybersecurity analysts and ethical hackers find, verify, and interpret
 
 ##  What Is OSINT?
 
-**Open-Source Intelligence (OSINT)** means gathering and analyzing information from **public sources** — like websites, social media, government records, and online databases.
+**Open-Source Intelligence (OSINT)** means gathering and analyzing information from **public sources** like websites, social media, government records, and online databases.
 
 It’s one of the first skills cybersecurity professionals learn because it teaches how to:
 - Investigate **digital footprints**
@@ -77,12 +77,6 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 | **Metadata** | Hidden data about files (timestamps, locations). |
 | **Attribution** | Identifying who created or posted something. |
 
----
-
-##  Challenge Idea
-
-> Find a local news article, verify when it was published, and identify one related photo’s source.  
-> Screenshot both the article and the verification steps.
 
 ---
 <nav style="text-align:center; margin-bottom:1rem;">
