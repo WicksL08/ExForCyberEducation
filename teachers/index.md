@@ -1,6 +1,7 @@
 ---
 title: Teacher Toolkit
 ---
+<p><a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a></p>
 
 # Teacher Toolkit 👩‍🏫
 
