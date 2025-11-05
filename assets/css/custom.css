@@ -100,3 +100,25 @@ body {
   background-color: #5f1120;
 }
 
+/* Center the custom hero button under the tagline */
+.page-header {
+  position: relative;
+  text-align: center;
+}
+
+.page-header a.btn {
+  display: inline-block !important;
+  background-color: #7e1629 !important;
+  color: #fff !important;
+  padding: 0.7rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+.page-header a.btn:hover {
+  background-color: #5f1120 !important;
+}
