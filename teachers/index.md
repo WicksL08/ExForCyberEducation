@@ -2,7 +2,7 @@
 title: Teacher Toolkit
 ---
 <p><a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a></p>
-\*[View Syllabus]({{ '/teachers/syllabus/' | relative_url }}){: .btn }*\
+
 
 <p><a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">View Standards Mapping</a></p>
 
