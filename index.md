@@ -4,10 +4,10 @@ layout: default
 ---
 
 <div class="btn-group">
-  <a href="./challenges/" class="btn">Start Challenges</a>
-  <a href="./teachers/" class="btn">Teacher Toolkit</a>
   <a href="./about/" class="btn">About the Study</a>
   <a href="{{ '/learning/' | relative_url }}" class="btn">Learning Lab</a>
+  <a href="./challenges/" class="btn">Start Challenges</a>
+  <a href="./teachers/" class="btn">Teacher Toolkit</a>
 </div>
 # Ex4CSLearning 
 Explore, learn, and test your cybersecurity skills through fun, hands-on challenges!
