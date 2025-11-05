@@ -1,0 +1,41 @@
+:root {
+  --crimson: #9E1B32;
+  --text: #111;
+  --bg: #fff;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.page-header {
+  background: linear-gradient(135deg, var(--crimson), #d64b61 70%);
+  color: white;
+}
+
+a {
+  color: var(--crimson);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--crimson);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: var(--crimson);
+  color: white;
+}
+
+.btn:hover {
+  background: #c23a4b;
+}
