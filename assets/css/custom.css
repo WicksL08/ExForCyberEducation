@@ -1,12 +1,19 @@
 :root {
   --crimson: #9E1B32;
+  --crimson-dark: #7e1629;
 }
 
 body {
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-/* Button style */
+/* Center the buttons */
+.btn-group {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Make links look like buttons */
 .btn {
   display: inline-block;
   background-color: var(--crimson);
@@ -20,11 +27,6 @@ body {
 }
 
 .btn:hover {
-  background-color: #c23a4b;
+  background-color: var(--crimson-dark);
 }
 
-/* Center button section */
-.btn-group {
-  text-align: center;
-  margin-top: 1rem;
-}
