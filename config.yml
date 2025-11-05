@@ -25,3 +25,6 @@ nav:
 
 # SEO
 description: "Capture-the-Flag style cyber security learning, mapped to Alabama K-12 standards."
+include:
+  - assets/css/custom.css
+
