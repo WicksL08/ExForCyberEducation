@@ -1,9 +1,13 @@
 ---
 title: About the Study
 ---
-<p style="text-align:right;">
+<p style="text-align:center;">
   <a class="btn" href="{{ '/' | relative_url }}">Home</a>
 </p>
+<p style="text-align:center;">
+  <a class="btn" href="{{ '/about/team/' | relative_url }}">Meet the Research Team</a>
+</p>
+
 
 # About the Study 
 
