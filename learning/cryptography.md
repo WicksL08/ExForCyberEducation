@@ -3,21 +3,21 @@ layout: default
 title: Cryptography Deep Dive
 permalink: /learning/cryptography/
 ---
-# Cryptography Deep Dive 🔐
+# Cryptography Deep Dive 
 
 Learn how data is protected using **encryption**, **encoding**, and **hashing**.  
 This section goes beyond the basics — perfect for classroom demos or independent study.
 
 ---
 
-## 🧠 What Is Cryptography?
+## What Is Cryptography?
 
 Cryptography is the science of **securing communication** so that only intended parties can read the information.  
 It’s used in nearly everything — from banking and messaging apps to password storage and digital signatures.
 
 ---
 
-## 🧩 Three Core Concepts
+##  Three Core Concepts
 
 | Concept | Description | Real-World Example |
 |----------|--------------|-------------------|
@@ -27,7 +27,7 @@ It’s used in nearly everything — from banking and messaging apps to password
 
 ---
 
-## 🔐 Types of Encryption
+## Types of Encryption
 
 ### **Symmetric Encryption**
 - Uses the **same key** to encrypt and decrypt.
@@ -41,7 +41,7 @@ It’s used in nearly everything — from banking and messaging apps to password
 
 ---
 
-## 🧮 Hashing Algorithms
+## Hashing Algorithms
 
 | Algorithm | Output Length | Common Use |
 |------------|----------------|-------------|
@@ -52,7 +52,7 @@ It’s used in nearly everything — from banking and messaging apps to password
 
 ---
 
-## 🧰 Hands-On Demos
+##  Hands-On Demos
 
 Try these tools in a classroom lab or at home:
 
@@ -63,7 +63,7 @@ Try these tools in a classroom lab or at home:
 
 ---
 
-## 📚 Real-World Connections
+## Real-World Connections
 
 - Online banking: encrypts communication with HTTPS (RSA + AES)  
 - Password managers: hash and salt your master password  
@@ -72,7 +72,7 @@ Try these tools in a classroom lab or at home:
 
 ---
 
-## 🧠 Challenge
+## Challenge
 
 Use [CyberChef](https://gchq.github.io/CyberChef/){:target="_blank"} to:
 1. Encode a short phrase (Base64).  
