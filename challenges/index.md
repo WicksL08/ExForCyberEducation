@@ -4,8 +4,7 @@ title: Challenges
 <div class="btn-row">
   <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
   <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
-
-
+<a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
 </div>
 # Challenges
 
