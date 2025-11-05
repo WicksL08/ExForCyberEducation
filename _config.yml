@@ -4,9 +4,7 @@ This website is part of a research study that aims to understand how
 interactive activities like Capture the Flag (CTF) can help high school students learn 
 cyber security concepts in engaging and practical ways."
 
-header_button:
-  text: "Start Challenges"
-  url: "/challenges/"
+
 
 
 # PROJECT site settings
