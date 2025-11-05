@@ -2,8 +2,8 @@ title: Ex4CSLearning
 subtitle: Fun Cybersecurity Challenges for High School Students
 
 # PROJECT site settings
-url: https://YOUR-USERNAME.github.io     # <-- replace YOUR-USERNAME (no trailing slash)
-baseurl: "/REPO-NAME"                    # <-- replace with your repo name, with leading slash
+url: https://wicksl08.github.io  # <-- replace YOUR-USERNAME (no trailing slash)
+baseurl: "/ExForCyberEducation"                    # <-- replace with your repo name, with leading slash
 
 # Fun, clean theme supported by Pages
 remote_theme: pages-themes/cayman@v0.2.0
