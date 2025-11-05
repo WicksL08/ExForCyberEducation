@@ -2,9 +2,11 @@
 title: Teacher Toolkit
 ---
 <div class="btn-row">
+  <a class="btn" href="{{ '/' | relative_url }}">Home</a>
   <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">View Syllabus</a>
   <a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">View Standards Mapping</a>
-  <a class="btn" href="{{ '/' | relative_url }}">Home</a>
+  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
+
 </div>
 
 
