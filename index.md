@@ -10,21 +10,21 @@ layout: default
   <a href="./teachers/" class="btn">Teacher Toolkit</a>
 </div>
 # Ex4CSLearning 
-Explore, learn, and test your cybersecurity skills through fun, hands-on challenges!
-This website is part of a research study led by The University of Alabama to understand how interactive activities like Capture the Flag (CTF) can help high school students learn cybersecurity concepts in engaging and practical ways.
+Explore, learn, and test your cyber security skills through fun, hands-on challenges!
+This website is part of a research study led by The University of Alabama to understand how interactive activities like Capture the Flag (CTF) can help high school students learn cyber security concepts in engaging and practical ways.
 
 Here, you’ll find:
 
-Learning modules that introduce key cybersecurity topics such as OSINT, Cryptography, and Network Security.
+- Learning modules that introduce key cyber security topics such as OSINT, Cryptography, and Network Security.
 
-CTF challenges that let you apply what you’ve learned by solving real-world problems.
+- CTF challenges that let you apply what you’ve learned by solving real-world problems.
 
-Videos and guides to help you explore cybersecurity tools and techniques safely and responsibly.
+- Videos and guides to help you explore cyber security tools and techniques safely and responsibly.
 
-Pre- and post-tests to track your growth and understanding throughout the study.
+- Pre- and post-tests to track your growth and understanding throughout the study.
 
-By participating, you’re contributing to research that aims to improve cybersecurity education across Alabama and beyond. Your participation helps us design better learning experiences for future students interested in technology, problem-solving, and protecting digital spaces.
+By participating, you’re contributing to research that aims to improve cyber security education across Alabama and beyond. Your participation helps us design better learning experiences for future students interested in technology, problem-solving, and protecting digital spaces.
 
-Get ready to think like a cybersecurity analyst, follow the clues, and see how learning through experience can make cybersecurity come alive!
+Get ready to think like a cyber security analyst, follow the clues, and see how learning through experience can make cyber security come alive!
 
 
