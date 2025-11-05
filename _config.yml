@@ -9,7 +9,8 @@ github:
   is_project_page: false
 header_button:
   text: "Start Challenges"
-  url: "/ExForCyberEducation/challenges/"  # <-- replace REPO-NAME with your repo name
+  url: "/challenges/"
+
 
 # PROJECT site settings
 url: https://wicksl08.github.io  # <-- replace YOUR-USERNAME (no trailing slash)
