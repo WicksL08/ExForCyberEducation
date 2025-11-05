@@ -1,6 +1,9 @@
 ---
 title: About the Study
 ---
+<p style="text-align:right;">
+  <a class="btn" href="{{ '/' | relative_url }}">Home</a>
+</p>
 
 # About the Study ℹ️
 
