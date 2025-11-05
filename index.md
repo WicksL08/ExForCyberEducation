@@ -11,6 +11,3 @@ Fun, hands-on cybersecurity challenges for high-school students — built as sho
   <a href="./about/" class="btn">About the Study</a>
 </div>
 
-
-> Tip: If any link 404s right now, that’s normal—we’ll create those pages next.
-
