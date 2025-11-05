@@ -4,14 +4,14 @@ title: Password Cracking Deep Dive
 permalink: /learning/passwords/
 ---
 
-# Password Cracking & Security Deep Dive 🔑
+# Password Cracking & Security Deep Dive 
 
 Understand how passwords are **stored, protected, and tested** in cyber security.  
-This page explores password hashing, cracking techniques, and ethical guidelines for classroom-friendly demonstrations.
+This page explores password hashing, cracking techniques, and ethical guidelines.
 
 ---
 
-## ⚖️ What This Page Covers
+## What This Page Covers
 
 | Topic | Description |
 |-------|-------------|
@@ -22,20 +22,20 @@ This page explores password hashing, cracking techniques, and ethical guidelines
 
 ---
 
-## 🧠 Why Password Cracking Is Taught
+##  Why Password Cracking Is Taught
 
 cyber security experts study password cracking not to “hack” real systems, but to:
 - Understand how attackers exploit weak passwords.
 - Demonstrate the importance of hashing and salting.
 - Teach students to **create stronger passwords**.
 
-> ⚠️ Always use **sample data** or **CTF labs**, never real credentials.
+>  Always use **sample data** or **CTF labs**, never real credentials.
 
 ---
 
-## 🧩 Hashing Refresher
+##  Hashing Refresher
 
-**Hashing** transforms a password into a fixed-length fingerprint.
+**Hashing** transforms a password into a fixed length fingerprint.
 
 | Password | Hash (SHA-256) |
 |-----------|----------------|
@@ -47,7 +47,7 @@ This demonstrates **avalanche effect** — small input changes create huge outpu
 
 ---
 
-## 🧂 Adding a Salt
+##  Adding a Salt
 
 Salting adds random data before hashing.  
 Example:
@@ -59,7 +59,7 @@ Salts ensure that two users with the same password don’t share the same hash.
 
 ---
 
-## 🔍 Common Cracking Methods (Educational Overview)
+##  Common Cracking Methods (Educational Overview)
 
 | Method | Description | Educational Use |
 |---------|-------------|----------------|
@@ -68,18 +68,18 @@ Salts ensure that two users with the same password don’t share the same hash.
 | **Rainbow Tables** | Precomputed hashes for common passwords. | Explain why salts defeat this method. |
 | **Hybrid Attack** | Mix dictionary + pattern variations. | Example: “Password” → “P@ssw0rd!” |
 
-> ⚠️ Use tools like **John the Ripper**, **hashcat**, or simulated web-based demos **offline or in sandbox environments**.
+> Use tools like **John the Ripper**, **hashcat**, or simulated web based demos **offline or in sandbox environments**.
 
 ---
 
-### 🔹 Password Strength Analysis
+###  Password Strength Analysis
 Use [Kaspersky Password Checker](https://password.kaspersky.com/){:target="_blank"} or  
 [NCSC Password Strength Tool](https://www.ncsc.gov.uk/section/advice-guidance/all-topics/passwords){:target="_blank"}  
 to see how long it would take to brute-force different passwords.
 
 ---
 
-## 🧩 Key Vocabulary
+##  Key Vocabulary
 
 | Term | Meaning |
 |------|---------|
@@ -91,18 +91,10 @@ to see how long it would take to brute-force different passwords.
 | **Rainbow Table** | Precomputed lookup of hashes. |
 | **Key Stretching** | Re-hashing to make cracking slower (e.g., bcrypt). |
 
----
-
-## 💬 Reflection Questions
-
-1. Why is hashing one-way?  
-2. How does salting improve password storage security?  
-3. What does a rainbow table demonstrate about the need for salts?  
-4. Why do professionals use ethical guidelines when demonstrating cracking?
 
 ---
 
-## 🧠 Challenge: Hash & Compare
+## Challenge: Hash & Compare
 
 Use [CyberChef](https://gchq.github.io/CyberChef/){:target="_blank"}  
 1. Hash the phrase `CrimsonTide2025`.  
