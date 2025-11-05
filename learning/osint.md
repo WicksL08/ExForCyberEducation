@@ -85,6 +85,10 @@ It’s one of the first skills cybersecurity professionals learn because it teac
 > Screenshot both the article and the verification steps.
 
 ---
+<nav style="text-align:center; margin-bottom:1rem;">
+  <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
+  <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
+  <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Cryptography</a>
+  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Passwords</a>
+</nav>
 
-**Next:** Explore [Cryptography Deep Dive]({{ '/learning/cryptography/' | relative_url }}) or  
-[Password Cracking Deep Dive]({{ '/learning/passwords/' | relative_url }}).
