@@ -13,7 +13,7 @@ This section goes beyond the basics — perfect for classroom demos or independe
 ## What Is Cryptography?
 
 Cryptography is the science of **securing communication** so that only intended parties can read the information.  
-It’s used in nearly everything — from banking and messaging apps to password storage and digital signatures.
+It’s used in nearly everything from banking and messaging apps to password storage and digital signatures.
 
 ---
 
