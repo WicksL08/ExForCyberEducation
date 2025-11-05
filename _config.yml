@@ -24,14 +24,16 @@ plugins:
 nav:
   - title: Home
     url: /
+    - title: About
+    url: /about/
+     - title: Learning
+    url: /learning/
   - title: Challenges
     url: /challenges/
   - title: Teachers
     url: /teachers/
-  - title: About
-    url: /about/
-  - title: Learning
-    url: /learning/
+  
+ 
 
 
 
