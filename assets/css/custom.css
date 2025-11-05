@@ -151,6 +151,30 @@ body::before {
   z-index: -1;
 }
 /* nuke any leftover pseudo-elements in the hero */
+
+/* Learning section tabs */
+nav .btn {
+  display: inline-block;
+  margin: 0.25rem;
+  background-color: #9E1B32;
+  color: #fff !important;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+nav .btn:hover {
+  background-color: #7e1629;
+}
+
+/* Subtle divider under tabs */
+nav {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
 .page-header::before,
 .page-header::after {
   content: none !important;
