@@ -1,6 +1,9 @@
 ---
+layout: default
 title: Course Syllabus – Experiential For Cyber Security Education
+permalink: /teachers/syllabus/
 ---
+
 
 # Ex4CSLearning: CTF-Based Cyber Security Activities — Syllabus
 
