@@ -2,6 +2,11 @@
 title: Ex4CSLearning
 ---
 
+<div class="btn-group">
+  <a href="./challenges/" class="btn">Start Challenges</a>
+  <a href="./teachers/" class="btn">Teacher Toolkit</a>
+  <a href="./about/" class="btn">About the Study</a>
+</div>
 # Ex4CSLearning 
 Explore, learn, and test your cybersecurity skills through fun, hands-on challenges!
 This website is part of a research study led by The University of Alabama to understand how interactive activities like Capture the Flag (CTF) can help high school students learn cybersecurity concepts in engaging and practical ways.
@@ -20,9 +25,4 @@ By participating, you’re contributing to research that aims to improve cyberse
 
 Get ready to think like a cybersecurity analyst, follow the clues, and see how learning through experience can make cybersecurity come alive!
 
-<div class="btn-group">
-  <a href="./challenges/" class="btn">Start Challenges</a>
-  <a href="./teachers/" class="btn">Teacher Toolkit</a>
-  <a href="./about/" class="btn">About the Study</a>
-</div>
 
