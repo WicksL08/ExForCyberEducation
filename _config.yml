@@ -1,5 +1,9 @@
-title: Ex4CSLearning
-subtitle: Fun Cybersecurity Challenges for High School Students
+title: Experiential Learning for Cyber Security Education
+subtitle: Fun Cyber Security Capture The Flag Challenges for High School Students
+description: "Explore, learn, and test your cyber security skills through fun, hands-on challenges!
+This website is part of a research study that aims to understand how 
+interactive activities like Capture the Flag (CTF) can help high school students learn 
+cyber security concepts in engaging and practical ways."
 
 # PROJECT site settings
 url: https://wicksl08.github.io  # <-- replace YOUR-USERNAME (no trailing slash)
