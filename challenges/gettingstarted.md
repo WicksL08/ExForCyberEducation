@@ -7,9 +7,9 @@ permalink: /about/getting-started/
 # Getting Started with Ex4CSLearning 
 
 Welcome to the **Ex4CSLearning Capture-the-Flag (CTF)** platform!  
-Before you begin completing challenges, you’ll need to create a secure account on the **CTFd site**.  
+Before completing challenges, you’ll need to create a secure account on the **CTFd site**.  
 
-Follow the steps below carefully — your username format helps us organize student participation by school **without using personal names**.
+Please follow the steps below carefully. Your username format helps us organize student participation by school without using personal names.
 
 ---
 
@@ -55,7 +55,7 @@ SCHOOLNAME-STUDENT-INITIALSLASTANDFIRSTS
 If your teacher provides a **team code** or **school group**,  
 enter that code during registration or from the **Teams** tab after signing up.
 
-If not, you can proceed as an individual student — your username already includes your school identifier.
+If not, you can proceed as an individual student. Your username already includes your school identifier.
 
 ---
 
@@ -71,11 +71,11 @@ After creating your account:
 ## Important Rules
 
 - **Do not share flags or answers** with other students.  
-- **Do not change your username** after sign-up.  
+- **Do not change your username** after sign up.  
 - If you forget your password, use the **“Forgot Password”** option on the login screen.  
 - **Ask your teacher** before making any profile changes.  
 
-> *Remember: your CTFd username should only identify your school and initials — never use your full name.*
+> *Remember: your CTFd username should only identify your school and initials. Never use your full name.*
 
 ---
 
