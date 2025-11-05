@@ -1,5 +1,6 @@
 ---
 title: Ex4CSLearning
+layout: default
 ---
 
 <div class="btn-group">
