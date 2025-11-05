@@ -68,3 +68,29 @@ body {
 .page-header .btn { display:none !important; }
 
 
+/* --- Custom Hero Button Override --- */
+.page-header::after {
+  content: "";
+  display: block;
+}
+
+.page-header .btn {
+  display: none !important; /* hide GitHub's default button */
+}
+
+.page-header::before {
+  content: attr(data-custom-btn);
+  display: inline-block;
+  background-color: #7e1629;
+  color: #fff;
+  padding: 0.7rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  margin-top: 1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.page-header::before:hover {
+  background-color: #5f1120;
+}
