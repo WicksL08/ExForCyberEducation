@@ -3,10 +3,6 @@ layout: default
 title: Learning Lab
 permalink: /learning/
 ---
-<p><a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Explore Cryptography</a></p> 
-<p><a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Explore Password Cracking </a></p>
-<p><a class="btn" href="{{ '/learning/osint/' | relative_url }}">Explore OSINT </a></p>
----
 <nav style="text-align:center; margin-bottom:1rem;">
   <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
   <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
