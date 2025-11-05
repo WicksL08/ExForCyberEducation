@@ -47,7 +47,7 @@ Explore short lessons, videos, and practice activities to prepare for your Captu
 
 ---
 
-## 💡 Key Vocabulary
+##  Key Vocabulary
 
 | Term | Definition | Example |
 |------|-------------|----------|
