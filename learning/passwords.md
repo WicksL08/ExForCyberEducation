@@ -111,5 +111,10 @@ Use [CyberChef](https://gchq.github.io/CyberChef/){:target="_blank"}
 4. Discuss why no one can reverse the hash even if they see it.
 
 ---
+<nav style="text-align:center; margin-bottom:1rem;">
+  <a class="btn" href="{{ '/learning/' | relative_url }}">All Lessons</a>
+  <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
+  <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Cryptography</a>
+  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Passwords</a>
+</nav>
 
-**Next:** Return to the [Learning Lab]({{ '/learning/' | relative_url }}) to explore OSINT, Cryptography, and more.
