@@ -29,4 +29,42 @@ body {
 .btn:hover {
   background-color: var(--crimson-dark);
 }
+/* ---- Crimson hero banner (Cayman header override) ---- */
+.page-header {
+  /* UA crimson gradient */
+  background: linear-gradient(135deg, #9E1B32 0%, #c23a4b 60%, #9E1B32 100%) !important;
+  color: #fff !important;
+  padding-top: 4rem;   /* a bit taller hero */
+  padding-bottom: 3rem;
+  border: 0;
+}
+
+.project-name {
+  color: #fff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.project-tagline {
+  color: #f7f7f7 !important;
+  opacity: .95;
+  max-width: 56rem;
+  margin: 0 auto 1.25rem auto;
+}
+
+/* Header button style (the “View on GitHub” button) */
+.page-header .btn {
+  background: #7e1629 !important;
+  border-radius: 9999px;
+  padding: .7rem 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+.page-header .btn:hover {
+  background: #5f1120 !important;
+}
+
+.page-header .btn { display:none !important; }
+
 
