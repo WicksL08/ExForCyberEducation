@@ -90,6 +90,11 @@ body {
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
+/* Remove empty GitHub button placeholder */
+.page-header .btn[href*="github"] {
+  display: none !important;
+}
+
 
 .page-header::before:hover {
   background-color: #5f1120;
