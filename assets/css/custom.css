@@ -122,3 +122,40 @@ body {
 .page-header a.btn:hover {
   background-color: #5f1120 !important;
 }
+/* --- Enhanced Hero Section --- */
+.page-header {
+  position: relative;
+  text-align: center;
+  padding-top: 5rem;    /* more height above title */
+  padding-bottom: 4rem; /* more height below tagline */
+  background: linear-gradient(135deg, #9E1B32 0%, #c23a4b 60%, #9E1B32 100%) !important;
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* subtle shadow under the banner */
+  z-index: 2;
+}
+
+.project-name {
+  color: #fff !important;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.project-tagline {
+  color: #f5f5f5 !important;
+  opacity: 0.95;
+  max-width: 56rem;
+  margin: 0 auto 1.25rem auto;
+}
+
+/* Optional: smooth fade between banner and body */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
