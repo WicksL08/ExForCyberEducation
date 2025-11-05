@@ -54,14 +54,6 @@ This page maps each classroom challenge to target **concepts**, suggested **Alab
 
 ---
 
-## Assessment & Evidence Ideas
-
-- **Quick checks** (exit tickets) aligned to rows above.  
-- **Artifacts**: screenshot logs (OSINT), decoded outputs (Crypto), comparison notes (Passwords).  
-- **Reflections**: “When would hashing be better than encryption?” “How did you verify this OSINT clue?”
-
----
-
 ## Editable Copy
 Want to customize this? Make a copy of this page and adapt the codes your school uses.  
 - Download as **.md** from GitHub, or ask me for a **Google Sheet**/**CSV** template and I’ll generate one.
