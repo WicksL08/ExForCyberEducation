@@ -1,10 +1,12 @@
 ---
 title: Challenges
 ---
-<p style="text-align:right;">
+<div class="btn-row">
   <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
-</p>
+  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
 
+
+</div>
 # Challenges
 
 Choose a track to begin. Each challenge includes a story, clear steps, and a quick debrief.
