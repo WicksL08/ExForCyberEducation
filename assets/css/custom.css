@@ -1,41 +1,30 @@
 :root {
   --crimson: #9E1B32;
-  --text: #111;
-  --bg: #fff;
 }
 
 body {
   font-family: "Segoe UI", system-ui, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
 }
 
-.page-header {
-  background: linear-gradient(135deg, var(--crimson), #d64b61 70%);
-  color: white;
-}
-
-a {
-  color: var(--crimson);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-h1, h2, h3 {
-  color: var(--crimson);
-}
-
+/* Button style */
 .btn {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  background: var(--crimson);
-  color: white;
+  background-color: var(--crimson);
+  color: white !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0.25rem;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #c23a4b;
+  background-color: #c23a4b;
+}
+
+/* Center button section */
+.btn-group {
+  text-align: center;
+  margin-top: 1rem;
 }
