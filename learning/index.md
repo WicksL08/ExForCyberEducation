@@ -3,6 +3,7 @@ layout: default
 title: Learning Lab
 permalink: /learning/
 ---
+<p><a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Explore Cryptography in Detail</a></p>
 
 # Learning Lab
 
