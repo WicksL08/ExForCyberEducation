@@ -6,7 +6,7 @@ permalink: /learning/cryptography/
 # Cryptography Deep Dive 
 
 Learn how data is protected using **encryption**, **encoding**, and **hashing**.  
-This section goes beyond the basics — perfect for classroom demos or independent study.
+
 
 ---
 
