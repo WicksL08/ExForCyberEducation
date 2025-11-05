@@ -7,8 +7,6 @@ permalink: /learning/
 # Learning Lab
 
 Explore short lessons, videos, and practice activities to prepare for your Capture-the-Flag (CTF) challenges.  
-Each section includes short video tutorials, hands-on tasks, and reflection prompts.
-
 ---
 
 ## OSINT (Open-Source Intelligence)
