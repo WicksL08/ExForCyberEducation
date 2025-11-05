@@ -8,10 +8,6 @@ permalink: /teachers/mapping/
 
 This page maps each classroom challenge to target **concepts**, suggested **Alabama K-12 CS** standards, and relevant **NICE** competencies. Use it to plan pacing, introduce vocabulary, and align quick checks for understanding.
 
-> Tip: Click a track to view the student-facing page:  
-> [OSINT Trail]({{ '/challenges/' | relative_url }}#osint) ·
-> [Crypto Quest]({{ '/challenges/' | relative_url }}#crypto) ·
-> [Password Lab]({{ '/challenges/' | relative_url }}#passwords)
 
 ---
 
