@@ -8,8 +8,6 @@ permalink: /teachers/syllabus/
 
 **Instructor/Research Lead:** Lacey Wicks (University of Alabama)  
 **Contact:** lwicks@crimson.ua.edu  
-**School:** 📝Your School Name  
-**Dates:** 📝(Example: November 12 – 14, 2025)  
 **CTF Portal:** [https://ex4cslearning.ctfd.io](https://ex4cslearning.ctfd.io)
 
 ---
