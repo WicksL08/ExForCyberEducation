@@ -1,66 +1,80 @@
 ---
 layout: default
-title: Course Syllabus – Experiential For Cyber Security Education
+title: 3-Day Pilot Syllabus – Ex4CSLearning
 permalink: /teachers/syllabus/
 ---
 
-
-# Ex4CSLearning: CTF-Based Cyber Security Activities — Syllabus
+# Ex4CSLearning 3-Day Pilot Syllabus
 
 **Instructor/Research Lead:** Lacey Wicks (University of Alabama)  
-**Contact:** lwicks@crimson.ua.edu 
-**Site:** {{ site.url }}{{ site.baseurl }}/  
-**Term/Location:** Tuscaloosa Academy Fall Semester
-
-## 1. Overview
-This short module introduces cyber security concepts through **Capture-the-Flag (CTF)** activities (OSINT, Cryptography, Passwords). Activities are teacher-facilitated and student-centered, mapped to Alabama K-12 and NICE standards.
-
-## 2. Learning Outcomes
-Students will be able to:
-- Explain differences among **encoding, hashing, and encryption**.  
-- Apply **search/verification** strategies for OSINT.  
-- Describe **password best practices** and the role of **salts** and **hashes**.  
-- Reflect on ethical use of open-source information and **digital citizenship**.
-
-## 3. Study Schedule 
-| Day | Topics & Activities | Evidence |
-|---|---|---|
-| 1 | **OSINT Warm-Up** challenge | Screenshot log + reflection |
-| 2 | **Crypto Warm-Up** (Base64 + substitution) | Decoded message + quick check |
-| 3 | **Password Intro** (hashes & salts) | Compare hashes worksheet |
-
-## 4. Materials & Tech
-- Chromebook/MacBook or lab PCs with internet  
-- Access to site: `{{ site.url }}{{ site.baseurl }}/`  
-- (Optional) CTFd links provided by instructor  
-
-## 5. Classroom Norms & Safety
-- Use only **legal** and **public** sources; no bypassing security.  
-- Follow school AUP & teacher directions.  
-- **No personal data** collection. Think like a **responsible investigator**.
-
-## 6. Academic Integrity
-Work together, cite sources for OSINT, and submit your own reflections. 
-Cheating/tools that reveal answers directly are not allowed.
-
-## 7. Accessibility & Accommodations
-Activities are designed for multiple paths/levels. 
-Teachers may provide printed prompts, extended time, or alternate artifacts. 
-Contact the researcher for additional supports.
-
-## 8. Pre/Post Assessments & Research Note
-Students complete short pre/post items to measure learning/interest.
-Consent/assent procedures will be followed per school/UA policy.
-No names are reported in research outputs.
-
-## 9. Teacher Prep Checklist
-- [ ] Share module dates with students and guardians  
-- [ ] Confirm device access and site availability  
-- [ ] Distribute pre/post links  
+**Contact:** lwicks@crimson.ua.edu  
+**School:** 📝Your School Name  
+**Dates:** 📝(Example: November 12 – 14, 2025)  
+**CTF Portal:** [https://ex4cslearning.ctfd.io](https://ex4cslearning.ctfd.io)
 
 ---
 
-### Quick Links
-- **Challenges:** {{ site.url }}{{ site.baseurl }}/challenges/  
-- **Teacher Toolkit:** {{ site.url }}{{ site.baseurl }}/teachers/  
-- **Contact:** lwicks@crimson.ua.edu
+## Course Overview
+A **three-day immersive module** introducing high-school students to cybersecurity through hands-on **Capture the Flag (CTF)** challenges.  
+Students explore:
+- **Day 1 → OSINT (Open-Source Intelligence)**
+- **Day 2 → Cryptography**
+- **Day 3 → Password Security + Reflection**
+
+Each activity emphasizes teamwork, problem-solving, and ethical behavior.
+
+---
+
+## Learning Objectives
+Students will:
+- Apply safe search and verification skills for digital investigation.  
+- Decode or encrypt simple messages using classical ciphers.  
+- Evaluate password strength and hashing concepts.  
+- Demonstrate responsible, ethical cyber behavior.  
+
+Aligned to **Alabama K–12 Computer Science Standards** and **NICE Framework KSAs**.
+
+---
+
+## Daily Schedule
+
+| Day | Focus | Learning Activities | Assessment |
+|-----|--------|---------------------|-------------|
+| **Day 1 – OSINT & Ethics** | Introduction to cybersecurity, ethical use of information | <ul><li>Review [Code of Conduct]({{ '/about/student-agreement/' | relative_url }})</li><li>Students complete [Pre-Test]({{ '/assessments/pre/' | relative_url }})</li><li>Mini-lesson: “What is CTF?”</li><li>OSINT Challenge Set</li></ul> | Pre-Test completion, OSINT screenshots |
+| **Day 2 – Cryptography** | Understanding encryption and decoding | <ul><li>Mini-lesson: substitution vs transposition ciphers</li><li>Hands-on Cryptography Challenges</li><li>Group discussion: How encryption protects data</li></ul> | Challenge completion evidence |
+| **Day 3 – Password Security & Reflection** | Password hashing, strength, cracking ethics | <ul><li>Mini-lesson: hashes & entropy</li><li>Password Cracking Challenges</li><li>Class reflection + Post-Test</li></ul> | [Post-Test]({{ '/assessments/post/' | relative_url }}), reflection form |
+
+---
+
+## Materials & Tech
+- Student laptops or Chromebooks with internet access  
+- Access to **CTFd**, **Qualtrics Pre/Post Tests**, and **Learning Lab** pages  
+- Optional: CyberChef, Base64 Decoder, Password Strength Checker  
+
+---
+
+## Evaluation (Pilot)
+- Pre- & Post-Tests → growth measure only  
+- Challenge completion → participation credit  
+- Reflection → qualitative feedback  
+
+---
+
+## Classroom Norms
+- Follow all directions within CTFd only.  
+- Work ethically — no real-world scanning or unauthorized access.  
+- Maintain academic honesty and respect digital privacy.  
+- Ask for help when stuck; teamwork is encouraged.
+
+---
+
+## Quick Links
+<div class="btn-row">
+  <a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up</a>
+  <a class="btn" href="{{ '/assessments/pre/' | relative_url }}">Pre-Test</a>
+  <a class="btn" href="{{ '/challenges/' | relative_url }}">Challenges</a>
+  <a class="btn" href="{{ '/assessments/post/' | relative_url }}">Post-Test</a>
+  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Code of Conduct</a>
+</div>
+
+
