@@ -22,7 +22,18 @@ You’ll see a page that says *“Welcome to Ex4CSLearning”* with a sign-up op
 
 ---
 
-## Step 2 — Click “Sign Up”
+##  Step 2 — Complete the Pre-Test
+
+Before beginning the challenges, please complete the short pre-test.  
+This helps measure learning progress and only takes about 5 minutes.
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/assessments/pre/' | relative_url }}">🧠 Take the Pre-Test</a>
+</div>
+
+> After completing the pre-test, return to this page and continue with the CTF sign-up steps.
+
+## Step 3 — Click “Sign Up”
 
 - On the top right, click **Sign Up**.  
 - Enter your **email address** (school or temporary email).  
@@ -30,23 +41,6 @@ You’ll see a page that says *“Welcome to Ex4CSLearning”* with a sign-up op
 - Re-enter the password to confirm.  
 
 >  *Use your school email if possible. Do not use your personal or family email.*
-
----
-
-##  Step 3 — Create Your Username
-
-To help the research team identify participation by school **without using student names**,  
-you must use this naming format:
-SCHOOLNAME-STUDENT-INITIALSLASTANDFIRSTS
-
-### Example:
-| School | Student Name | Correct Username |
-|---------|---------------|------------------|
-| TuscaloosaAcademy | Jordan Smith | `TUSCALOOSAA-STUDENT-SMJ` |
-| GulfShoresHigh | Asha Brown | `GULFSHORESH-STUDENT-BA` |
-| MadisonCTC | Dylan Nguyen | `MADISONCTC-STUDENT-ND` |
-
-> *This format keeps students anonymous while allowing teachers to sort submissions by school.*
 
 ---
 
