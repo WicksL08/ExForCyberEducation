@@ -10,7 +10,7 @@ title: Capture the Flag Challenges
 permalink: /challenges/
 ---
 
-# Capture the Flag Challenges 🎯
+# Capture the Flag Challenges 
 
 Welcome to the **Ex4CSLearning Challenge Arena!**  
 These Capture-the-Flag (CTF) exercises will test your skills in cryptography, open-source intelligence (OSINT), and password cracking.  
@@ -19,7 +19,7 @@ Each challenge aligns with **Alabama K–12 Computer Science Standards** and pro
 
 ---
 
-##  Launch the CTF Platform
+## Launch the CTF Platform
 
 When ready, click below to launch the CTF portal.
 
@@ -31,11 +31,13 @@ When ready, click below to launch the CTF portal.
 
 ## Cryptography Challenges
 
-| Challenge Title | Description | Level | Points |
-|------------------|--------------|--------|--------|
-| **The Secret Scroll** | Decode a mysterious scroll using cipher techniques. | Easy | 100 |
-| **The Hidden Codebook** | Find meaning hidden in plain sight—crack the codebook. | Medium | 200 |
-| **The Headmaster’s Secret** | Advanced cryptography puzzle—only the most determined will uncover it. | Hard | 300 |
+**Topic Overview:** Decode messages and uncover hidden meanings using classical and modern ciphers.
+
+| **Challenge Title** | **Description** | **Level** | **Points** |
+|----------------------|------------------|------------|-------------|
+| The Secret Scroll | Decode a mysterious scroll using cipher techniques. | Easy | 100 |
+| The Hidden Codebook | Find meaning hidden in plain sight—crack the codebook. | Medium | 200 |
+| The Headmaster’s Secret | Advanced cryptography puzzle—only the most determined will uncover it. | Hard | 300 |
 
 <div class="btn-row">
   <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Learn Cryptography</a>
@@ -45,11 +47,13 @@ When ready, click below to launch the CTF portal.
 
 ## Open Source Intelligence (OSINT) Challenges
 
-| Challenge Title | Description | Level | Points |
-|------------------|--------------|--------|--------|
-| **The World’s Traveler** | Trace a person’s journey using only public information. | Easy | 100 |
-| **Find the Bean!** | Locate a hidden landmark using online mapping tools. | Medium | 200 |
-| **The Vanished Motto** | Track down a famous phrase lost to the web. | Hard | 300 |
+**Topic Overview:** Use online tools to find information, verify data, and track digital clues.
+
+| **Challenge Title** | **Description** | **Level** | **Points** |
+|----------------------|------------------|------------|-------------|
+| The World’s Traveler | Trace a person’s journey using only public information. | Easy | 100 |
+| Find the Bean! | Locate a hidden landmark using online mapping tools. | Medium | 200 |
+| The Vanished Motto | Track down a famous phrase lost to the web. | Hard | 300 |
 
 <div class="btn-row">
   <a class="btn" href="{{ '/learning/osint/' | relative_url }}">Learn OSINT</a>
@@ -59,11 +63,13 @@ When ready, click below to launch the CTF portal.
 
 ## Password Cracking Challenges
 
-| Challenge Title | Description | Level | Points |
-|------------------|--------------|--------|--------|
-| **How Long Until It’s Gone** | Estimate how long a password would take to crack. | Easy | 50 |
-| **County Salt** | Explore how “salting” passwords increases their security. | Easy | 100 |
-| **Forgotten Coffee Shop Vibes** | Investigate password reuse through a coffee-themed challenge. | Easy | 100 |
+**Topic Overview:** Explore how passwords are stored, cracked, and strengthened through security practices.
+
+| **Challenge Title** | **Description** | **Level** | **Points** |
+|----------------------|------------------|------------|-------------|
+| How Long Until It’s Gone | Estimate how long a password would take to crack. | Easy | 50 |
+| County Salt | Explore how “salting” passwords increases their security. | Easy | 100 |
+| Forgotten Coffee Shop Vibes | Investigate password reuse through a coffee-themed challenge. | Easy | 100 |
 
 <div class="btn-row">
   <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Learn About Password Security</a>
@@ -93,10 +99,5 @@ When you complete your challenges, please share your reflections:
   <a class="btn" href="{{ '/' | relative_url }}">🏠 Back to Home</a>
   <a class="btn" href="{{ '/about/' | relative_url }}">ℹ️ About</a>
 </div>
-a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
-</div>
-# Challenges
-
-
 
 
