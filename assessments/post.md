@@ -9,7 +9,7 @@ permalink: /assessments/post/
 Complete this **after** you finish your challenges.
 
 - Anonymous; used for research/learning improvement only  
-- Takes ~5–7 minutes
+  
 
 <div class="btn-row">
   <a class="btn" href="https://YOUR-POSTTEST-QUALTRICS-LINK" target="_blank">Start Post-Test</a>
