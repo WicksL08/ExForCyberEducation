@@ -12,7 +12,7 @@ Complete this **before** starting any CTF challenges.
   
 
 <div class="btn-row">
-  <a class="btn" href="https://YOUR-PRETEST-QUALTRICS-LINK" target="_blank">Start Pre-Test</a>
+  <a class="btn" href="https://universityofalabama.az1.qualtrics.com/jfe/form/SV_08RDkOMuXCLtjBY" target="_blank">Start Pre-Test</a>
 </div>
 
 > After you submit, return to the site and begin the challenges.
