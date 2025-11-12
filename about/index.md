@@ -7,7 +7,7 @@ title: About the Study
      <a class="btn" href="{{ '/about/ctf-purpose/' | relative_url }}">Purpose of a CTF</a>
   <a class="btn" href="{{ '/about/ethics/' | relative_url }}">Ethics in Learning</a>
    <a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
-
+  <a class="btn" href="{{ '/about/feedback/' | relative_url }}">Give Feedback</a>
 </div>
 
 # About the Study 
