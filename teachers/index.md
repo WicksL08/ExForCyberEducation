@@ -4,7 +4,7 @@ title: Teacher Toolkit
 permalink: /teachers/
 ---
 
-# Teacher Toolkit 🧰
+# Teacher Toolkit 
 
 Welcome to the **Ex4CSLearning Teacher Toolkit!**  
 This resource provides teachers with everything needed to facilitate the **3-Day Capture the Flag (CTF) Pilot Study** at their school.  
@@ -13,45 +13,45 @@ Below you’ll find quick links to forms, lesson materials, and learning support
 
 ---
 
-## 📝 Getting Started
+##  Getting Started
 
 Before beginning, please complete the required **Teacher Consent Form** and review the **Study Overview**.
 
 <div class="btn-row">
-  <a class="btn" href="{{ '/about/consent/' | relative_url }}">📝 Consent & Assent Forms</a>
-  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">📘 Syllabus</a>
-  <a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">🧭 Standards Mapping</a>
+  <a class="btn" href="{{ '/about/consent/' | relative_url }}"> Consent & Assent Forms</a>
+  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}"> Syllabus</a>
+  <a class="btn" href="{{ '/teachers/mapping/' | relative_url }}"> Standards Mapping</a>
 </div>
 
 ---
 
-## 🎓 Lesson Materials
+##  Lesson Materials
 
 Each day of the 3-day pilot has a short PowerPoint, activities, and guided discussion prompts.  
 Slides can be viewed online or downloaded.
 
 <div class="btn-row">
-  <a class="btn" href="{{ '/about/presentations/' | relative_url }}">📑 View Lesson Presentations</a>
-  <a class="btn" href="{{ '/learning/' | relative_url }}">💡 Learning Lab Topics</a>
+  <a class="btn" href="{{ '/about/presentations/' | relative_url }}"> View Lesson Presentations</a>
+  <a class="btn" href="{{ '/learning/' | relative_url }}"> Learning Lab Topics</a>
 </div>
 
 ---
 
-## 🎯 Challenge Portal & Assessments
+##  Challenge Portal & Assessments
 
 Students will use the CTFd platform to complete challenges and submit answers.  
 Be sure all consent forms and the pre-test are completed before participation.
 
 <div class="btn-row">
-  <a class="btn" href="https://ex4cslearning.ctfd.io" target="_blank">🎮 Launch CTF Portal</a>
-  <a class="btn" href="{{ '/assessments/pre/' | relative_url }}">🧠 Pre-Test</a>
-  <a class="btn" href="{{ '/assessments/post/' | relative_url }}">📊 Post-Test</a>
-  <a class="btn" href="{{ '/about/feedback/' | relative_url }}">💬 Feedback Forms</a>
+  <a class="btn" href="https://ex4cslearning.ctfd.io" target="_blank"> Launch CTF Portal</a>
+  <a class="btn" href="{{ '/assessments/pre/' | relative_url }}"> Pre-Test</a>
+  <a class="btn" href="{{ '/assessments/post/' | relative_url }}"> Post-Test</a>
+  <a class="btn" href="{{ '/about/feedback/' | relative_url }}"> Feedback Forms</a>
 </div>
 
 ---
 
-## 🕵️‍♀️ Challenge Overview
+## Challenge Overview
 
 | Day | Topic | Focus | Example Challenges |
 |-----|--------|--------|--------------------|
@@ -63,7 +63,7 @@ Be sure all consent forms and the pre-test are completed before participation.
 
 ---
 
-## ⚖️ Ethics & Conduct
+##  Ethics & Conduct
 
 Remind students that:
 - All work must occur **within the CTFd environment** only.  
@@ -73,7 +73,7 @@ Remind students that:
 
 ---
 
-## 🧩 Teacher Responsibilities
+## Teacher Responsibilities
 
 - Verify all student and parent consent forms are completed.  
 - Ensure every student has access to devices and the CTFd link.  
@@ -83,18 +83,18 @@ Remind students that:
 
 ---
 
-## 📬 Contact & Support
+##  Contact & Support
 
 **Lacey Wicks**  
 Doctoral Candidate, Department of Computer Science  
 The University of Alabama  
-📧 [lwicks@crimson.ua.edu](mailto:lwicks@crimson.ua.edu)
+ [lwicks@crimson.ua.edu](mailto:lwicks@crimson.ua.edu)
 
 ---
 
 <div class="btn-row">
-  <a class="btn" href="{{ '/' | relative_url }}">🏠 Home</a>
-  <a class="btn" href="{{ '/challenges/' | relative_url }}">🎯 Challenges</a>
-  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">📘 Syllabus</a>
+  <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
+  <a class="btn" href="{{ '/challenges/' | relative_url }}"> Challenges</a>
+  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}"> Syllabus</a>
 </div>
 
