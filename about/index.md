@@ -11,6 +11,12 @@ title: About the Study
 </div>
 
 # About the Study 
+<!-- Consent Reminder Banner -->
+<div style="background-color:#861F41; color:white; padding:1rem; border-radius:0.5rem; text-align:center; margin-bottom:1.5rem;">
+  <strong>Reminder:</strong> All students and parents/guardians must complete the 
+  <a href="{{ '/about/consent/' | relative_url }}" style="color:#FFD6D6; font-weight:bold; text-decoration:underline;">Consent & Assent Form</a> 
+  <br>before starting the <a href="{{ '/assessments/pre/' | relative_url }}" style="color:#FFD6D6; font-weight:bold; text-decoration:underline;">Pre-Test</a> or any <a href="{{ '/challenges/' | relative_url }}" style="color:#FFD6D6; font-weight:bold; text-decoration:underline;">CTF Challenges</a>.
+</div>
 
 **Ex4CSLearning** evaluates a Capture-the-Flag (CTF)-based experiential model for high-school cyber security education across Alabama.
 
