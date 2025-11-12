@@ -1,10 +1,4 @@
 ---
-title: Challenges
----
-<div class="btn-row">
-  <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
-  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
----
 layout: default
 title: Capture the Flag Challenges
 permalink: /challenges/
@@ -29,7 +23,7 @@ When ready, click below to launch the CTF portal.
 
 ---
 
-## Cryptography Challenges
+##  Cryptography Challenges
 
 **Topic Overview:** Decode messages and uncover hidden meanings using classical and modern ciphers.
 
@@ -45,7 +39,7 @@ When ready, click below to launch the CTF portal.
 
 ---
 
-## Open Source Intelligence (OSINT) Challenges
+##  Open Source Intelligence (OSINT) Challenges
 
 **Topic Overview:** Use online tools to find information, verify data, and track digital clues.
 
@@ -85,7 +79,7 @@ Please complete all challenges **ethically** within the provided CTFd environmen
 
 ---
 
-## After You Finish
+##  After You Finish
 
 When you complete your challenges, please share your reflections:
 
@@ -99,5 +93,3 @@ When you complete your challenges, please share your reflections:
   <a class="btn" href="{{ '/' | relative_url }}">🏠 Back to Home</a>
   <a class="btn" href="{{ '/about/' | relative_url }}">ℹ️ About</a>
 </div>
-
-
