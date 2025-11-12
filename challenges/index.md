@@ -4,6 +4,16 @@ title: Capture the Flag Challenges
 permalink: /challenges/
 ---
 
+<div class="btn-row" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+  <a class="btn" href="{{ '/about/getting-started/' | relative_url }}">📝 How to Sign Up</a>
+  <a class="btn" href="{{ '/assessments/pre/' | relative_url }}">🧠 Take the Pre-Test</a>
+  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">⚖️ Code of Conduct</a>
+  <a class="btn" href="https://ex4cslearning.ctfd.io" target="_blank">🎮 Launch CTF Portal</a>
+</div>
+
+---
+
+
 # Capture the Flag Challenges 
 
 Welcome to the **Ex4CSLearning Challenge Arena!**  
