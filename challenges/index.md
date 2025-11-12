@@ -4,27 +4,99 @@ title: Challenges
 <div class="btn-row">
   <a class="btn" href="{{ '/' | relative_url }}"> Home</a>
   <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
-<a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
+---
+layout: default
+title: Capture the Flag Challenges
+permalink: /challenges/
+---
+
+# Capture the Flag Challenges 🎯
+
+Welcome to the **Ex4CSLearning Challenge Arena!**  
+These Capture-the-Flag (CTF) exercises will test your skills in cryptography, open-source intelligence (OSINT), and password cracking.  
+
+Each challenge aligns with **Alabama K–12 Computer Science Standards** and promotes critical thinking through hands-on exploration.
+
+---
+
+##  Launch the CTF Platform
+
+When ready, click below to launch the CTF portal.
+
+<div class="btn-row">
+  <a class="btn" href="https://ex4cslearning.ctfd.io" target="_blank">🎮 Launch CTF Portal</a>
+</div>
+
+---
+
+## Cryptography Challenges
+
+| Challenge Title | Description | Level | Points |
+|------------------|--------------|--------|--------|
+| **The Secret Scroll** | Decode a mysterious scroll using cipher techniques. | Easy | 100 |
+| **The Hidden Codebook** | Find meaning hidden in plain sight—crack the codebook. | Medium | 200 |
+| **The Headmaster’s Secret** | Advanced cryptography puzzle—only the most determined will uncover it. | Hard | 300 |
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Learn Cryptography</a>
+</div>
+
+---
+
+## Open Source Intelligence (OSINT) Challenges
+
+| Challenge Title | Description | Level | Points |
+|------------------|--------------|--------|--------|
+| **The World’s Traveler** | Trace a person’s journey using only public information. | Easy | 100 |
+| **Find the Bean!** | Locate a hidden landmark using online mapping tools. | Medium | 200 |
+| **The Vanished Motto** | Track down a famous phrase lost to the web. | Hard | 300 |
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/learning/osint/' | relative_url }}">Learn OSINT</a>
+</div>
+
+---
+
+## Password Cracking Challenges
+
+| Challenge Title | Description | Level | Points |
+|------------------|--------------|--------|--------|
+| **How Long Until It’s Gone** | Estimate how long a password would take to crack. | Easy | 50 |
+| **County Salt** | Explore how “salting” passwords increases their security. | Easy | 100 |
+| **Forgotten Coffee Shop Vibes** | Investigate password reuse through a coffee-themed challenge. | Easy | 100 |
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Learn About Password Security</a>
+</div>
+
+---
+
+## Ethics & Conduct Reminder
+
+Please complete all challenges **ethically** within the provided CTFd environment.
+
+> Review the [Ethics in Learning Page]({{ '/about/ethics/' | relative_url }}) before starting.
+
+---
+
+## After You Finish
+
+When you complete your challenges, please share your reflections:
+
+<div class="btn-row">
+  <a class="btn" href="{{ '/about/feedback/' | relative_url }}">📝 Give Feedback</a>
+</div>
+
+---
+
+<div class="btn-row" style="margin-top:2rem;">
+  <a class="btn" href="{{ '/' | relative_url }}">🏠 Back to Home</a>
+  <a class="btn" href="{{ '/about/' | relative_url }}">ℹ️ About</a>
+</div>
+a class="btn" href="{{ '/about/getting-started/' | relative_url }}">How to Sign Up for CTFd</a>
 </div>
 # Challenges
 
-Choose a track to begin. Each challenge includes a story, clear steps, and a quick debrief.
 
-## OSINT Trail
-- **Level:** Easy → Medium  
-- **You’ll practice:** search strategies & verification  
-- **Start:** Coming soon!
 
-## Crypto Quest
-- **Level:** Easy → Medium  
-- **You’ll practice:** encoding vs hashing, substitution ciphers  
-- **Start:** Coming soon!
-
-## Password Lab
-- **Level:** Easy → Medium  
-- **You’ll practice:** hashes, salts, strong password design  
-- **Start:** Coming soon!
-
-> 💬 Finished your challenges?  
-> Please share your thoughts in our [Feedback & Reflection Form]({{ '/about/feedback/' | relative_url }}).
 
