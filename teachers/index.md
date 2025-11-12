@@ -1,5 +1,4 @@
-
----
+ ---
 layout: default
 title: Teacher Toolkit
 permalink: /teachers/
@@ -22,7 +21,6 @@ Before beginning, please complete the required **Teacher Consent Form** and revi
   <a class="btn" href="{{ '/about/consent/' | relative_url }}">📝 Consent & Assent Forms</a>
   <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">📘 Syllabus</a>
   <a class="btn" href="{{ '/teachers/mapping/' | relative_url }}">🧭 Standards Mapping</a>
-   <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}">Student Code of Conduct</a>
 </div>
 
 ---
@@ -99,3 +97,4 @@ The University of Alabama
   <a class="btn" href="{{ '/challenges/' | relative_url }}">🎯 Challenges</a>
   <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">📘 Syllabus</a>
 </div>
+
