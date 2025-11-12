@@ -1,4 +1,4 @@
- ---
+---
 layout: default
 title: Teacher Toolkit
 permalink: /teachers/
