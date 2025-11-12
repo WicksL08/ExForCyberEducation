@@ -4,52 +4,62 @@ title: Standards Mapping – Ex4CSLearning
 permalink: /teachers/mapping/
 ---
 
-# Standards Mapping for Teachers
+# Standards Mapping 
 
-This page maps each classroom challenge to target **concepts**, suggested **Alabama K-12 CS** standards, and relevant **NICE** competencies. Use it to plan pacing, introduce vocabulary, and align quick checks for understanding.
+This page connects each **Ex4CSLearning CTF module** to the  
+**Alabama K-12 Computer Science Standards (2021)** and relevant  
+**NICE Framework Knowledge, Skills, and Abilities (KSAs).**
 
-
----
-
-## How to Read This
-- **Concept** – the core idea students practice.
-- **Activity** – the specific Ex4CSLearning task or checkpoint.
-- **AL K-12 CS** – suggested Alabama Computer Science standard(s) to tag in your lesson plan.  
-  *(Replace codes to match your district’s adoption; placeholders provided.)*
-- **NICE** – related NICE KSAs/Tasks (high-level alignment).
+The mapping below supports the **3-Day Pilot** sequence used in classrooms.
 
 ---
 
-## OSINT Trail (Open-Source Intelligence)
+## Day 1 — OSINT & Digital Ethics
 
-| Concept | Activity | AL K-12 CS (suggested) | NICE (examples) |
-|---|---|---|---|
-| Search strategies & operators | OSINT Warm-Up: find the mascot location | **IC1**: Information literacy & sourcing; **CP1**: Problem solving/process | **K0001** basic research methods; **T0007** gather publicly available info |
-| Source verification & bias | Double-verify each clue | **IC2**: Evaluate credibility; **CY1**: Digital citizenship/ethics | **K0003** validation of information sources; **S0015** analytical reasoning |
-| Documentation | Screenshot log with citations | **CP2**: Communicate findings | **T0050** documentation of findings |
-
----
-
-## Crypto Quest (Encoding vs. Hashing vs. Encryption)
-
-| Concept | Activity | AL K-12 CS (suggested) | NICE (examples) |
-|---|---|---|---|
-| Base64 encoding | Decode the message (warm-up) | **CY2**: Data representation; **CSN1**: Using tools appropriately | **K0047** data formats; **S0049** tool use |
-| Substitution ciphers | Solve short cipher & reflect | **ALGO1**: Patterns & algorithms; **MTH-INT**: Frequency analysis (cross-discipline) | **K0008** cryptology basics; **S0010** problem decomposition |
-| Hashing vs. encryption | Identify which is which & when to use | **CY3**: Privacy & security fundamentals | **K0050** hashing/encryption concepts |
+| Focus Area | Description | Alabama CS Standard | NICE Framework Alignment |
+|-------------|--------------|--------------------|---------------------------|
+| **Open Source Intelligence (OSINT)** | Students collect and verify digital information ethically using search operators and public data. | 3A-IC-25 — Evaluate the accuracy, relevance, appropriateness, and bias of digital resources. | **K0016:** Knowledge of OSINT tools and data sources<br>**S0036:** Skill in information verification |
+| **Digital Citizenship** | Emphasize ethical use of online information and personal data protection. | 2A-IC-20 — Describe ethical obligations and responsible use of technology. | **K0008:** Knowledge of cyber ethics<br>**K0042:** Knowledge of privacy principles |
+| **Collaboration & Communication** | Students share findings while maintaining integrity and privacy. | 3A-IC-28 — Collaborate with peers to responsibly produce and share digital artifacts. | **S0050:** Skill in presenting information effectively |
 
 ---
 
-## Password Lab (Hashes & Salts)
+## Day 2 — Cryptography
 
-| Concept | Activity | AL K-12 CS (suggested) | NICE (examples) |
-|---|---|---|---|
-| Hash properties (one-way, collision) | Compare sample hashes | **CY3**: Security fundamentals | **K0049** password storage; **S0032** analyze artifacts |
-| Salting | Observe “same password, different hashes” | **CY3**: Security fundamentals | **K0093** authentication & access concepts |
-| Strong password design | Create & evaluate passphrases | **CY4**: Safe computing practices | **T0095** user security awareness |
+| Focus Area | Description | Alabama CS Standard | NICE Framework Alignment |
+|-------------|--------------|--------------------|---------------------------|
+| **Encryption Concepts** | Understand encoding, ciphers, and decryption techniques. | 3A-DA-09 — Translate between digital data representations and human-readable information. | **K0070:** Knowledge of encryption algorithms<br>**S0076:** Skill in using cryptographic libraries |
+| **Problem-Solving with Patterns** | Apply substitution and transposition methods to solve coded messages. | 3B-AP-16 — Design and iteratively develop programs that solve problems by decomposing tasks. | **S0042:** Skill in analyzing data structures and algorithms |
+| **Historical Cipher Context** | Explore how classical ciphers evolved into modern cryptography. | 3A-IC-21 — Evaluate how computing impacts data security and privacy. | **K0010:** Knowledge of data security principles |
 
 ---
 
-## Editable Copy
-Want to customize this? Make a copy of this page and adapt the codes your school uses.  
-- Download as **.md** from GitHub, or ask me for a **Google Sheet**/**CSV** template and I’ll generate one.
+## Day 3 — Password Security & Reflection
+
+| Focus Area | Description | Alabama CS Standard | NICE Framework Alignment |
+|-------------|--------------|--------------------|---------------------------|
+| **Password Strength** | Calculate entropy and recognize strong password creation strategies. | 3A-CS-03 — Identify and apply security practices to protect digital data. | **K0057:** Knowledge of authentication, authorization, and access control |
+| **Hashing & Salting** | Explain one-way functions and how salts strengthen stored passwords. | 3A-CS-01 — Recommend security measures to mitigate vulnerabilities. | **K0038:** Knowledge of hashing algorithms and password protection methods |
+| **Ethical Hacking Awareness** | Discuss legal and ethical limits of password testing. | 3A-IC-22 — Debate laws and regulations that impact cybersecurity and digital behavior. | **K0008:** Knowledge of cyber ethics and responsible use |
+| **Reflection & Feedback** | Summarize what was learned and reflect on ethical practice. | 3A-IC-24 — Communicate the importance of ethics and security in digital environments. | **S0058:** Skill in documenting and reporting findings |
+
+---
+
+## Assessment Connections
+
+| Assessment Type | Description | Link |
+|------------------|--------------|------|
+| **Pre-Test** | Gauges baseline cybersecurity understanding before activities. | [Take Pre-Test]({{ '/assessments/pre/' | relative_url }}) |
+| **Post-Test** | Measures growth in concepts after the 3-day CTF experience. | [Take Post-Test]({{ '/assessments/post/' | relative_url }}) |
+| **Student Reflection** | Qualitative feedback for research and improvement. | [Feedback & Reflections]({{ '/about/feedback/' | relative_url }}) |
+
+---
+
+##  Quick Access for Teachers
+<div class="btn-row">
+  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}"> Syllabus</a>
+  <a class="btn" href="{{ '/about/student-agreement/' | relative_url }}"> Code of Conduct</a>
+  <a class="btn" href="{{ '/challenges/' | relative_url }}"> CTF Challenges</a>
+  <a class="btn" href="{{ '/learning/' | relative_url }}"> Learning Lab</a>
+</div>
+
