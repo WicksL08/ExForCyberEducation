@@ -36,11 +36,12 @@ Aligned to **Alabama K–12 Computer Science Standards** and **NICE Framework KS
 
 ## Daily Schedule
 
-| Day | Focus | Learning Activities | Assessment |
-|-----|--------|---------------------|-------------|
-| **Day 1 – OSINT & Ethics** | Introduction to cybersecurity, ethical use of information | <ul><li>Review [Code of Conduct]({{ '/about/student-agreement/' | relative_url }})</li><li>Students complete [Pre-Test]({{ '/assessments/pre/' | relative_url }})</li><li>Mini-lesson: “What is CTF?”</li><li>OSINT Challenge Set</li></ul> | Pre-Test completion, OSINT screenshots |
-| **Day 2 – Cryptography** | Understanding encryption and decoding | <ul><li>Mini-lesson: substitution vs transposition ciphers</li><li>Hands-on Cryptography Challenges</li><li>Group discussion: How encryption protects data</li></ul> | Challenge completion evidence |
-| **Day 3 – Password Security & Reflection** | Password hashing, strength, cracking ethics | <ul><li>Mini-lesson: hashes & entropy</li><li>Password Cracking Challenges</li><li>Class reflection + Post-Test</li></ul> | [Post-Test]({{ '/assessments/post/' | relative_url }}), reflection form |
+| **Day** | **Focus** | **Learning Activities** | **Assessment** |
+|----------|------------|--------------------------|----------------|
+| **Day 1 – OSINT & Ethics** | Introduction to cybersecurity and the ethical use of information | <ul><li>Review <a href="{{ '/about/student-agreement/' | relative_url }}">Code of Conduct</a></li><li>Students complete <a href="{{ '/assessments/pre/' | relative_url }}">Pre-Test</a></li><li>Mini-lesson: “What is a CTF?”</li><li>Complete OSINT Challenge Set</li></ul> | Pre-Test completion<br>OSINT screenshots |
+| **Day 2 – Cryptography** | Understanding encryption and decoding | <ul><li>Mini-lesson: substitution vs. transposition ciphers</li><li>Hands-on Cryptography Challenges</li><li>Group discussion: how encryption protects data</li></ul> | Challenge completion evidence |
+| **Day 3 – Password Security & Reflection** | Password hashing, strength, and ethical cracking | <ul><li>Mini-lesson: password hashing and entropy</li><li>Hands-on Password Cracking Challenges</li><li>Class reflection and complete <a href="{{ '/assessments/post/' | relative_url }}">Post-Test</a></li></ul> | Post-Test completion<br>Student reflection form |
+
 
 ---
 
