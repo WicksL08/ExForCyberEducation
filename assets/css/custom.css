@@ -205,3 +205,23 @@ nav {
   text-align: center;
 }
 
+table {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 15px;
+}
+
+th {
+  background-color: #861F41; /* UA Crimson */
+  color: white;
+}
+
+tr:hover {
+  background-color: #f7f7f7;
+}
