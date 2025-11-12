@@ -81,9 +81,10 @@ Please complete all challenges **ethically** within the provided CTFd environmen
 
 ##  After You Finish
 
-When you complete your challenges, please share your reflections:
+When you complete your challenges, please take the post test and share your reflections:
 
 <div class="btn-row">
+    <a class="btn" href="{{ '/assessments/post/' | relative_url }}">📊 Take the Post-Test (after you finish)</a>
   <a class="btn" href="{{ '/about/feedback/' | relative_url }}">📝 Give Feedback</a>
 </div>
 
