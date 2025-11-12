@@ -45,7 +45,7 @@ This study has been reviewed and approved by the **University of Alabama Institu
 
 ---
 
-##Acknowledgments
+## Acknowledgments
 
 Special thanks to:
 - Participating **Alabama high schools, teachers, and students**.  
