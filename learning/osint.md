@@ -9,7 +9,11 @@ permalink: /learning/osint/
 Learn how cybersecurity analysts and ethical hackers find, verify, and interpret publicly available information while following **ethical and legal guidelines**.
 
 ---
+Use the viewer below to explore the instructional slides for this lesson.
 
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQt445zXotznMZrtwejdYwj04lXV5VqStD52fMyrlfdE1sYRmFtb8u3w8Fi8OabAw/pubembed?start=true&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+---
 ##  What Is OSINT?
 
 **Open-Source Intelligence (OSINT)** means gathering and analyzing information from **public sources** like websites, social media, government records, and online databases.
