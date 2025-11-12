@@ -225,3 +225,23 @@ th {
 tr:hover {
   background-color: #f7f7f7;
 }
+table.syllabus{
+  width:100%;
+  border-collapse:collapse;
+  margin:1rem 0 1.5rem;
+}
+.syllabus th, .syllabus td{
+  border:1px solid #e6e6e6;
+  padding:12px 14px;
+  vertical-align:top;
+}
+.syllabus thead th{
+  background:#861F41; /* UA Crimson */
+  color:#fff;
+  text-align:left;
+}
+.syllabus td ul{
+  margin:.4rem 0 0;
+  padding-left:1.2rem;
+}
+.syllabus tr:nth-child(even) td{ background:#fafafa; }
