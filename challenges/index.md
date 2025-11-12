@@ -24,3 +24,7 @@ Choose a track to begin. Each challenge includes a story, clear steps, and a qui
 - **Level:** Easy → Medium  
 - **You’ll practice:** hashes, salts, strong password design  
 - **Start:** Coming soon!
+
+> 💬 Finished your challenges?  
+> Please share your thoughts in our [Feedback & Reflection Form]({{ '/about/feedback/' | relative_url }}).
+
