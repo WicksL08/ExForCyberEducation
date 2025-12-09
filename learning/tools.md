@@ -12,6 +12,55 @@ Use them **only for class activities** and follow the [Code of Conduct]({{ '/abo
 
 ---
 
+# ⚡ Quick Tool Access (Click & Go)
+
+Use the buttons below for fast access while solving challenges.  
+Full descriptions are listed further down the page.
+
+---
+
+## 🕵️ OSINT Tools – Quick Access
+
+<div class="btn-row">
+  <a class="btn" href="https://web.archive.org" target="_blank">🌐 Wayback</a>
+  <a class="btn" href="https://images.google.com" target="_blank">🖼️ Google Images</a>
+  <a class="btn" href="https://tineye.com" target="_blank">🔎 TinEye</a>
+  <a class="btn" href="https://www.metadata2go.com/" target="_blank">📁 Metadata2Go</a>
+  <a class="btn" href="https://www.urlvoid.com/" target="_blank">🔗 URLVoid</a>
+  <a class="btn" href="https://www.getlinkinfo.com/" target="_blank">🧭 GetLinkInfo</a>
+  <a class="btn" href="https://www.iplocation.net/ip-lookup" target="_blank">🌍 IP Lookup</a>
+  <a class="btn" href="https://who.is" target="_blank">📜 WHOIS</a>
+  <a class="btn" href="https://www.shodan.io" target="_blank">🛰️ Shodan</a>
+</div>
+
+---
+
+## 🔐 Cryptography – Quick Access
+
+<div class="btn-row">
+  <a class="btn" href="https://gchq.github.io/CyberChef/" target="_blank">🧪 CyberChef</a>
+  <a class="btn" href="https://cryptii.com/" target="_blank">🧩 Cryptii</a>
+  <a class="btn" href="https://www.dcode.fr/tools-list" target="_blank">📜 dCode</a>
+  <a class="btn" href="https://www.base64decode.org/" target="_blank">🔡 Base64</a>
+  <a class="btn" href="https://www.asciitable.com/" target="_blank">💻 ASCII</a>
+  <a class="btn" href="https://md5hashing.net/hash" target="_blank">🔒 Hash Gen</a>
+  <a class="btn" href="https://www.boxentriq.com/code-breaking/caesar-cipher" target="_blank">🔠 Caesar</a>
+  <a class="btn" href="https://www.boxentriq.com/code-breaking/vigenere-cipher" target="_blank">🔤 Vigenère</a>
+</div>
+
+---
+
+## 🔑 Password Security – Quick Access
+
+<div class="btn-row">
+  <a class="btn" href="https://lowe.github.io/tryzxcvbn/" target="_blank">💪 Password Strength</a>
+  <a class="btn" href="https://gchq.github.io/CyberChef/" target="_blank">🧠 CyberChef</a>
+  <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">🔐 Password Lessons</a>
+</div>
+
+---
+
+
 ##  OSINT (Open-Source Intelligence)
 
 **These tools help you find and check information online.**
