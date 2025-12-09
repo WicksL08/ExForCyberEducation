@@ -4,7 +4,7 @@ title: Standards Mapping – Ex4CSLearning
 permalink: /teachers/mapping/
 ---
 
-# Standards Mapping 🧭
+# Standards Mapping 
 
 The **Ex4CSLearning 3-Day Pilot** aligns each Capture-the-Flag (CTF) topic to the  
 **Alabama K-12 Computer Science Standards (2021)** and the **NICE Cybersecurity Workforce Framework (2020)**.  
@@ -13,7 +13,7 @@ These mappings ensure classroom activities meet both **state academic goals** an
 
 ---
 
-## 🕵️‍♀️ Day 1 — OSINT (Open-Source Intelligence) & Digital Ethics
+## Day 1 — OSINT (Open-Source Intelligence) & Digital Ethics
 
 | Focus Area | Description | Alabama K-12 Standard (2021) | NICE Framework Element |
 |-------------|--------------|-------------------------------|-------------------------|
@@ -21,7 +21,7 @@ These mappings ensure classroom activities meet both **state academic goals** an
 | **Ethical Research & Verification** | Distinguish credible information from misinformation. | 2A-IC-20 — Describe responsible and ethical use of technology. | **S0036** Skill in information verification |
 | **Digital Citizenship** | Respect privacy, ownership, and integrity of online content. | 3A-IC-28 — Collaborate responsibly to produce and share digital artifacts. | **K0008** Knowledge of cyber ethics |
 
-> 💡 **Connection to Activity:** OSINT challenges (“World’s Traveler,” “Find the Bean,” “The Vanished Motto”) emphasize research, verification, and ethics in digital exploration.
+
 
 ---
 
