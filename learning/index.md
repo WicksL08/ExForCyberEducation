@@ -10,6 +10,7 @@ permalink: /learning/
   <a class="btn" href="{{ '/learning/osint/' | relative_url }}">OSINT</a>
   <a class="btn" href="{{ '/learning/cryptography/' | relative_url }}">Cryptography</a>
   <a class="btn" href="{{ '/learning/passwords/' | relative_url }}">Passwords</a>
+  <a class="btn" href="{{ '/learning/tools/' | relative_url }}">Student Tools</a>
 </nav>
 
 
