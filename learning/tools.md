@@ -7,7 +7,7 @@ permalink: /learning/tools/
 # Tools for Students 
 
 These tools will help you solve the CTF challenges!  
-All of them are **free and work in a web browser** — no downloads needed.  
+All of them are **free and work in a web browser**. 
 Use them **only for class activities** and follow the [Code of Conduct]({{ '/about/student-agreement/' | relative_url }}).
 
 ---
