@@ -57,7 +57,7 @@ All lessons are mapped to Alabama K-12 Computer Science Standards and NICE Cyber
 
 ---
 
-## 📎 Additional Teacher Resources
+## Additional Teacher Resources
 - [Teacher Toolkit]({{ '/teachers/' | relative_url }})  
 - [Standards Mapping]({{ '/teachers/mapping/' | relative_url }})  
 - [Consent & Assent Forms]({{ '/about/consent/' | relative_url }})  
@@ -66,9 +66,9 @@ All lessons are mapped to Alabama K-12 Computer Science Standards and NICE Cyber
 ---
 
 <div class="btn-row">
-  <a class="btn" href="{{ '/teachers/' | relative_url }}">🧰 Back to Teacher Toolkit</a>
-  <a class="btn" href="{{ '/challenges/' | relative_url }}">🎯 View CTF Challenges</a>
-  <a class="btn" href="{{ '/' | relative_url }}">🏠 Home</a>
+  <a class="btn" href="{{ '/teachers/' | relative_url }}"> Back to Teacher Toolkit</a>
+  <a class="btn" href="{{ '/challenges/' | relative_url }}"> View CTF Challenges</a>
+  <a class="btn" href="{{ '/' | relative_url }}">Home</a>
 </div>
 
 
