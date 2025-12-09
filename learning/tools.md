@@ -12,14 +12,14 @@ Use them **only for class activities** and follow the [Code of Conduct]({{ '/abo
 
 ---
 
-# ⚡ Quick Tool Access (Click & Go)
+# Quick Tool Access (Click & Go)
 
 Use the buttons below for fast access while solving challenges.  
 Full descriptions are listed further down the page.
 
 ---
 
-## 🕵️ OSINT Tools – Quick Access
+## OSINT Tools – Quick Access
 
 <div class="btn-row">
   <a class="btn" href="https://web.archive.org" target="_blank">🌐 Wayback</a>
@@ -35,7 +35,7 @@ Full descriptions are listed further down the page.
 
 ---
 
-## 🔐 Cryptography – Quick Access
+## Cryptography – Quick Access
 
 <div class="btn-row">
   <a class="btn" href="https://gchq.github.io/CyberChef/" target="_blank">🧪 CyberChef</a>
@@ -50,7 +50,7 @@ Full descriptions are listed further down the page.
 
 ---
 
-## 🔑 Password Security – Quick Access
+## Password Security – Quick Access
 
 <div class="btn-row">
   <a class="btn" href="https://lowe.github.io/tryzxcvbn/" target="_blank">💪 Password Strength</a>
