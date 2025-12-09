@@ -75,22 +75,22 @@ If you tell me which file name you’re using for the mapping page (`mapping.md`
 
 ---
 
-## 📊 Assessment Connections
+## Assessment Connections
 
 | Assessment | Purpose | Link |
 |-------------|----------|------|
-| **Pre-Test** | Measures baseline understanding before activities. | [🧠 Pre-Test]({{ '/assessments/pre/' | relative_url }}) |
-| **Post-Test** | Evaluates knowledge growth and comprehension. | [📊 Post-Test]({{ '/assessments/post/' | relative_url }}) |
-| **Feedback & Reflections** | Collects qualitative input from students and teachers. | [💬 Feedback Form]({{ '/about/feedback/' | relative_url }}) |
+| **Pre-Test** | Measures baseline understanding before activities. | [ Pre-Test]({{ '/assessments/pre/' | relative_url }}) |
+| **Post-Test** | Evaluates knowledge growth and comprehension. | [ Post-Test]({{ '/assessments/post/' | relative_url }}) |
+| **Feedback & Reflections** | Collects qualitative input from students and teachers. | [ Feedback Form]({{ '/about/feedback/' | relative_url }}) |
 
 ---
 
-## 🔗 Quick Access for Teachers
+##  Quick Access for Teachers
 <div class="btn-row">
-  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}">📘 3-Day Syllabus</a>
-  <a class="btn" href="{{ '/about/consent/' | relative_url }}">📝 Consent Forms</a>
-  <a class="btn" href="{{ '/teachers/' | relative_url }}">🧰 Teacher Toolkit</a>
-  <a class="btn" href="{{ '/challenges/' | relative_url }}">🎯 CTF Challenges</a>
-  <a class="btn" href="{{ '/learning/' | relative_url }}">💡 Learning Lab</a>
+  <a class="btn" href="{{ '/teachers/syllabus/' | relative_url }}"> 3-Day Syllabus</a>
+  <a class="btn" href="{{ '/about/consent/' | relative_url }}"> Consent Forms</a>
+  <a class="btn" href="{{ '/teachers/' | relative_url }}"> Teacher Toolkit</a>
+  <a class="btn" href="{{ '/challenges/' | relative_url }}"> CTF Challenges</a>
+  <a class="btn" href="{{ '/learning/' | relative_url }}"> Learning Lab</a>
 </div>
 
