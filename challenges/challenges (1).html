@@ -1,0 +1,407 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTF Challenges | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;--green:#00e5a0;--green3:#004d35;--amber:#f5a623;--blue:#5ab0ff;--red:#ff6b6b;--text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);--mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-brand span{color:var(--text);}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    section,footer{position:relative;z-index:1;}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:1;}
+    .page-hero::after{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.07) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:1px;}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 0.5rem;opacity:0.4;}
+    .page-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--green);text-transform:uppercase;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.25);padding:0.3rem 0.8rem;border-radius:3px;margin-bottom:1.25rem;width:fit-content;}
+    .page-tag::before{content:'//';opacity:0.6;}
+    .page-hero h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:620px;line-height:1.75;margin-bottom:1.5rem;}
+    .hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;}
+    .btn{padding:0.7rem 1.5rem;border-radius:5px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;border:none;}
+    .btn-primary{background:var(--green);color:var(--bg);}
+    .btn-primary:hover{background:#00ffb3;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--green);border:1px solid rgba(0,229,160,0.4);}
+    .btn-outline:hover{background:rgba(0,229,160,0.08);}
+    .stats-bar{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--border);position:relative;z-index:1;}
+    .stat{flex:1;min-width:120px;padding:1.25rem 1.5rem;border-right:1px solid var(--border);text-align:center;}
+    .stat:last-child{border-right:none;}
+    .stat-num{font-family:var(--mono);font-size:1.8rem;color:var(--green);display:block;}
+    .stat-label{font-size:0.75rem;color:var(--muted);margin-top:0.2rem;}
+    .section{padding:3rem 2.5rem;position:relative;z-index:1;}
+    .section+.section{border-top:1px solid var(--border);}
+    .section-tag{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;display:block;}
+    .section h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+    .section-desc{font-size:0.9rem;color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:1.75rem;}
+
+    /* MODULE HEADER */
+    .module-header{display:flex;align-items:center;gap:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.35rem 1.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden;}
+    .module-header::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
+    .mh-green::before{background:var(--green);}
+    .mh-amber::before{background:var(--amber);}
+    .mh-blue::before{background:var(--blue);}
+    .mh-icon{width:48px;height:48px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .mhi-green{background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.25);}
+    .mhi-amber{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.25);}
+    .mhi-blue{background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.25);}
+    .module-header h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
+    .module-header p{font-size:0.83rem;color:var(--muted);}
+    .mh-link{margin-left:auto;font-family:var(--mono);font-size:0.72rem;color:var(--green);text-decoration:none;border:1px solid rgba(0,229,160,0.3);padding:0.35rem 0.8rem;border-radius:4px;transition:all 0.2s;white-space:nowrap;flex-shrink:0;}
+    .mh-link:hover{background:rgba(0,229,160,0.08);}
+
+    /* FLIP CARDS */
+    .flip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+    .flip-card{height:210px;perspective:1000px;cursor:pointer;}
+    .flip-card:hover .flip-inner{transform:rotateY(180deg);}
+    .flip-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);transform-style:preserve-3d;}
+    .flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:10px;padding:1.4rem;}
+    .flip-front{background:var(--bg2);border:1px solid var(--border);}
+    .flip-back{transform:rotateY(180deg);}
+    .fb-green{background:rgba(0,45,30,0.95);border:1px solid rgba(0,229,160,0.4);}
+    .fb-amber{background:rgba(45,30,0,0.95);border:1px solid rgba(245,166,35,0.4);}
+    .fb-blue{background:rgba(0,20,45,0.95);border:1px solid rgba(90,176,255,0.4);}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.85rem;}
+    .difficulty{font-family:var(--mono);font-size:0.63rem;letter-spacing:1px;text-transform:uppercase;padding:0.18rem 0.5rem;border-radius:3px;}
+    .d-easy{background:rgba(0,229,160,0.12);color:var(--green);border:1px solid rgba(0,229,160,0.3);}
+    .d-medium{background:rgba(245,166,35,0.12);color:var(--amber);border:1px solid rgba(245,166,35,0.3);}
+    .d-hard{background:rgba(255,107,107,0.12);color:var(--red);border:1px solid rgba(255,107,107,0.3);}
+    .pts{font-family:var(--mono);font-size:0.72rem;color:var(--muted);}
+    .flip-front h3{font-size:0.98rem;font-weight:700;color:#fff;margin-bottom:0.4rem;}
+    .flip-front p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .flip-hint{position:absolute;bottom:0.85rem;right:1rem;font-family:var(--mono);font-size:0.6rem;color:var(--muted);opacity:0.5;display:flex;align-items:center;gap:0.3rem;}
+    .back-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .bl-green{color:var(--green);}
+    .bl-amber{color:var(--amber);}
+    .bl-blue{color:var(--blue);}
+    .flip-back ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+    .flip-back ul li{font-size:0.82rem;color:var(--text);display:flex;align-items:flex-start;gap:0.45rem;line-height:1.45;}
+    .flip-back ul li::before{content:'▸';font-family:var(--mono);flex-shrink:0;font-size:0.65rem;margin-top:3px;}
+    .li-green li::before{color:var(--green);}
+    .li-amber li::before{color:var(--amber);}
+    .li-blue li::before{color:var(--blue);}
+    .back-pts{position:absolute;bottom:0.85rem;right:1rem;font-family:var(--mono);font-size:0.72rem;}
+    .bpts-green{color:var(--green);}
+    .bpts-amber{color:var(--amber);}
+    .bpts-blue{color:var(--blue);}
+
+    /* ETHICS */
+    .ethics-box{background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.25);border-left:3px solid var(--amber);border-radius:8px;padding:1.35rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;}
+    .ethics-box h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.3rem;}
+    .ethics-box p{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+    .ethics-box a{color:var(--green);text-decoration:underline;}
+
+    /* AFTER FINISH */
+    .after-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem;}
+    @media(max-width:560px){.after-grid{grid-template-columns:1fr;}}
+    .after-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.35rem;display:flex;align-items:center;gap:1rem;text-decoration:none;transition:all 0.2s;}
+    .after-card:hover{border-color:rgba(0,229,160,0.4);transform:translateY(-2px);}
+    .ac-icon{width:42px;height:42px;border-radius:8px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .after-card h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.2rem;}
+    .after-card p{font-size:0.78rem;color:var(--muted);}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem;position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;}
+    .footer-brand{font-family:var(--mono);color:var(--green);font-size:1rem;margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.82rem;color:var(--muted);max-width:260px;line-height:1.6;}
+    .footer-links h4{font-size:0.78rem;font-family:var(--mono);color:var(--green);letter-spacing:1px;margin-bottom:0.75rem;text-transform:uppercase;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy{font-size:0.78rem;color:var(--muted);font-family:var(--mono);}
+    .footer-ua{font-size:0.78rem;color:var(--muted);}
+    @media(max-width:600px){nav,.page-hero,.section,footer{padding-left:1.25rem;padding-right:1.25rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/" class="active">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="/ExForCyberEducation/">Home</a><span>/</span>CTF Challenges</div>
+  <div class="page-tag">Challenge Arena</div>
+  <h1>Capture the <span>Flag.</span><br>Think Like an Analyst.</h1>
+  <p>Hover over each challenge card to reveal what skills you'll need. Complete all three modules — OSINT, Cryptography, and Password Security — to master the CTFforCyberLearning arena.</p>
+  <div class="hero-actions">
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Launch CTF Portal
+    </a>
+    <a href="/ExForCyberEducation/about/getting-started/" class="btn btn-outline">How to Sign Up</a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">9</span><div class="stat-label">Total Challenges</div></div>
+  <div class="stat"><span class="stat-num">3</span><div class="stat-label">Modules</div></div>
+  <div class="stat"><span class="stat-num">1350</span><div class="stat-label">Total Points</div></div>
+  <div class="stat"><span class="stat-num">3</span><div class="stat-label">Difficulty Levels</div></div>
+</div>
+
+<!-- OSINT -->
+<div class="section">
+  <span class="section-tag">// module 01</span>
+  <div class="module-header mh-green">
+    <div class="mh-icon mhi-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <div><h3>Open-Source Intelligence (OSINT)</h3><p>Use online tools to find information, verify data, and track digital clues — ethically and responsibly.</p></div>
+    <a href="/ExForCyberEducation/learning/osint/" class="mh-link">Learn OSINT First →</a>
+  </div>
+  <div class="flip-grid">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-easy">Easy</span><span class="pts">100 pts</span></div>
+          <h3>Find the Bean!</h3>
+          <p>Locate a hidden landmark using online mapping and investigation tools.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-green">
+          <div class="back-label bl-green">// Skills You'll Use</div>
+          <ul class="li-green">
+            <li>Google Maps &amp; satellite imagery</li>
+            <li>Reverse image search techniques</li>
+            <li>Landmark identification from visual clues</li>
+          </ul>
+          <span class="back-pts bpts-green">100 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-medium">Medium</span><span class="pts">200 pts</span></div>
+          <h3>The World's Traveler</h3>
+          <p>Trace a person's journey across the web using only publicly available information.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-green">
+          <div class="back-label bl-green">// Skills You'll Use</div>
+          <ul class="li-green">
+            <li>Social media OSINT investigation</li>
+            <li>Cross-referencing public records</li>
+            <li>Digital breadcrumb analysis</li>
+          </ul>
+          <span class="back-pts bpts-green">200 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-hard">Hard</span><span class="pts">300 pts</span></div>
+          <h3>The Vanished Motto</h3>
+          <p>Track down a famous phrase lost to the web using archival and investigative tools.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-green">
+          <div class="back-label bl-green">// Skills You'll Use</div>
+          <ul class="li-green">
+            <li>Wayback Machine &amp; web archives</li>
+            <li>Advanced search operators</li>
+            <li>Source verification &amp; fact-checking</li>
+          </ul>
+          <span class="back-pts bpts-green">300 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRYPTO -->
+  <span class="section-tag">// module 02</span>
+  <div class="module-header mh-amber">
+    <div class="mh-icon mhi-amber"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+    <div><h3>Cryptography</h3><p>Decode messages and uncover hidden meanings using classical and modern encoding techniques.</p></div>
+    <a href="/ExForCyberEducation/learning/cryptography/" class="mh-link">Learn Crypto First →</a>
+  </div>
+  <div class="flip-grid">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-easy">Easy</span><span class="pts">100 pts</span></div>
+          <h3>The Secret Scroll</h3>
+          <p>Decode a mysterious scroll using classical cipher techniques.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-amber">
+          <div class="back-label bl-amber">// Skills You'll Use</div>
+          <ul class="li-amber">
+            <li>Caesar cipher decoding</li>
+            <li>Substitution pattern recognition</li>
+            <li>Basic frequency analysis</li>
+          </ul>
+          <span class="back-pts bpts-amber">100 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-medium">Medium</span><span class="pts">200 pts</span></div>
+          <h3>The Hidden Codebook</h3>
+          <p>Find meaning hidden in plain sight — crack the codebook to reveal the message.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-amber">
+          <div class="back-label bl-amber">// Skills You'll Use</div>
+          <ul class="li-amber">
+            <li>Base64 encoding &amp; decoding</li>
+            <li>Multi-layer cipher analysis</li>
+            <li>Pattern and keyword extraction</li>
+          </ul>
+          <span class="back-pts bpts-amber">200 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-hard">Hard</span><span class="pts">300 pts</span></div>
+          <h3>The Headmaster's Secret</h3>
+          <p>An advanced cryptography puzzle — only the most determined analysts will uncover it.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-amber">
+          <div class="back-label bl-amber">// Skills You'll Use</div>
+          <ul class="li-amber">
+            <li>Combined encoding techniques</li>
+            <li>Hashing vs. encryption distinction</li>
+            <li>Advanced cipher chaining</li>
+          </ul>
+          <span class="back-pts bpts-amber">300 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSWORDS -->
+  <span class="section-tag">// module 03</span>
+  <div class="module-header mh-blue">
+    <div class="mh-icon mhi-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5ab0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    <div><h3>Password Security</h3><p>Explore how passwords are stored, cracked, and strengthened through real security practices.</p></div>
+    <a href="/ExForCyberEducation/learning/passwords/" class="mh-link">Learn Passwords First →</a>
+  </div>
+  <div class="flip-grid">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-easy">Easy</span><span class="pts">50 pts</span></div>
+          <h3>How Long Until It's Gone</h3>
+          <p>Estimate how long a given password would take to crack under brute force attack.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-blue">
+          <div class="back-label bl-blue">// Skills You'll Use</div>
+          <ul class="li-blue">
+            <li>Password strength analysis</li>
+            <li>Entropy and complexity concepts</li>
+            <li>Brute force attack estimation</li>
+          </ul>
+          <span class="back-pts bpts-blue">50 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-easy">Easy</span><span class="pts">100 pts</span></div>
+          <h3>County Salt</h3>
+          <p>Explore how "salting" passwords dramatically increases their resistance to cracking.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-blue">
+          <div class="back-label bl-blue">// Skills You'll Use</div>
+          <ul class="li-blue">
+            <li>Hashing with and without salt</li>
+            <li>Rainbow table vulnerability</li>
+            <li>SHA-256 hash comparison</li>
+          </ul>
+          <span class="back-pts bpts-blue">100 pts</span>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="card-top"><span class="difficulty d-easy">Easy</span><span class="pts">100 pts</span></div>
+          <h3>Forgotten Coffee Shop Vibes</h3>
+          <p>Investigate the dangers of password reuse through a coffee-themed scenario.</p>
+          <div class="flip-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>Hover to reveal</div>
+        </div>
+        <div class="flip-back fb-blue">
+          <div class="back-label bl-blue">// Skills You'll Use</div>
+          <ul class="li-blue">
+            <li>Credential reuse attack concepts</li>
+            <li>Identifying weak password patterns</li>
+            <li>Password manager best practices</li>
+          </ul>
+          <span class="back-pts bpts-blue">100 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ETHICS -->
+<div class="section">
+  <span class="section-tag">// ethics reminder</span>
+  <h2>Before You Start</h2>
+  <div class="ethics-box">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <div>
+      <h4>Complete All Challenges Ethically</h4>
+      <p>All CTF work must take place within the CTFd environment only. No unauthorized access, scanning, or real-world probing of any systems. Review the <a href="/ExForCyberEducation/about/student-agreement/">Student Code of Conduct</a> and <a href="/ExForCyberEducation/about/ethics/">Ethics in Learning</a> page before beginning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AFTER FINISH -->
+<div class="section">
+  <span class="section-tag">// after you finish</span>
+  <h2>You're Almost Done</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0;">Once you've completed all challenges, make sure to complete the post-test and share your feedback.</p>
+  <div class="after-grid">
+    <a href="/ExForCyberEducation/assessments/post/" class="after-card">
+      <div class="ac-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div><h4>Take the Post-Test</h4><p>Complete after finishing all challenges</p></div>
+    </a>
+    <a href="/ExForCyberEducation/about/feedback/" class="after-card">
+      <div class="ac-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div><h4>Give Feedback</h4><p>Share your experience with the researcher</p></div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">CTFforCyberLearning</div><p class="footer-desc">Experiential Cyber Security education through Capture-the-Flag challenges, mapped to Alabama K–12 standards.</p></div>
+    <div class="footer-links"><h4>Study</h4><a href="/ExForCyberEducation/about/">About the Study</a><a href="/ExForCyberEducation/about/team/">Research Team</a><a href="/ExForCyberEducation/about/ethics/">Ethics & IRB</a><a href="/ExForCyberEducation/about/consent/">Consent Forms</a></div>
+    <div class="footer-links"><h4>Learn</h4><a href="/ExForCyberEducation/learning/osint/">OSINT</a><a href="/ExForCyberEducation/learning/cryptography/">Cryptography</a><a href="/ExForCyberEducation/learning/passwords/">Passwords</a><a href="/ExForCyberEducation/learning/tools/">Student Tools</a></div>
+    <div class="footer-links"><h4>Teachers</h4><a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a><a href="/ExForCyberEducation/teachers/syllabus/">Syllabus</a><a href="/ExForCyberEducation/teachers/mapping/">Standards Mapping</a><a href="/ExForCyberEducation/about/feedback/">Give Feedback</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
