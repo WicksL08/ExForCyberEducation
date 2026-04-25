@@ -1,0 +1,392 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Lab | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;--green:#00e5a0;--green3:#004d35;--amber:#f5a623;--blue:#5ab0ff;--text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);--mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-brand span{color:var(--text);}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    section,footer{position:relative;z-index:1;}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:1;}
+    .page-hero::after{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.07) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:1px;}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 0.5rem;opacity:0.4;}
+    .page-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--green);text-transform:uppercase;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.25);padding:0.3rem 0.8rem;border-radius:3px;margin-bottom:1.25rem;width:fit-content;}
+    .page-tag::before{content:'//';opacity:0.6;}
+    .page-hero h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:620px;line-height:1.75;margin-bottom:1.5rem;}
+    .hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;}
+    .btn{padding:0.7rem 1.5rem;border-radius:5px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;border:none;}
+    .btn-primary{background:var(--green);color:var(--bg);}
+    .btn-primary:hover{background:#00ffb3;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--green);border:1px solid rgba(0,229,160,0.4);}
+    .btn-outline:hover{background:rgba(0,229,160,0.08);}
+    .module-nav{display:flex;gap:0;border-bottom:1px solid var(--border);position:relative;z-index:1;background:var(--bg2);overflow-x:auto;}
+    .mnav-btn{font-family:var(--mono);font-size:0.8rem;padding:1rem 1.5rem;border:none;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;display:flex;align-items:center;gap:0.5rem;}
+    .mnav-btn.active{color:var(--green);border-bottom-color:var(--green);}
+    .mnav-btn:hover:not(.active){color:var(--text);}
+    .module-content{display:none;padding:3rem 2.5rem;position:relative;z-index:1;}
+    .module-content.active{display:block;}
+    .mod-header-row{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+    .mod-title-block h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.4rem;}
+    .mod-title-block p{font-size:0.9rem;color:var(--muted);max-width:520px;line-height:1.7;}
+    .mod-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;padding:0.35rem 0.85rem;border-radius:4px;font-weight:600;}
+    .mb-green{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.3);}
+    .mb-amber{background:rgba(245,166,35,0.1);color:var(--amber);border:1px solid rgba(245,166,35,0.3);}
+    .mb-blue{background:rgba(90,176,255,0.1);color:var(--blue);border:1px solid rgba(90,176,255,0.3);}
+
+    /* VIDEO CARDS */
+    .lab-section-title{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;display:block;}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+    .video-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;text-decoration:none;}
+    .video-card:hover{border-color:rgba(0,229,160,0.4);transform:translateY(-2px);}
+    .v-thumb{height:130px;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;}
+    .v-thumb-green{background:linear-gradient(135deg,rgba(0,45,30,0.9),rgba(0,229,160,0.06));}
+    .v-thumb-amber{background:linear-gradient(135deg,rgba(45,30,0,0.9),rgba(245,166,35,0.06));}
+    .v-thumb-blue{background:linear-gradient(135deg,rgba(0,20,45,0.9),rgba(90,176,255,0.06));}
+    .play-btn{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+    .pb-green{background:rgba(0,229,160,0.2);border:2px solid rgba(0,229,160,0.5);}
+    .pb-amber{background:rgba(245,166,35,0.2);border:2px solid rgba(245,166,35,0.5);}
+    .pb-blue{background:rgba(90,176,255,0.2);border:2px solid rgba(90,176,255,0.5);}
+    .video-card:hover .play-btn{transform:scale(1.12);}
+    .v-label{position:absolute;bottom:0.6rem;left:0.75rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:1px;text-transform:uppercase;background:rgba(5,15,13,0.85);padding:0.18rem 0.5rem;border-radius:3px;}
+    .vl-green{color:var(--green);}
+    .vl-amber{color:var(--amber);}
+    .vl-blue{color:var(--blue);}
+    .v-info{padding:1rem 1.2rem;}
+    .v-info h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.3rem;}
+    .v-info p{font-size:0.8rem;color:var(--muted);line-height:1.55;margin-bottom:0.6rem;}
+    .v-link{font-family:var(--mono);font-size:0.72rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;}
+    .vlink-green{color:var(--green);}
+    .vlink-amber{color:var(--amber);}
+    .vlink-blue{color:var(--blue);}
+
+    /* KEY TERMS */
+    .terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.85rem;margin-bottom:2.5rem;}
+    .term-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.25rem;transition:border-color 0.2s;}
+    .term-card:hover{border-color:rgba(0,229,160,0.3);}
+    .term-name{font-family:var(--mono);font-size:0.78rem;color:var(--green);margin-bottom:0.3rem;display:block;}
+    .term-card p{font-size:0.82rem;color:var(--muted);line-height:1.55;}
+    .term-example{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-top:0.35rem;display:block;opacity:0.7;}
+
+    /* CTA STRIP */
+    .cta-strip{background:var(--bg3);border:1px solid rgba(0,229,160,0.2);border-radius:8px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;}
+    .cta-strip p{font-size:0.88rem;color:var(--muted);}
+    .cta-strip strong{color:#fff;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem;position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;}
+    .footer-brand{font-family:var(--mono);color:var(--green);font-size:1rem;margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.82rem;color:var(--muted);max-width:260px;line-height:1.6;}
+    .footer-links h4{font-size:0.78rem;font-family:var(--mono);color:var(--green);letter-spacing:1px;margin-bottom:0.75rem;text-transform:uppercase;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy{font-size:0.78rem;color:var(--muted);font-family:var(--mono);}
+    .footer-ua{font-size:0.78rem;color:var(--muted);}
+    @media(max-width:600px){nav,.page-hero,.module-content,footer{padding-left:1.25rem;padding-right:1.25rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/" class="active">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="/ExForCyberEducation/">Home</a><span>/</span>Learning Lab</div>
+  <div class="page-tag">Learning Lab</div>
+  <h1>Learn Before You<br><span>Capture the Flag.</span></h1>
+  <p>Explore short lessons, tutorial videos, and key vocabulary across three Cyber Security modules. Complete each module's learning materials before tackling the CTF challenges.</p>
+  <div class="hero-actions">
+    <a href="/ExForCyberEducation/challenges/" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+      Go to Challenges
+    </a>
+    <a href="/ExForCyberEducation/learning/tools/" class="btn btn-outline">Student Tools</a>
+  </div>
+</section>
+
+<!-- MODULE TABS -->
+<div class="module-nav">
+  <button class="mnav-btn active" onclick="showModule('osint', this)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Module 1 — OSINT
+  </button>
+  <button class="mnav-btn" onclick="showModule('crypto', this)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Module 2 — Cryptography
+  </button>
+  <button class="mnav-btn" onclick="showModule('password', this)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Module 3 — Password Security
+  </button>
+</div>
+
+<!-- OSINT MODULE -->
+<div id="mod-osint" class="module-content active">
+  <div class="mod-header-row">
+    <div class="mod-title-block">
+      <h2>Open-Source Intelligence (OSINT)</h2>
+      <p>Learn how to ethically gather and verify information from publicly available online sources — the same skills used by real Cyber Security analysts every day.</p>
+    </div>
+    <span class="mod-badge mb-green">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Module 1
+    </span>
+  </div>
+
+  <span class="lab-section-title">// video tutorials</span>
+  <div class="video-grid">
+    <a href="https://youtu.be/aD-U2kP0vNk" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-green">
+        <div class="play-btn pb-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-green">Intro</span>
+      </div>
+      <div class="v-info">
+        <h4>Intro to OSINT</h4>
+        <p>What is open-source intelligence, how it works, and how analysts use it responsibly.</p>
+        <span class="v-link vlink-green">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/UW92Ys-LsLU" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-green">
+        <div class="play-btn pb-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-green">Search Tools</span>
+      </div>
+      <div class="v-info">
+        <h4>Using Search Tools for OSINT</h4>
+        <p>Advanced search operators, reverse image search, and tools used to track public information.</p>
+        <span class="v-link vlink-green">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/sA1KEpSwk0A" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-green">
+        <div class="play-btn pb-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-green">Ethics</span>
+      </div>
+      <div class="v-info">
+        <h4>Verification &amp; Ethics in OSINT</h4>
+        <p>How to verify information ethically and avoid misuse of investigative techniques.</p>
+        <span class="v-link vlink-green">Watch on YouTube →</span>
+      </div>
+    </a>
+  </div>
+
+  <span class="lab-section-title">// key vocabulary</span>
+  <div class="terms-grid">
+    <div class="term-card"><span class="term-name">OSINT</span><p>Gathering information from publicly available sources without unauthorized access.</p><span class="term-example">Ex: searching social media, public records, maps</span></div>
+    <div class="term-card"><span class="term-name">Digital Footprint</span><p>The trail of data left behind when using the internet — public posts, accounts, locations.</p><span class="term-example">Ex: tagged photos, check-ins, usernames</span></div>
+    <div class="term-card"><span class="term-name">Verification</span><p>Confirming that found information is accurate by cross-referencing multiple sources.</p><span class="term-example">Ex: checking three sources before concluding</span></div>
+    <div class="term-card"><span class="term-name">Metadata</span><p>Hidden data embedded in files that can reveal creation date, location, and device info.</p><span class="term-example">Ex: GPS coordinates in photo files</span></div>
+  </div>
+
+  <div class="cta-strip">
+    <p><strong>Ready to apply what you've learned?</strong> Head to the OSINT challenges on the CTF portal.</p>
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Launch CTF Portal
+    </a>
+  </div>
+</div>
+
+<!-- CRYPTO MODULE -->
+<div id="mod-crypto" class="module-content">
+  <div class="mod-header-row">
+    <div class="mod-title-block">
+      <h2>Cryptography</h2>
+      <p>Explore how information is encoded, encrypted, and hidden — and how analysts decode messages using classical and modern cipher techniques.</p>
+    </div>
+    <span class="mod-badge mb-amber">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Module 2
+    </span>
+  </div>
+
+  <span class="lab-section-title">// video tutorials</span>
+  <div class="video-grid">
+    <a href="https://youtu.be/-yFZGF8FHSg" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-amber">
+        <div class="play-btn pb-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-amber">Intro</span>
+      </div>
+      <div class="v-info">
+        <h4>Intro to Cryptography</h4>
+        <p>What cryptography is, why it matters, and how it protects information in the digital world.</p>
+        <span class="v-link vlink-amber">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/jhXCTbFnK8o" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-amber">
+        <div class="play-btn pb-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-amber">Hashing</span>
+      </div>
+      <div class="v-info">
+        <h4>Hashing vs. Encryption Explained</h4>
+        <p>The critical difference between one-way hashing and two-way encryption — and when each is used.</p>
+        <span class="v-link vlink-amber">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/s-NnDh4HquY" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-amber">
+        <div class="play-btn pb-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-amber">Base64</span>
+      </div>
+      <div class="v-info">
+        <h4>Base64 &amp; Encoding Basics</h4>
+        <p>How Base64 encoding works and how to decode encoded messages used in CTF challenges.</p>
+        <span class="v-link vlink-amber">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/BvlMCWCfsjE" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-amber">
+        <div class="play-btn pb-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-amber">Ciphers</span>
+      </div>
+      <div class="v-info">
+        <h4>Simple Substitution Ciphers</h4>
+        <p>Classical cipher techniques including Caesar cipher and letter substitution methods.</p>
+        <span class="v-link vlink-amber">Watch on YouTube →</span>
+      </div>
+    </a>
+  </div>
+
+  <span class="lab-section-title">// key vocabulary</span>
+  <div class="terms-grid">
+    <div class="term-card"><span class="term-name">Encoding</span><p>Converting data into a different format for transmission — not a security measure, easily reversed.</p><span class="term-example">Ex: Base64 encoding</span></div>
+    <div class="term-card"><span class="term-name">Hashing</span><p>A one-way transformation that produces a fixed-length output. Cannot be reversed.</p><span class="term-example">Ex: SHA-256 hash</span></div>
+    <div class="term-card"><span class="term-name">Encryption</span><p>Two-way protection using keys — data can be encrypted and later decrypted by authorized parties.</p><span class="term-example">Ex: AES, RSA encryption</span></div>
+    <div class="term-card"><span class="term-name">Caesar Cipher</span><p>A substitution cipher that shifts each letter by a fixed number of positions in the alphabet.</p><span class="term-example">Ex: A→D, B→E with shift of 3</span></div>
+  </div>
+
+  <div class="cta-strip">
+    <p><strong>Ready for the crypto challenges?</strong> Put your encoding and decoding skills to work.</p>
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-primary" style="background:var(--amber);color:#1a0f00;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Launch CTF Portal
+    </a>
+  </div>
+</div>
+
+<!-- PASSWORD MODULE -->
+<div id="mod-password" class="module-content">
+  <div class="mod-header-row">
+    <div class="mod-title-block">
+      <h2>Password Security</h2>
+      <p>Understand how passwords are stored, attacked, and protected — from hashing and salting to rainbow tables and best practices for strong credential management.</p>
+    </div>
+    <span class="mod-badge mb-blue">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Module 3
+    </span>
+  </div>
+
+  <span class="lab-section-title">// video tutorials</span>
+  <div class="video-grid">
+    <a href="https://youtu.be/b4b8ktEV4Bg" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-blue">
+        <div class="play-btn pb-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5ab0ff" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-blue">Hashing</span>
+      </div>
+      <div class="v-info">
+        <h4>What Is Password Hashing?</h4>
+        <p>How passwords are stored as hashes in databases and why plain text storage is dangerous.</p>
+        <span class="v-link vlink-blue">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/7U-RbOKanYs" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-blue">
+        <div class="play-btn pb-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5ab0ff" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-blue">Cracking</span>
+      </div>
+      <div class="v-info">
+        <h4>How Hackers Crack Passwords</h4>
+        <p>The techniques attackers use — brute force, dictionary attacks, and credential stuffing.</p>
+        <span class="v-link vlink-blue">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/3NjQ9b3OaIM" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-blue">
+        <div class="play-btn pb-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5ab0ff" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-blue">Strong Passwords</span>
+      </div>
+      <div class="v-info">
+        <h4>Creating Strong Passwords &amp; Passphrases</h4>
+        <p>Best practices for building passwords that are hard to crack but easy to remember.</p>
+        <span class="v-link vlink-blue">Watch on YouTube →</span>
+      </div>
+    </a>
+    <a href="https://youtu.be/s7xdxHSLLQU" target="_blank" class="video-card">
+      <div class="v-thumb v-thumb-blue">
+        <div class="play-btn pb-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5ab0ff" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="v-label vl-blue">Rainbow Tables</span>
+      </div>
+      <div class="v-info">
+        <h4>Rainbow Tables Explained</h4>
+        <p>How pre-computed hash tables are used to crack unsalted passwords instantly.</p>
+        <span class="v-link vlink-blue">Watch on YouTube →</span>
+      </div>
+    </a>
+  </div>
+
+  <span class="lab-section-title">// key vocabulary</span>
+  <div class="terms-grid">
+    <div class="term-card"><span class="term-name">Salting</span><p>Adding a random string to a password before hashing to prevent rainbow table attacks.</p><span class="term-example">Ex: password + random_salt → hash</span></div>
+    <div class="term-card"><span class="term-name">Rainbow Table</span><p>A precomputed table of hash values used to reverse-lookup and crack unsalted passwords.</p><span class="term-example">Ex: hash lookup attack on MD5</span></div>
+    <div class="term-card"><span class="term-name">Brute Force</span><p>Trying every possible combination of characters until the correct password is found.</p><span class="term-example">Ex: trying aaa, aab, aac…</span></div>
+    <div class="term-card"><span class="term-name">Credential Reuse</span><p>Using the same password across multiple sites — makes users vulnerable if one site is breached.</p><span class="term-example">Ex: same password on email and bank</span></div>
+  </div>
+
+  <div class="cta-strip">
+    <p><strong>Ready to crack (and protect) some passwords?</strong> Take on the password security challenges.</p>
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-primary" style="background:var(--blue);color:#001a30;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Launch CTF Portal
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">CTFforCyberLearning</div><p class="footer-desc">Experiential Cyber Security education through Capture-the-Flag challenges, mapped to Alabama K–12 standards.</p></div>
+    <div class="footer-links"><h4>Study</h4><a href="/ExForCyberEducation/about/">About the Study</a><a href="/ExForCyberEducation/about/team/">Research Team</a><a href="/ExForCyberEducation/about/ethics/">Ethics & IRB</a><a href="/ExForCyberEducation/about/consent/">Consent Forms</a></div>
+    <div class="footer-links"><h4>Learn</h4><a href="/ExForCyberEducation/learning/osint/">OSINT</a><a href="/ExForCyberEducation/learning/cryptography/">Cryptography</a><a href="/ExForCyberEducation/learning/passwords/">Passwords</a><a href="/ExForCyberEducation/learning/tools/">Student Tools</a></div>
+    <div class="footer-links"><h4>Teachers</h4><a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a><a href="/ExForCyberEducation/teachers/syllabus/">Syllabus</a><a href="/ExForCyberEducation/teachers/mapping/">Standards Mapping</a><a href="/ExForCyberEducation/about/feedback/">Give Feedback</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+
+<script>
+function showModule(id, btn){
+  document.querySelectorAll('.module-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.mnav-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('mod-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
