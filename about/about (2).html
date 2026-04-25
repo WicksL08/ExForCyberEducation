@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About the Study | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;--green:#00e5a0;--green3:#004d35;--amber:#f5a623;--blue:#5ab0ff;--text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);--mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-brand span{color:var(--text);}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    section,footer{position:relative;z-index:1;}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);overflow:hidden;position:relative;}
+    .page-hero::after{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.07) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:1px;}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 0.5rem;opacity:0.4;}
+    .page-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--green);text-transform:uppercase;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.25);padding:0.3rem 0.8rem;border-radius:3px;margin-bottom:1.25rem;width:fit-content;}
+    .page-tag::before{content:'//';opacity:0.6;}
+    .page-hero h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:620px;line-height:1.75;}
+    .sub-nav{display:flex;gap:0.5rem;flex-wrap:wrap;padding:1rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2);}
+    .sub-nav a{font-size:0.78rem;font-family:var(--mono);padding:0.35rem 0.9rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .sub-nav a:hover{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .alert-wrap{padding:2rem 2.5rem 0;position:relative;z-index:1;}
+    .alert{background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.3);border-left:3px solid var(--amber);border-radius:6px;padding:1.25rem 1.5rem;}
+    .alert-label{font-family:var(--mono);font-size:0.7rem;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.5rem;}
+    .alert p{font-size:0.9rem;color:var(--text);line-height:1.7;}
+    .alert a{color:var(--green);text-decoration:underline;}
+    .stats-bar{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--border);border-top:1px solid var(--border);margin-top:2.5rem;position:relative;z-index:1;}
+    .stat{flex:1;min-width:130px;padding:1.5rem 1.25rem;border-right:1px solid var(--border);text-align:center;}
+    .stat:last-child{border-right:none;}
+    .stat-num{font-family:var(--mono);font-size:1.9rem;color:var(--green);display:block;}
+    .stat-label{font-size:0.75rem;color:var(--muted);margin-top:0.25rem;letter-spacing:0.4px;}
+    .section{padding:3.5rem 2.5rem;position:relative;z-index:1;}
+    .section+.section{border-top:1px solid var(--border);}
+    .section-tag{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.6rem;display:block;}
+    .section h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:1rem;}
+    .section>p{font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:0.9rem;max-width:720px;}
+    .overview-split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:1rem;}
+    @media(max-width:700px){.overview-split,.alabama-wrap{grid-template-columns:1fr!important;}}
+    .overview-left p{font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:0.85rem;}
+    .overview-points{list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-top:0.5rem;}
+    .overview-points li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.88rem;color:var(--text);}
+    .overview-points li::before{content:'▸';color:var(--green);font-family:var(--mono);margin-top:3px;flex-shrink:0;}
+    .model-diagram{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem;}
+    .model-title{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;text-align:center;}
+    .model-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.4rem;}
+    .model-step{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1rem;text-align:center;flex:1;min-width:90px;max-width:130px;}
+    .model-step .step-icon{font-size:1.4rem;margin-bottom:0.35rem;}
+    .model-step .step-num{font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:1px;margin-bottom:0.25rem;}
+    .model-step h4{font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
+    .model-step p{font-size:0.7rem;color:var(--muted);line-height:1.4;}
+    .model-arrow{color:var(--green);font-family:var(--mono);font-size:1.1rem;flex-shrink:0;}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:1.5rem;}
+    .step-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;position:relative;overflow:hidden;}
+    .step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);}
+    .step-num-big{font-family:var(--mono);font-size:2.5rem;font-weight:700;color:rgba(0,229,160,0.1);position:absolute;top:0.5rem;right:0.85rem;line-height:1;}
+    .step-icon-wrap{width:42px;height:42px;border-radius:8px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:0.9rem;}
+    .step-card h3{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.45rem;}
+    .step-card p{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+    .compare-wrap{overflow-x:auto;margin-top:1.5rem;border-radius:8px;border:1px solid var(--border);}
+    .compare-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+    .compare-table th{padding:0.9rem 1.25rem;text-align:left;font-family:var(--mono);font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid var(--border);}
+    .compare-table th:first-child{color:var(--muted);background:var(--bg2);}
+    .compare-table th.th-trad{color:#888;background:rgba(255,255,255,0.02);}
+    .compare-table th.th-ctf{color:var(--green);background:rgba(0,229,160,0.05);}
+    .compare-table td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table td:first-child{font-weight:500;color:var(--text);font-size:0.85rem;background:var(--bg2);}
+    .compare-table td.td-trad{color:#7a8a85;background:rgba(255,255,255,0.01);}
+    .compare-table td.td-ctf{color:var(--text);background:rgba(0,229,160,0.03);}
+    .ctf-pill{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.85rem;}
+    .ctf-pill::before{content:'✓';color:var(--green);font-weight:700;}
+    .ethics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.25rem;}
+    .ethics-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.35rem;}
+    .ethics-card .e-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);border-radius:7px;margin-bottom:0.8rem;}
+    .reach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1.5rem;}
+    .reach-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:0.85rem;}
+    .reach-icon-svg{width:42px;height:42px;border-radius:8px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .reach-text h4{font-size:0.92rem;font-weight:600;color:#fff;margin-bottom:0.3rem;}
+    .reach-text p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .step-icon-wrap svg{display:block;}
+    .model-step .step-icon{display:flex;align-items:center;justify-content:center;margin-bottom:0.4rem;}
+    .cyber-badge .cb-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .ethics-card h3{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.4rem;}
+    .ethics-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .alabama-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-top:1rem;}
+    .alabama-svg-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+    .al-label{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;text-align:center;}
+    .reach-points{list-style:none;display:flex;flex-direction:column;gap:1rem;}
+    .reach-points li{display:flex;align-items:flex-start;gap:0.85rem;}
+    .reach-icon{width:38px;height:38px;border-radius:6px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .reach-text h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.2rem;}
+    .reach-text p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .badges-section{padding:3rem 2.5rem;border-top:1px solid var(--border);position:relative;z-index:1;}
+    .badges-row{display:flex;flex-wrap:wrap;gap:0.85rem;margin-top:1.25rem;}
+    .cyber-badge{display:flex;align-items:center;gap:0.65rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:0.7rem 1.1rem;transition:border-color 0.2s;}
+    .cyber-badge:hover{border-color:rgba(0,229,160,0.4);}
+    .cyber-badge .cb-icon{font-size:1.1rem;}
+    .cyber-badge .cb-text{font-size:0.8rem;font-family:var(--mono);color:var(--text);}
+    .cyber-badge .cb-sub{font-size:0.68rem;color:var(--muted);display:block;margin-top:1px;}
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-top:1.5rem;}
+    .team-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;}
+    .role-badge{font-family:var(--mono);font-size:0.62rem;color:var(--green);background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.25);padding:0.2rem 0.55rem;border-radius:3px;display:inline-block;margin-bottom:0.75rem;letter-spacing:1px;text-transform:uppercase;}
+    .team-card h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
+    .team-card .title{font-size:0.78rem;color:var(--muted);margin-bottom:0.85rem;line-height:1.5;}
+    .team-card p{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+    .team-card a{color:var(--green);font-size:0.8rem;text-decoration:none;display:inline-block;margin-top:0.75rem;font-family:var(--mono);}
+    .cta-section{padding:0 2.5rem 3.5rem;position:relative;z-index:1;}
+    .cta-banner{background:var(--bg3);border:1px solid rgba(0,229,160,0.25);border-radius:10px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.25rem;}
+    .cta-banner h3{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:0.35rem;}
+    .cta-banner p{color:var(--muted);font-size:0.9rem;}
+    .btn{padding:0.7rem 1.5rem;border-radius:5px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-block;transition:all 0.2s;}
+    .btn-primary{background:var(--green);color:var(--bg);border:none;}
+    .btn-primary:hover{background:#00ffb3;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--green);border:1px solid rgba(0,229,160,0.4);}
+    .btn-outline:hover{background:rgba(0,229,160,0.08);}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem;position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;}
+    .footer-brand{font-family:var(--mono);color:var(--green);font-size:1rem;margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.82rem;color:var(--muted);max-width:260px;line-height:1.6;}
+    .footer-links h4{font-size:0.78rem;font-family:var(--mono);color:var(--green);letter-spacing:1px;margin-bottom:0.75rem;text-transform:uppercase;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy{font-size:0.78rem;color:var(--muted);font-family:var(--mono);}
+    .footer-ua{font-size:0.78rem;color:var(--muted);}
+    @media(max-width:600px){nav,.sub-nav,.page-hero,.section,.badges-section,.cta-section,footer{padding-left:1.25rem;padding-right:1.25rem;}.alert-wrap{padding:1.5rem 1.25rem 0;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/" class="active">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="/ExForCyberEducation/">Home</a><span>/</span>About the Study</div>
+  <div class="page-tag">About the Study</div>
+  <h1>The <span>CTFforCyberLearning</span><br>Research Study</h1>
+  <p>A doctoral research project at The University of Alabama exploring how Capture-the-Flag cyber security challenges can transform high school CS education across Alabama — making learning hands-on, engaging, and standards-aligned.</p>
+</section>
+
+<div class="sub-nav">
+  <a href="/ExForCyberEducation/about/">Overview</a>
+  <a href="/ExForCyberEducation/about/team/">Research Team</a>
+  <a href="/ExForCyberEducation/about/ctf-purpose/">Purpose of CTF</a>
+  <a href="/ExForCyberEducation/about/ethics/">Ethics in Learning</a>
+  <a href="/ExForCyberEducation/about/getting-started/">How to Sign Up</a>
+  <a href="/ExForCyberEducation/about/feedback/">Give Feedback</a>
+</div>
+
+<div class="alert-wrap">
+  <div class="alert">
+    <div class="alert-label">⚠ Required Before Starting</div>
+    <p>All students and parents/guardians must complete the <a href="/ExForCyberEducation/about/consent/">Consent &amp; Assent Form</a> before starting the <a href="/ExForCyberEducation/assessments/pre/">Pre-Test</a> or any <a href="/ExForCyberEducation/challenges/">CTF Challenges</a>.</p>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">3</span><div class="stat-label">Learning Modules</div></div>
+  <div class="stat"><span class="stat-num">CTF</span><div class="stat-label">Challenge-Based</div></div>
+  <div class="stat"><span class="stat-num">K–12</span><div class="stat-label">Standards Aligned</div></div>
+  <div class="stat"><span class="stat-num">IRB</span><div class="stat-label">Approved Study</div></div>
+  <div class="stat"><span class="stat-num">UA</span><div class="stat-label">Doctoral Research</div></div>
+</div>
+
+<!-- OVERVIEW + MODEL -->
+<div class="section">
+  <span class="section-tag">// what is ctf4cyberlearning</span>
+  <h2>Experiential Learning in Action</h2>
+  <div class="overview-split">
+    <div class="overview-left">
+      <p><strong style="color:#fff;">CTFforCyberLearning</strong> evaluates a Capture-the-Flag (CTF)-based experiential model for high school cyber security education across Alabama, grounded in the <strong style="color:#fff;">CTFforCyberLearning instructional model</strong>.</p>
+      <p>By connecting real-world cyber skills to Alabama's K–12 Computer Science Standards, we bridge the gap between classroom theory and hands-on technical practice — inspiring the next generation of cyber security professionals.</p>
+      <ul class="overview-points">
+        <li>Grounded in experiential learning theory</li>
+        <li>Aligned to Alabama K–12 CS standards</li>
+        <li>Designed for high school classrooms</li>
+        <li>Fully IRB-approved and anonymous</li>
+        <li>Supported by The University of Alabama</li>
+      </ul>
+    </div>
+    <div>
+      <div class="model-diagram">
+        <div class="model-title">// CTFforCyberLearning Instructional Model</div>
+        <div class="model-flow">
+          <div class="model-step"><div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="step-num">STEP 01</div><h4>Learn</h4><p>Mini-lessons & video tutorials</p></div>
+          <div class="model-arrow">→</div>
+          <div class="model-step"><div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="step-num">STEP 02</div><h4>Challenge</h4><p>CTF problem-solving tasks</p></div>
+          <div class="model-arrow">→</div>
+          <div class="model-step"><div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="step-num">STEP 03</div><h4>Reflect</h4><p>Discussion & debrief</p></div>
+          <div class="model-arrow">→</div>
+          <div class="model-step"><div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="step-num">STEP 04</div><h4>Assess</h4><p>Pre/post tests & surveys</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <span class="section-tag">// how it works</span>
+  <h2>How CTFforCyberLearning Works</h2>
+  <p>Students, teachers, and researchers each play an important role. Here's the process from start to finish.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num-big">01</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><h3>Complete Consent</h3><p>Students and parents/guardians complete consent and assent forms before any participation begins.</p></div>
+    <div class="step-card"><div class="step-num-big">02</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Take the Pre-Test</h3><p>Students complete a baseline knowledge assessment via Qualtrics to measure starting cyber security understanding.</p></div>
+    <div class="step-card"><div class="step-num-big">03</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h3>Explore the Learning Lab</h3><p>Students watch tutorials and review vocabulary across three modules: OSINT, Cryptography, and Password Security.</p></div>
+    <div class="step-card"><div class="step-num-big">04</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><h3>Solve CTF Challenges</h3><p>Students apply knowledge by solving real cyber security challenges on the secure CTFd platform, capturing flags for each solution.</p></div>
+    <div class="step-card"><div class="step-num-big">05</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Reflect &amp; Discuss</h3><p>The researcher facilitates guided debrief discussions connecting challenge experiences back to real-world cyber security concepts.</p></div>
+    <div class="step-card"><div class="step-num-big">06</div><div class="step-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Post-Test &amp; Feedback</h3><p>Students complete a post-assessment and anonymous survey. Teachers submit observation feedback to the researcher.</p></div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="section">
+  <span class="section-tag">// why ctf-based learning</span>
+  <h2>Traditional Learning vs. CTFforCyberLearning</h2>
+  <p>CTF-based learning transforms passive instruction into active problem-solving — here's how it compares to traditional classroom approaches.</p>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th class="th-trad">Traditional Learning</th>
+          <th class="th-ctf">CTFforCyberLearning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Instruction Style</td><td class="td-trad">Lecture-driven, teacher-centered</td><td class="td-ctf"><span class="ctf-pill">Hands-on, student-driven exploration</span></td></tr>
+        <tr><td>Student Role</td><td class="td-trad">Passive listener and note-taker</td><td class="td-ctf"><span class="ctf-pill">Active problem solver and analyst</span></td></tr>
+        <tr><td>Engagement</td><td class="td-trad">Limited — reading and memorization</td><td class="td-ctf"><span class="ctf-pill">High — gamified, challenge-based tasks</span></td></tr>
+        <tr><td>Skill Application</td><td class="td-trad">Isolated vocabulary and theory</td><td class="td-ctf"><span class="ctf-pill">Integrated technical and ethical thinking</span></td></tr>
+        <tr><td>Assessment</td><td class="td-trad">Tests on memorized content</td><td class="td-ctf"><span class="ctf-pill">Pre/post assessments + live challenge performance</span></td></tr>
+        <tr><td>Teacher Role</td><td class="td-trad">Instructor and evaluator</td><td class="td-ctf"><span class="ctf-pill">Facilitator and guide — not grader</span></td></tr>
+        <tr><td>Career Connection</td><td class="td-trad">Abstract or indirect</td><td class="td-ctf"><span class="ctf-pill">Real analyst skills practiced directly</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- OUTREACH -->
+<div class="section">
+  <span class="section-tag">// study outreach</span>
+  <h2>Reaching Alabama High Schools</h2>
+  <p>CTFforCyberLearning partners with Alabama high schools to bring hands-on cyber security education directly into classrooms — fully aligned to state K–12 CS standards.</p>
+  <div class="reach-grid">
+    <div class="reach-card">
+      <div class="reach-icon-svg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="reach-text"><h4>Alabama High Schools</h4><p>Partnering with Alabama high schools to bring CTF-based cyber security learning directly into classrooms.</p></div>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon-svg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="reach-text"><h4>K–12 Standards Aligned</h4><p>All modules and challenges are mapped directly to Alabama's K–12 Computer Science standards for seamless curriculum integration.</p></div>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon-svg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="reach-text"><h4>Researcher-Led Sessions</h4><p>Lacey Wicks, the project lead, facilitates all sessions. Teachers serve as classroom hosts, providing space and student access.</p></div>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon-svg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="reach-text"><h4>Research-Backed Impact</h4><p>Anonymous pre/post assessments inform improvements to cyber security education statewide and beyond.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CYBER BADGES -->
+<div class="badges-section">
+  <span class="section-tag">// credentials & affiliations</span>
+  <h2>Verified &amp; Supported By</h2>
+  <div class="badges-row">
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="cb-text">University of Alabama</div><span class="cb-sub">Doctoral Research Study</span></div></div>
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><div class="cb-text">IRB Approved</div><span class="cb-sub">UA Institutional Review Board</span></div></div>
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div><div class="cb-text">CTFd Platform</div><span class="cb-sub">Secure Challenge Hosting</span></div></div>
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="cb-text">AL K–12 Aligned</div><span class="cb-sub">CS Education Standards</span></div></div>
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="cb-text">GitHub Education</div><span class="cb-sub">Web & Curriculum Support</span></div></div>
+    <div class="cyber-badge"><div class="cb-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="cb-text">OSINT · Crypto · Passwords</div><span class="cb-sub">3 Learning Modules</span></div></div>
+  </div>
+</div>
+
+<!-- ETHICS -->
+<div class="section">
+  <span class="section-tag">// research ethics & privacy</span>
+  <h2>Research Ethics &amp; Data Privacy</h2>
+  <p>This study has been reviewed and approved by the <strong style="color:#fff;">University of Alabama Institutional Review Board (IRB)</strong>. Participant privacy and ethical conduct are the foundation of this research.</p>
+  <div class="ethics-grid">
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Voluntary &amp; Anonymous</h3><p>All student participation is completely voluntary. Responses are kept fully anonymous throughout the study.</p></div>
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Teacher Role</h3><p>Teachers serve as classroom hosts, providing access to students and space. The researcher (Lacey Wicks) facilitates all sessions as the project lead.</p></div>
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Qualtrics Data Collection</h3><p>Pre/post assessments and surveys are administered anonymously through the secure Qualtrics platform.</p></div>
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3>Aggregate Reporting Only</h3><p>All findings are reported in aggregate. No individual student is ever identified in research outputs.</p></div>
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Informed Consent</h3><p>Students and parents/guardians must complete consent and assent forms before any participation begins.</p></div>
+    <div class="ethics-card"><div class="e-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>IRB Oversight</h3><p>The study protocol has been reviewed and approved by the UA Institutional Review Board to protect all participants.</p></div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="section">
+  <span class="section-tag">// research team</span>
+  <h2>Meet the CTFforCyberLearning Team</h2>
+  <div class="team-grid">
+    <div class="team-card"><span class="role-badge">Project Lead</span><h3>Lacey Wicks</h3><div class="title">Doctoral Candidate · Department of Computer Science · The University of Alabama</div><p>Leads the CTFforCyberLearning project, researching how experiential CTF-based learning improves student engagement and cyber security understanding in Alabama K–12 settings. Her work combines educational theory, cyber security practice, and technology integration.</p><a href="mailto:lwicks@crimson.ua.edu">lwicks@crimson.ua.edu →</a></div>
+    <div class="team-card"><span class="role-badge">Dissertation Chair</span><h3>Dr. Jeffrey Carver</h3><div class="title">Professor · Department of Computer Science · The University of Alabama</div></div>
+    <div class="team-card"><span class="role-badge">Dissertation Co-Chair</span><h3>Dr. Travis Atkison</h3><div class="title">Associate Professor · Department of Computer Science · The University of Alabama</div></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-banner">
+    <div><h3>Ready to think like a cyber analyst?</h3><p>Complete the consent form and pre-test to begin the CTFforCyberLearning experience.</p></div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+      <a href="/ExForCyberEducation/about/consent/" class="btn btn-primary">Consent Form →</a>
+      <a href="/ExForCyberEducation/about/team/" class="btn btn-outline">Meet the Team</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">CTFforCyberLearning</div><p class="footer-desc">Experiential cyber security education through Capture-the-Flag challenges, mapped to Alabama K–12 standards.</p></div>
+    <div class="footer-links"><h4>Study</h4><a href="/ExForCyberEducation/about/">About the Study</a><a href="/ExForCyberEducation/about/team/">Research Team</a><a href="/ExForCyberEducation/about/ethics/">Ethics & IRB</a><a href="/ExForCyberEducation/about/consent/">Consent Forms</a></div>
+    <div class="footer-links"><h4>Learn</h4><a href="/ExForCyberEducation/learning/osint/">OSINT</a><a href="/ExForCyberEducation/learning/cryptography/">Cryptography</a><a href="/ExForCyberEducation/learning/passwords/">Passwords</a><a href="/ExForCyberEducation/learning/tools/">Student Tools</a></div>
+    <div class="footer-links"><h4>Teachers</h4><a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a><a href="/ExForCyberEducation/teachers/syllabus/">Syllabus</a><a href="/ExForCyberEducation/teachers/mapping/">Standards Mapping</a><a href="/ExForCyberEducation/about/feedback/">Give Feedback</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+
+</body>
+</html>
