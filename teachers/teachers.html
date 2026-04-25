@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Toolkit | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;--green:#00e5a0;--green3:#004d35;--amber:#f5a623;--blue:#5ab0ff;--text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);--mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-brand span{color:var(--text);}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    section,footer{position:relative;z-index:1;}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);overflow:hidden;position:relative;z-index:1;}
+    .page-hero::after{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.07) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:1px;}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 0.5rem;opacity:0.4;}
+    .page-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--green);text-transform:uppercase;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.25);padding:0.3rem 0.8rem;border-radius:3px;margin-bottom:1.25rem;width:fit-content;}
+    .page-tag::before{content:'//';opacity:0.6;}
+    .page-hero h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:640px;line-height:1.75;margin-bottom:1.75rem;}
+    .hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;}
+    .btn{padding:0.7rem 1.5rem;border-radius:5px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;border:none;}
+    .btn-primary{background:var(--green);color:var(--bg);}
+    .btn-primary:hover{background:#00ffb3;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--green);border:1px solid rgba(0,229,160,0.4);}
+    .btn-outline:hover{background:rgba(0,229,160,0.08);}
+    .btn-amber{background:rgba(245,166,35,0.15);color:var(--amber);border:1px solid rgba(245,166,35,0.35);}
+    .btn-amber:hover{background:rgba(245,166,35,0.25);}
+
+    /* SUPPORT BANNER */
+    .support-banner{background:linear-gradient(135deg,rgba(0,229,160,0.08) 0%,rgba(0,229,160,0.03) 100%);border:1px solid rgba(0,229,160,0.2);border-radius:12px;padding:2rem 2.5rem;margin:2rem 2.5rem 0;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;position:relative;z-index:1;}
+    .support-banner-icon{width:60px;height:60px;border-radius:12px;background:rgba(0,229,160,0.12);border:1px solid rgba(0,229,160,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .support-banner h3{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.35rem;}
+    .support-banner p{font-size:0.88rem;color:var(--muted);line-height:1.65;max-width:500px;}
+    .support-banner .contact-link{font-family:var(--mono);font-size:0.82rem;color:var(--green);text-decoration:none;margin-top:0.5rem;display:inline-block;}
+    .support-banner .contact-link:hover{text-decoration:underline;}
+
+    /* SECTION */
+    .section{padding:3rem 2.5rem;position:relative;z-index:1;}
+    .section+.section{border-top:1px solid var(--border);}
+    .section-tag{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;display:block;}
+    .section h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.75rem;}
+    .section>p{font-size:0.92rem;color:var(--muted);line-height:1.8;max-width:720px;margin-bottom:1.5rem;}
+
+    /* PHASE TABS */
+    .phase-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;}
+    .phase-tab{font-family:var(--mono);font-size:0.78rem;padding:0.5rem 1.25rem;border-radius:5px;border:1px solid var(--border);color:var(--muted);cursor:pointer;background:transparent;transition:all 0.2s;}
+    .phase-tab.active,.phase-tab:hover{color:var(--green);border-color:rgba(0,229,160,0.4);background:rgba(0,229,160,0.06);}
+    .phase-content{display:none;}
+    .phase-content.active{display:block;}
+
+    /* PHASE STEPS */
+    .phase-steps{display:flex;flex-direction:column;gap:1rem;}
+    .phase-step{display:flex;gap:1.25rem;align-items:flex-start;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:border-color 0.2s;}
+    .phase-step:hover{border-color:rgba(0,229,160,0.3);}
+    .step-num{width:36px;height:36px;border-radius:50%;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.78rem;color:var(--green);flex-shrink:0;font-weight:700;}
+    .step-body h4{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.35rem;}
+    .step-body p{font-size:0.85rem;color:var(--muted);line-height:1.65;}
+    .step-body .step-link{display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.6rem;font-family:var(--mono);font-size:0.75rem;color:var(--green);text-decoration:none;border:1px solid rgba(0,229,160,0.3);padding:0.3rem 0.7rem;border-radius:4px;transition:all 0.2s;}
+    .step-body .step-link:hover{background:rgba(0,229,160,0.08);}
+    .step-tag{display:inline-block;font-family:var(--mono);font-size:0.62rem;padding:0.15rem 0.45rem;border-radius:3px;margin-bottom:0.4rem;letter-spacing:1px;text-transform:uppercase;}
+    .tag-required{background:rgba(255,107,107,0.1);color:#ff6b6b;border:1px solid rgba(255,107,107,0.25);}
+    .tag-optional{background:rgba(90,176,255,0.1);color:var(--blue);border:1px solid rgba(90,176,255,0.25);}
+    .tag-researcher{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.25);}
+
+    /* DOWNLOADS */
+    .downloads-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;}
+    .download-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.35rem;display:flex;align-items:center;gap:1rem;transition:border-color 0.2s,transform 0.2s;text-decoration:none;}
+    .download-card:hover{border-color:rgba(0,229,160,0.4);transform:translateY(-2px);}
+    .dl-icon{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .dl-green{background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);}
+    .dl-amber{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.2);}
+    .dl-blue{background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);}
+    .dl-body h4{font-size:0.88rem;font-weight:600;color:#fff;margin-bottom:0.2rem;}
+    .dl-body p{font-size:0.76rem;color:var(--muted);}
+    .dl-badge{font-family:var(--mono);font-size:0.62rem;color:var(--green);background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);padding:0.15rem 0.45rem;border-radius:3px;display:inline-block;margin-top:0.35rem;}
+
+    /* VIDEO GUIDES */
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1rem;}
+    .video-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;}
+    .video-card:hover{border-color:rgba(0,229,160,0.4);transform:translateY(-2px);}
+    .video-thumb{height:140px;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;}
+    .video-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,160,0.05),transparent);}
+    .play-btn{width:48px;height:48px;border-radius:50%;background:rgba(0,229,160,0.2);border:2px solid rgba(0,229,160,0.5);display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+    .video-card:hover .play-btn{background:rgba(0,229,160,0.35);transform:scale(1.1);}
+    .video-thumb-label{position:absolute;bottom:0.6rem;left:0.75rem;font-family:var(--mono);font-size:0.62rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;background:rgba(5,15,13,0.8);padding:0.2rem 0.5rem;border-radius:3px;}
+    .video-info{padding:1.1rem 1.25rem;}
+    .video-info h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.3rem;}
+    .video-info p{font-size:0.8rem;color:var(--muted);line-height:1.55;}
+    .video-info a{font-family:var(--mono);font-size:0.72rem;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;}
+    .video-info a:hover{text-decoration:underline;}
+
+    /* MODULE OVERVIEW */
+    .module-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .mod-tab{font-family:var(--mono);font-size:0.75rem;padding:0.45rem 1rem;border-radius:5px;border:1px solid var(--border);color:var(--muted);cursor:pointer;background:transparent;transition:all 0.2s;}
+    .mod-tab.active{color:var(--bg);background:var(--green);border-color:var(--green);}
+    .mod-tab:hover:not(.active){color:var(--green);border-color:rgba(0,229,160,0.4);}
+    .mod-content{display:none;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.75rem;}
+    .mod-content.active{display:block;}
+    .mod-header{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);}
+    .mod-icon{width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .mod-icon-green{background:rgba(0,229,160,0.12);border:1px solid rgba(0,229,160,0.25);}
+    .mod-icon-amber{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);}
+    .mod-icon-blue{background:rgba(90,176,255,0.12);border:1px solid rgba(90,176,255,0.25);}
+    .mod-header h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.3rem;}
+    .mod-header p{font-size:0.85rem;color:var(--muted);}
+    .mod-checklist{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    .mod-checklist li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--text);}
+    .mod-checklist li .check{width:18px;height:18px;border-radius:4px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+    /* CONTACT SUPPORT */
+    .support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;}
+    .support-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.35rem;}
+    .support-card .s-icon{width:40px;height:40px;border-radius:8px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem;}
+    .support-card h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.35rem;}
+    .support-card p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+    .support-card a{color:var(--green);font-family:var(--mono);font-size:0.8rem;text-decoration:none;display:inline-block;margin-top:0.5rem;}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem;position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;}
+    .footer-brand{font-family:var(--mono);color:var(--green);font-size:1rem;margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.82rem;color:var(--muted);max-width:260px;line-height:1.6;}
+    .footer-links h4{font-size:0.78rem;font-family:var(--mono);color:var(--green);letter-spacing:1px;margin-bottom:0.75rem;text-transform:uppercase;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy{font-size:0.78rem;color:var(--muted);font-family:var(--mono);}
+    .footer-ua{font-size:0.78rem;color:var(--muted);}
+    @media(max-width:600px){nav,.page-hero,.section,footer{padding-left:1.25rem;padding-right:1.25rem;}.support-banner{margin:1.5rem 1.25rem 0;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/" class="active">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="/ExForCyberEducation/">Home</a><span>/</span>Teacher Toolkit</div>
+  <div class="page-tag">Teacher Toolkit</div>
+  <h1>You're Not Doing<br>This <span>Alone.</span></h1>
+  <p>Everything you need to host the CTFforCyberLearning Cyber Security Learning Module in your classroom — step-by-step guides, downloadable materials, video walkthroughs, and direct researcher support from start to finish.</p>
+  <div class="hero-actions">
+    <a href="/ExForCyberEducation/about/consent/" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Get Consent Forms
+    </a>
+    <a href="mailto:lwicks@crimson.ua.edu" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      Email the Researcher
+    </a>
+  </div>
+</section>
+
+<!-- SUPPORT BANNER -->
+<div class="support-banner">
+  <div class="support-banner-icon">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+  <div>
+    <h3>Direct Support from the Researcher</h3>
+    <p>Lacey Wicks will be present for every session to facilitate the CTF activities. Your role is to provide classroom access, help with student logistics, and submit your observations after each session. You will never be left to run this alone.</p>
+    <a href="mailto:lwicks@crimson.ua.edu" class="contact-link">lwicks@crimson.ua.edu — reach out any time →</a>
+  </div>
+</div>
+
+<!-- PHASE WALKTHROUGH -->
+<div class="section">
+  <span class="section-tag">// step-by-step walkthrough</span>
+  <h2>What to Do — Phase by Phase</h2>
+  <p>This guide walks you through everything before, during, and after the Cyber Security Learning Module. Required steps are marked clearly.</p>
+
+  <div class="phase-tabs">
+    <button class="phase-tab active" onclick="showPhase('before')">Phase 1 — Before</button>
+    <button class="phase-tab" onclick="showPhase('during')">Phase 2 — During</button>
+    <button class="phase-tab" onclick="showPhase('after')">Phase 3 — After</button>
+  </div>
+
+  <div id="phase-before" class="phase-content active">
+    <div class="phase-steps">
+      <div class="phase-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Review the Study Overview</h4>
+          <p>Read the full study overview and research protocol so you understand the purpose, structure, and expectations of the CTFforCyberLearning implementation.</p>
+          <a href="/ExForCyberEducation/about/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View About the Study
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Complete Teacher Consent Form</h4>
+          <p>All teachers participating must complete the teacher consent form before the study begins. This is required for IRB compliance.</p>
+          <a href="/ExForCyberEducation/about/consent/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Access Consent Forms
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Distribute Student &amp; Parent Consent Forms</h4>
+          <p>Send home the student assent and parent/guardian consent forms. All students must have completed consent before participating in any CTF activity or assessment.</p>
+          <a href="/ExForCyberEducation/about/consent/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Download Student Forms
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Ensure Device &amp; Internet Access</h4>
+          <p>Confirm that all participating students have access to a device with internet connectivity. Students will need access to the CTFd portal and Qualtrics survey links.</p>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <span class="step-tag tag-optional">Optional</span>
+          <h4>Preview the Learning Lab &amp; Challenges</h4>
+          <p>Familiarize yourself with the student-facing content so you know what students will experience. This is optional — the researcher will lead all instruction.</p>
+          <a href="/ExForCyberEducation/learning/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Preview Learning Lab
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <span class="step-tag tag-researcher">Researcher Handles This</span>
+          <h4>CTFd Platform Setup</h4>
+          <p>Lacey Wicks will set up the CTFd challenge portal and provide students with login credentials. You do not need to create or manage any accounts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="phase-during" class="phase-content">
+    <div class="phase-steps">
+      <div class="phase-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Verify All Consent Forms Are Collected</h4>
+          <p>Before the first session begins, confirm that all participating students have completed and returned their consent/assent forms. Students without completed forms cannot participate.</p>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Ensure Students Complete the Pre-Test</h4>
+          <p>The pre-test must be completed before students begin any CTF challenges. Direct students to the Qualtrics pre-test link and allow approximately 10 minutes.</p>
+          <a href="/ExForCyberEducation/assessments/pre/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Pre-Test Link
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <span class="step-tag tag-researcher">Researcher Handles This</span>
+          <h4>Module Instruction &amp; CTF Facilitation</h4>
+          <p>Lacey Wicks will lead all mini-lessons, introduce each module, guide students through the CTFd challenges, and facilitate debrief discussions. Your role is classroom presence and student support.</p>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Support Student Logistics</h4>
+          <p>Assist with classroom management, help students with device issues, and ensure students remain on task. You are the classroom expert — your support is valued and important.</p>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Record Observations After Each Session</h4>
+          <p>After each module session, complete a brief teacher observation form. Your insights on student engagement, classroom dynamics, and any challenges are critical to the research.</p>
+          <a href="/ExForCyberEducation/about/feedback/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Submit Observations
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="phase-after" class="phase-content">
+    <div class="phase-steps">
+      <div class="phase-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Ensure Students Complete the Post-Test</h4>
+          <p>After all three modules are complete, direct students to the post-test link. Allow approximately 10 minutes. This assessment measures learning growth and is essential to the research.</p>
+          <a href="/ExForCyberEducation/assessments/post/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Post-Test Link
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <span class="step-tag tag-required">Required</span>
+          <h4>Submit Final Teacher Reflection</h4>
+          <p>Complete the final teacher reflection survey covering your overall experience, observations on student learning, and any recommendations for future implementations.</p>
+          <a href="/ExForCyberEducation/about/feedback/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Give Final Feedback
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <span class="step-tag tag-optional">Optional</span>
+          <h4>Continue Using the Learning Lab</h4>
+          <p>The Learning Lab materials — tutorials, vocabulary, and challenge guides — remain accessible after the study. You are welcome to continue using these resources in your classroom.</p>
+          <a href="/ExForCyberEducation/learning/" class="step-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Visit Learning Lab
+          </a>
+        </div>
+      </div>
+      <div class="phase-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <span class="step-tag tag-researcher">Researcher Handles This</span>
+          <h4>Data Analysis &amp; Results</h4>
+          <p>Lacey Wicks will handle all data analysis. Results are reported in aggregate only — no individual student or school is ever identified in the findings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE OVERVIEW -->
+<div class="section">
+  <span class="section-tag">// module overview</span>
+  <h2>What Students Will Experience</h2>
+  <p>The Cyber Security Learning Module consists of three sequential modules. Click each tab to see what happens in that module.</p>
+
+  <div class="module-tabs">
+    <button class="mod-tab active" onclick="showMod('osint')">Module 1 — OSINT</button>
+    <button class="mod-tab" onclick="showMod('crypto')">Module 2 — Cryptography</button>
+    <button class="mod-tab" onclick="showMod('password')">Module 3 — Password Security</button>
+  </div>
+
+  <div id="mod-osint" class="mod-content active">
+    <div class="mod-header">
+      <div class="mod-icon mod-icon-green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div>
+        <h3>Open-Source Intelligence (OSINT)</h3>
+        <p>Students learn ethical online investigation, information verification, and digital footprint analysis using publicly available tools and sources.</p>
+      </div>
+    </div>
+    <ul class="mod-checklist">
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Mini-lesson: What is OSINT and how is it used ethically?</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Tutorial videos on search tools and verification techniques</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>CTF Challenges: Find the Bean, World Traveler, Vanished Motto</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Debrief discussion on digital ethics and responsible investigation</li>
+    </ul>
+  </div>
+
+  <div id="mod-crypto" class="mod-content">
+    <div class="mod-header">
+      <div class="mod-icon mod-icon-amber">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div>
+        <h3>Cryptography</h3>
+        <p>Students explore encoding, encryption, and classical cipher techniques — learning how information is hidden, protected, and decoded.</p>
+      </div>
+    </div>
+    <ul class="mod-checklist">
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Mini-lesson: Encoding vs. encryption vs. hashing</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Tutorial videos on Base64, substitution ciphers, and decoding</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>CTF Challenges: The Secret Scroll, The Hidden Codebook, The Headmaster's Secret</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Debrief discussion on real-world encryption applications</li>
+    </ul>
+  </div>
+
+  <div id="mod-password" class="mod-content">
+    <div class="mod-header">
+      <div class="mod-icon mod-icon-blue">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5ab0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h3>Password Security</h3>
+        <p>Students investigate how passwords are stored, cracked, and strengthened — learning about hashing, salting, rainbow tables, and strong password creation.</p>
+      </div>
+    </div>
+    <ul class="mod-checklist">
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Mini-lesson: How passwords are stored and why they get cracked</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Tutorial videos on hashing, salting, and rainbow tables</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>CTF Challenges: How Long Until It's Gone, County Salt, Forgotten Coffee Shop Vibes</li>
+      <li><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Debrief discussion on personal password hygiene and best practices</li>
+    </ul>
+  </div>
+</div>
+
+<!-- VIDEO GUIDES -->
+<div class="section">
+  <span class="section-tag">// video walkthroughs</span>
+  <h2>Video Guides for Teachers</h2>
+  <p>These short videos walk you through key parts of the implementation so you always know what to expect.</p>
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-thumb">
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="video-thumb-label">Getting Started</span>
+      </div>
+      <div class="video-info">
+        <h4>Study Overview for Teachers</h4>
+        <p>A 5-minute walkthrough of what the study involves, what your role is, and what students will experience.</p>
+        <a href="/ExForCyberEducation/about/">View Study Overview →</a>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb">
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="video-thumb-label">OSINT Module</span>
+      </div>
+      <div class="video-info">
+        <h4>Intro to OSINT — Student Tutorial</h4>
+        <p>The same video your students will watch. Preview it so you know what concepts they'll be working with.</p>
+        <a href="https://youtu.be/aD-U2kP0vNk" target="_blank">Watch on YouTube →</a>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb">
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="video-thumb-label">Cryptography Module</span>
+      </div>
+      <div class="video-info">
+        <h4>Intro to Cryptography — Student Tutorial</h4>
+        <p>Preview the cryptography tutorial your students will use to learn encoding and cipher techniques.</p>
+        <a href="https://youtu.be/-yFZGF8FHSg" target="_blank">Watch on YouTube →</a>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb">
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00e5a0" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <span class="video-thumb-label">Password Module</span>
+      </div>
+      <div class="video-info">
+        <h4>Password Hashing Explained — Student Tutorial</h4>
+        <p>Preview the password security tutorial covering hashing, salting, and how credentials are protected.</p>
+        <a href="https://youtu.be/b4b8ktEV4Bg" target="_blank">Watch on YouTube →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DOWNLOADS -->
+<div class="section">
+  <span class="section-tag">// downloadable materials</span>
+  <h2>Your Resource Kit</h2>
+  <p>Everything you need is accessible below. The researcher will also bring physical copies to each session.</p>
+  <div class="downloads-grid">
+    <a href="/ExForCyberEducation/about/consent/" class="download-card">
+      <div class="dl-icon dl-green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div class="dl-body"><h4>Consent &amp; Assent Forms</h4><p>Teacher, student, and parent/guardian forms</p><span class="dl-badge">Required</span></div>
+    </a>
+    <a href="/ExForCyberEducation/teachers/syllabus/" class="download-card">
+      <div class="dl-icon dl-amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="dl-body"><h4>Study Syllabus</h4><p>Full module outline, objectives, and schedule</p><span class="dl-badge">Recommended</span></div>
+    </a>
+    <a href="/ExForCyberEducation/teachers/mapping/" class="download-card">
+      <div class="dl-icon dl-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5ab0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="dl-body"><h4>Standards Mapping</h4><p>Alabama K–12 CS standards alignment document</p><span class="dl-badge">Reference</span></div>
+    </a>
+    <a href="/ExForCyberEducation/about/presentations/" class="download-card">
+      <div class="dl-icon dl-green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="dl-body"><h4>Lesson Presentations</h4><p>Slide decks used during each module session</p><span class="dl-badge">Reference</span></div>
+    </a>
+    <a href="/ExForCyberEducation/assessments/pre/" class="download-card">
+      <div class="dl-icon dl-amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div class="dl-body"><h4>Pre-Test Link</h4><p>Qualtrics baseline assessment for students</p><span class="dl-badge">Required</span></div>
+    </a>
+    <a href="/ExForCyberEducation/assessments/post/" class="download-card">
+      <div class="dl-icon dl-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5ab0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div class="dl-body"><h4>Post-Test Link</h4><p>Qualtrics post-assessment for students</p><span class="dl-badge">Required</span></div>
+    </a>
+    <a href="/ExForCyberEducation/about/feedback/" class="download-card">
+      <div class="dl-icon dl-green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="dl-body"><h4>Teacher Observation Form</h4><p>Submit your notes and reflections after each session</p><span class="dl-badge">Required</span></div>
+    </a>
+    <a href="/ExForCyberEducation/about/student-agreement/" class="download-card">
+      <div class="dl-icon dl-amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="dl-body"><h4>Student Code of Conduct</h4><p>Ethics agreement for students before CTF participation</p><span class="dl-badge">Required</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- SUPPORT -->
+<div class="section">
+  <span class="section-tag">// get support</span>
+  <h2>We've Got You Covered</h2>
+  <p>Have questions before, during, or after the study? Reach out directly — no question is too small.</p>
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg></div>
+      <h4>Email the Researcher</h4>
+      <p>Contact Lacey Wicks directly for any questions about the study, materials, or scheduling.</p>
+      <a href="mailto:lwicks@crimson.ua.edu">lwicks@crimson.ua.edu →</a>
+    </div>
+    <div class="support-card">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h4>Submit Feedback</h4>
+      <p>Use the feedback form at any time to share observations, concerns, or suggestions about the study.</p>
+      <a href="/ExForCyberEducation/about/feedback/">Go to Feedback Form →</a>
+    </div>
+    <div class="support-card">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <h4>Study FAQ</h4>
+      <p>Read the study overview for answers to common questions about the research, IRB approval, and student privacy.</p>
+      <a href="/ExForCyberEducation/about/">Read About the Study →</a>
+    </div>
+    <div class="support-card">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h4>UA Department of CS</h4>
+      <p>This study is conducted through the Department of Computer Science at The University of Alabama.</p>
+      <a href="https://cs.ua.edu/" target="_blank">Visit cs.ua.edu →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">CTFforCyberLearning</div><p class="footer-desc">Experiential Cyber Security education through Capture-the-Flag challenges, mapped to Alabama K–12 standards.</p></div>
+    <div class="footer-links"><h4>Study</h4><a href="/ExForCyberEducation/about/">About the Study</a><a href="/ExForCyberEducation/about/team/">Research Team</a><a href="/ExForCyberEducation/about/ethics/">Ethics & IRB</a><a href="/ExForCyberEducation/about/consent/">Consent Forms</a></div>
+    <div class="footer-links"><h4>Learn</h4><a href="/ExForCyberEducation/learning/osint/">OSINT</a><a href="/ExForCyberEducation/learning/cryptography/">Cryptography</a><a href="/ExForCyberEducation/learning/passwords/">Passwords</a><a href="/ExForCyberEducation/learning/tools/">Student Tools</a></div>
+    <div class="footer-links"><h4>Teachers</h4><a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a><a href="/ExForCyberEducation/teachers/syllabus/">Syllabus</a><a href="/ExForCyberEducation/teachers/mapping/">Standards Mapping</a><a href="/ExForCyberEducation/about/feedback/">Give Feedback</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+
+<script>
+function showPhase(p){
+  document.querySelectorAll('.phase-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.phase-tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('phase-'+p).classList.add('active');
+  event.target.classList.add('active');
+}
+function showMod(m){
+  document.querySelectorAll('.mod-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.mod-tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('mod-'+m).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
