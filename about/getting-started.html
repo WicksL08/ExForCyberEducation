@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Getting Started | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#050f0d;--bg2:#0a1f1a;
+      --green:#00e5a0;--green3:#004d35;
+      --amber:#f5a623;--blue:#5ab0ff;--red:#ff6b6b;
+      --text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);
+      --mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;
+    }
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1.05rem;color:var(--muted);max-width:620px;position:relative;z-index:1;}
+    main{max-width:780px;margin:0 auto;padding:3rem 2rem 5rem;}
+    .section-tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:0.75rem;margin-top:2.5rem;}
+    .section-tag:first-child{margin-top:0;}
+
+    /* STEPS */
+    .steps{display:flex;flex-direction:column;gap:0;}
+    .step{display:flex;gap:1.5rem;position:relative;}
+    .step:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:-1px;width:1px;background:var(--border);}
+    .step-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+    .step-num{width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid rgba(0,229,160,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.72rem;color:var(--green);flex-shrink:0;}
+    .step-body{padding-bottom:2.5rem;flex:1;}
+    .step-body h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;padding-top:0.5rem;}
+    .step-body p{font-size:0.875rem;color:var(--muted);margin-bottom:0.75rem;}
+    .step-body a{color:var(--green);text-decoration:none;}
+    .step-body a:hover{text-decoration:underline;}
+
+    /* CODE BLOCK */
+    .code-block{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1.25rem;font-family:var(--mono);font-size:0.8rem;color:var(--green);margin:0.75rem 0;}
+
+    /* ALERT */
+    .alert{background:rgba(0,229,160,0.06);border:1px solid rgba(0,229,160,0.2);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:0.85rem 1.1rem;font-size:0.85rem;color:var(--muted);margin:0.75rem 0;}
+    .alert strong{color:var(--green);font-family:var(--mono);}
+    .alert-warn{background:rgba(245,166,35,0.06);border-color:rgba(245,166,35,0.2);border-left-color:var(--amber);}
+    .alert-warn strong{color:var(--amber);}
+
+    /* RULES */
+    .rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;}
+    @media(max-width:560px){.rules-grid{grid-template-columns:1fr;}}
+    .rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;}
+    .rule-card h4{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem;}
+    .rule-card ul{padding-left:1.1rem;}
+    .rule-card li{font-size:0.82rem;color:var(--muted);margin-bottom:0.3rem;}
+
+    /* CONTACT */
+    .contact-block{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem 2rem;margin-top:2.5rem;}
+    .contact-block h3{font-family:var(--mono);font-size:0.78rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .contact-block p{font-size:0.875rem;color:var(--muted);margin-bottom:0.3rem;}
+    .contact-block a{color:var(--green);text-decoration:none;}
+    .contact-block a:hover{text-decoration:underline;}
+
+    .nav-footer{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2.5rem;}
+    .btn-ghost{font-family:var(--mono);font-size:0.78rem;padding:0.6rem 1.2rem;border-radius:6px;color:var(--muted);text-decoration:none;border:1px solid var(--border);transition:all 0.2s;}
+    .btn-ghost:hover{color:var(--green);border-color:var(--green3);}
+    .btn-green{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.4rem;border-radius:8px;font-family:var(--mono);font-size:0.78rem;text-decoration:none;background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.3);transition:all 0.2s;}
+    .btn-green:hover{background:rgba(0,229,160,0.18);}
+
+    footer{border-top:1px solid var(--border);padding:3rem 2.5rem 2rem;}
+    .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
+    .footer-brand{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .footer-links h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--green);}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy,.footer-ua{font-family:var(--mono);font-size:0.7rem;color:var(--muted);}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span style="color:var(--text)">CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/ExForCyberEducation/">Home</a> / <a href="/ExForCyberEducation/about/">About</a> / Getting Started</p>
+  <h1>How to Sign Up for <span>CTFd</span></h1>
+  <p>Before solving challenges, you need to create a secure account on the CTFd platform. Follow the steps below carefully.</p>
+</div>
+
+<main>
+
+  <div class="alert">
+    <strong>// before you begin</strong> — Make sure you have completed the <a href="/ExForCyberEducation/about/consent.html">Consent Forms</a> and the <a href="https://universityofalabama.az1.qualtrics.com/jfe/form/SV_08RDkOMuXCLtjBY" target="_blank">Pre-Test</a> before creating your CTFd account.
+  </div>
+
+  <span class="section-tag">// sign-up steps</span>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">01</div></div>
+      <div class="step-body">
+        <h3>Go to the CTFd Website</h3>
+        <p>Open your browser and visit the Ex4CSLearning challenge platform.</p>
+        <a href="https://ex4cslearning.ctfd.io" target="_blank" rel="noopener" class="btn-green">Open CTFd Platform →</a>
+        <p style="margin-top:0.75rem;">You'll see a page that says <em>"Welcome to Ex4CSLearning"</em> with a sign-up option.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">02</div></div>
+      <div class="step-body">
+        <h3>Complete the Pre-Test First</h3>
+        <p>Before registering, complete the short pre-test. It only takes about 5 minutes and measures your learning progress.</p>
+        <a href="https://universityofalabama.az1.qualtrics.com/jfe/form/SV_08RDkOMuXCLtjBY" target="_blank" rel="noopener" class="btn-green">Take the Pre-Test →</a>
+        <div class="alert" style="margin-top:0.75rem;">After completing the pre-test, return here and continue with the CTFd steps.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">03</div></div>
+      <div class="step-body">
+        <h3>Click "Sign Up"</h3>
+        <p>On the top right of the CTFd page, click <strong>Sign Up</strong> and fill in the fields:</p>
+        <ul style="padding-left:1.25rem;color:var(--muted);font-size:0.875rem;margin-top:0.5rem;">
+          <li style="margin-bottom:0.35rem;">Enter your <strong style="color:var(--text);">school or temporary email address</strong></li>
+          <li style="margin-bottom:0.35rem;">Create a <strong style="color:var(--text);">secure password</strong> you can remember</li>
+          <li style="margin-bottom:0.35rem;">Re-enter the password to confirm</li>
+        </ul>
+        <div class="alert alert-warn" style="margin-top:0.75rem;"><strong>// note</strong> — Use your school email if possible. Do not use your personal or family email.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">04</div></div>
+      <div class="step-body">
+        <h3>Join Your Team (if applicable)</h3>
+        <p>If your teacher provides a <strong>team code</strong> or <strong>school group</strong>, enter that code during registration or from the <strong>Teams</strong> tab after signing up.</p>
+        <p>If not, you can proceed as an individual student.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">05</div></div>
+      <div class="step-body">
+        <h3>Verify and Log In</h3>
+        <p>After creating your account:</p>
+        <ul style="padding-left:1.25rem;color:var(--muted);font-size:0.875rem;margin-top:0.5rem;">
+          <li style="margin-bottom:0.35rem;">Check your email (including spam) for the <strong style="color:var(--text);">confirmation message</strong></li>
+          <li style="margin-bottom:0.35rem;">Click the verification link</li>
+          <li style="margin-bottom:0.35rem;">Log in and start exploring your challenges!</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RULES -->
+  <span class="section-tag">// important rules</span>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <h4>Account Rules</h4>
+      <ul>
+        <li>Do not share flags or answers with other students</li>
+        <li>Do not change your username after sign up</li>
+        <li>Use the "Forgot Password" option if needed</li>
+        <li>Ask your teacher before making profile changes</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <h4>Username Format</h4>
+      <ul>
+        <li>Your username should only identify your school and initials</li>
+        <li>Never use your full name in your username</li>
+        <li>Example: <span style="font-family:var(--mono);color:var(--green);font-size:0.8rem;">BHS_JD</span> for Jefferson Davis at Brewer High</li>
+        <li>Ask your teacher if unsure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-block">
+    <h3>// need help?</h3>
+    <p>If you have login issues or can't verify your email, contact the research team.</p>
+    <p style="margin-top:0.5rem;"><strong style="color:var(--text);">Lacey Wicks</strong> — <a href="mailto:lwicks@crimson.ua.edu">lwicks@crimson.ua.edu →</a></p>
+  </div>
+
+  <div class="nav-footer">
+    <a href="/ExForCyberEducation/about/" class="btn-ghost">← Back to About</a>
+    <a href="/ExForCyberEducation/challenges/" class="btn-ghost">Go to Challenges</a>
+    <a href="/ExForCyberEducation/" class="btn-ghost">Home</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CTFforCyberLearning</div>
+      <p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Study</h4>
+      <a href="/ExForCyberEducation/about/">About the Study</a>
+      <a href="/ExForCyberEducation/about/team.html">Research Team</a>
+      <a href="/ExForCyberEducation/about/ethics.html">Ethics &amp; IRB</a>
+      <a href="/ExForCyberEducation/about/consent.html">Consent Forms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Learn</h4>
+      <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+      <a href="/ExForCyberEducation/learning/osint.html">OSINT</a>
+      <a href="/ExForCyberEducation/learning/cryptography.html">Cryptography</a>
+      <a href="/ExForCyberEducation/learning/passwords.html">Passwords</a>
+    </div>
+    <div class="footer-links">
+      <h4>Teachers</h4>
+      <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+      <a href="/ExForCyberEducation/teachers/syllabus.html">Syllabus</a>
+      <a href="/ExForCyberEducation/teachers/mapping.html">Standards Mapping</a>
+      <a href="/ExForCyberEducation/about/feedback.html">Give Feedback</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
