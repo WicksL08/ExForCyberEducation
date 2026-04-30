@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consent & Assent Forms | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;
+      --green:#00e5a0;--green2:rgba(0,229,160,0.12);--green3:#004d35;
+      --amber:#f5a623;--blue:#5ab0ff;--red:#ff6b6b;
+      --text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);
+      --mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+
+    /* HERO */
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1.05rem;color:var(--muted);max-width:620px;position:relative;z-index:1;}
+
+    /* MAIN */
+    main{max-width:900px;margin:0 auto;padding:3rem 2rem 5rem;}
+
+    /* ALERT BANNER */
+    .alert{background:rgba(0,229,160,0.06);border:1px solid rgba(0,229,160,0.25);border-left:4px solid var(--green);border-radius:8px;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:0.9rem;color:var(--text);}
+    .alert strong{color:var(--green);font-family:var(--mono);}
+    .alert a{color:var(--green);text-decoration:underline;}
+
+    /* SECTION TAG */
+    .section-tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:0.5rem;}
+
+    /* CONSENT CARDS */
+    .consent-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem;}
+    @media(max-width:680px){.consent-grid{grid-template-columns:1fr;}}
+
+    .consent-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:border-color 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+    .consent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0;}
+    .consent-card.teacher::before{background:linear-gradient(90deg,var(--amber),transparent);}
+    .consent-card.parent::before{background:linear-gradient(90deg,var(--blue),transparent);}
+    .consent-card:hover{border-color:rgba(0,229,160,0.3);box-shadow:0 0 24px rgba(0,229,160,0.06);}
+
+    .card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+    .teacher .card-icon{background:rgba(245,166,35,0.12);}
+    .parent .card-icon{background:rgba(90,176,255,0.12);}
+    .card-icon svg{width:22px;height:22px;}
+    .teacher .card-icon svg{stroke:var(--amber);}
+    .parent .card-icon svg{stroke:var(--blue);}
+
+    .consent-card h2{font-size:1.15rem;font-weight:600;color:var(--text);}
+    .consent-card p{font-size:0.875rem;color:var(--muted);line-height:1.6;flex:1;}
+
+    .badge-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .badge{font-family:var(--mono);font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:4px;letter-spacing:0.5px;}
+    .badge-doc{background:rgba(245,166,35,0.1);color:var(--amber);border:1px solid rgba(245,166,35,0.2);}
+    .badge-req{background:rgba(255,107,107,0.1);color:var(--red);border:1px solid rgba(255,107,107,0.2);}
+    .badge-blue{background:rgba(90,176,255,0.1);color:var(--blue);border:1px solid rgba(90,176,255,0.2);}
+
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;border-radius:8px;font-family:var(--mono);font-size:0.8rem;font-weight:500;letter-spacing:0.5px;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s;white-space:nowrap;}
+    .btn-amber{background:rgba(245,166,35,0.12);color:var(--amber);border:1px solid rgba(245,166,35,0.3);}
+    .btn-amber:hover{background:rgba(245,166,35,0.2);box-shadow:0 0 16px rgba(245,166,35,0.15);}
+    .btn-blue{background:rgba(90,176,255,0.12);color:var(--blue);border:1px solid rgba(90,176,255,0.3);}
+    .btn-blue:hover{background:rgba(90,176,255,0.2);box-shadow:0 0 16px rgba(90,176,255,0.15);}
+    .btn-green{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.3);}
+    .btn-green:hover{background:rgba(0,229,160,0.18);box-shadow:0 0 16px rgba(0,229,160,0.12);}
+
+    /* NEXT STEP */
+    .next-step{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;}
+    .next-step-text h3{font-size:1.1rem;font-weight:600;margin-bottom:0.35rem;}
+    .next-step-text p{font-size:0.875rem;color:var(--muted);}
+
+    /* INFO SECTION */
+    .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:3rem;}
+    .info-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;}
+    .info-card h4{font-family:var(--mono);font-size:0.75rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;}
+    .info-card p{font-size:0.85rem;color:var(--muted);}
+
+    /* CONTACT */
+    .contact-block{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 2rem;}
+    .contact-block h3{font-family:var(--mono);font-size:0.8rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;}
+    .contact-block p{font-size:0.9rem;color:var(--muted);margin-bottom:0.35rem;}
+    .contact-block a{color:var(--green);text-decoration:none;}
+    .contact-block a:hover{text-decoration:underline;}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:3rem 2.5rem 2rem;position:relative;z-index:1;}
+    .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
+    .footer-brand{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .footer-links h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--green);}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy,.footer-ua{font-family:var(--mono);font-size:0.7rem;color:var(--muted);}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/" class="active">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/ExForCyberEducation/">Home</a> / <a href="/ExForCyberEducation/about/">About</a> / Consent &amp; Assent Forms</p>
+  <h1>Consent &amp; <span>Assent Forms</span></h1>
+  <p>All participants must complete the appropriate form before beginning the study. Forms are electronic and processed securely through DocuSign.</p>
+</div>
+
+<main>
+
+  <div class="alert">
+    <strong>// required before starting</strong> — All consent and assent forms must be completed <strong>before</strong> taking the <a href="/ExForCyberEducation/assessments/pre/">Pre-Test</a> or accessing any CTF Challenges.
+  </div>
+
+  <span class="section-tag">// step 01 — complete your form</span>
+  <h2 style="font-size:1.4rem;font-weight:600;margin-bottom:1.25rem;">Select the Form That Applies to You</h2>
+
+  <div class="consent-grid">
+
+    <!-- TEACHER CARD -->
+    <div class="consent-card teacher">
+      <div class="card-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-1.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+      </div>
+      <div class="badge-row">
+        <span class="badge badge-doc">DocuSign</span>
+        <span class="badge badge-req">Required for Teachers</span>
+      </div>
+      <h2>Teacher Consent Form</h2>
+      <p>Teachers facilitating the study must complete this form to confirm understanding of the study purpose, their role, data confidentiality, and voluntary participation.</p>
+      <a href="https://na2.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=2a0a7f21-3c39-4eaa-9f0e-d937130f9935&env=na2&acct=046ae80d-7495-4a39-a960-9a4b16ff5c0f&v=2" target="_blank" rel="noopener noreferrer" class="btn btn-amber">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        Open Teacher Consent Form →
+      </a>
+    </div>
+
+    <!-- PARENT/CHILD CARD -->
+    <div class="consent-card parent">
+      <div class="card-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+      </div>
+      <div class="badge-row">
+        <span class="badge badge-doc">DocuSign</span>
+        <span class="badge badge-blue">Required for Students &amp; Parents</span>
+      </div>
+      <h2>Parent/Guardian Consent &amp; Student Assent</h2>
+      <p>Parents or guardians and students must complete this combined form before the study begins. It explains the study purpose, CTF activities, and how student privacy is protected.</p>
+      <a href="https://na2.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=e3e69d14-b1b9-47bd-a0a9-6cf95678922d&env=na2&acct=046ae80d-7495-4a39-a960-9a4b16ff5c0f&v=2" target="_blank" rel="noopener noreferrer" class="btn btn-blue">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        Open Parent/Student Form →
+      </a>
+    </div>
+
+  </div>
+
+  <!-- NEXT STEP -->
+  <span class="section-tag">// step 02 — after your form is submitted</span>
+  <div class="next-step">
+    <div class="next-step-text">
+      <h3>Take the Pre-Test</h3>
+      <p>Once your consent form is submitted, proceed to the pre-test. It is anonymous and used only for research and learning improvement.</p>
+    </div>
+    <a href="https://universityofalabama.az1.qualtrics.com/jfe/form/SV_08RDkOMuXCLtjBY" target="_blank" rel="noopener noreferrer" class="btn btn-green">
+      Start Pre-Test →
+    </a>
+  </div>
+
+  <!-- INFO CARDS -->
+  <span class="section-tag">// important information</span>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>Voluntary Participation</h4>
+      <p>Students and teachers may withdraw at any time without penalty or consequence.</p>
+    </div>
+    <div class="info-card">
+      <h4>Anonymous Data</h4>
+      <p>All responses are anonymous. No individual is ever identified in any research output.</p>
+    </div>
+    <div class="info-card">
+      <h4>IRB Approved</h4>
+      <p>This study has been reviewed and approved by The University of Alabama Institutional Review Board.</p>
+    </div>
+    <div class="info-card">
+      <h4>Secure Storage</h4>
+      <p>All data are stored securely under UA research compliance policies.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-block">
+    <h3>// questions?</h3>
+    <p><strong style="color:var(--text);">Lacey Wicks</strong></p>
+    <p>Doctoral Candidate · Department of Computer Science · The University of Alabama</p>
+    <p style="margin-top:0.5rem;"><a href="mailto:lwicks@crimson.ua.edu">lwicks@crimson.ua.edu →</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CTFforCyberLearning</div>
+      <p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Study</h4>
+      <a href="/ExForCyberEducation/about/">About the Study</a>
+      <a href="/ExForCyberEducation/about/team/">Research Team</a>
+      <a href="/ExForCyberEducation/about/ethics/">Ethics &amp; IRB</a>
+      <a href="/ExForCyberEducation/about/consent/">Consent Forms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Learn</h4>
+      <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+      <a href="/ExForCyberEducation/learning/osint/">OSINT</a>
+      <a href="/ExForCyberEducation/learning/cryptography/">Cryptography</a>
+      <a href="/ExForCyberEducation/learning/passwords/">Passwords</a>
+    </div>
+    <div class="footer-links">
+      <h4>Teachers</h4>
+      <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+      <a href="/ExForCyberEducation/teachers/syllabus/">Syllabus</a>
+      <a href="/ExForCyberEducation/teachers/mapping/">Standards Mapping</a>
+      <a href="/ExForCyberEducation/about/feedback/">Give Feedback</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+
+</body>
+</html>
