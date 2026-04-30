@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Study Syllabus | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#050f0d;--bg2:#0a1f1a;
+      --green:#00e5a0;--green3:#004d35;
+      --amber:#f5a623;--blue:#5ab0ff;--purple:#c084fc;
+      --text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);
+      --mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;
+    }
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1.05rem;color:var(--muted);max-width:620px;position:relative;z-index:1;}
+    main{max-width:900px;margin:0 auto;padding:3rem 2rem 5rem;}
+    .section-tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:0.75rem;margin-top:2.5rem;}
+    .section-tag:first-child{margin-top:0;}
+    h2{font-size:1.25rem;font-weight:700;margin-bottom:1.25rem;}
+
+    /* DAY CARDS */
+    .day-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;}
+    .day-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}
+    .day-card.d1::before{background:linear-gradient(90deg,var(--blue),transparent);}
+    .day-card.d2::before{background:linear-gradient(90deg,var(--amber),transparent);}
+    .day-card.d3::before{background:linear-gradient(90deg,var(--purple),transparent);}
+    .day-header{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;}
+    .day-badge{font-family:var(--mono);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:3px;}
+    .d1 .day-badge{background:rgba(90,176,255,0.1);color:var(--blue);border:1px solid rgba(90,176,255,0.2);}
+    .d2 .day-badge{background:rgba(245,166,35,0.1);color:var(--amber);border:1px solid rgba(245,166,35,0.2);}
+    .d3 .day-badge{background:rgba(192,132,252,0.1);color:var(--purple);border:1px solid rgba(192,132,252,0.2);}
+    .day-header h2{margin-bottom:0.25rem;}
+    .day-header p{font-size:0.875rem;color:var(--muted);}
+
+    .day-sections{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    @media(max-width:600px){.day-sections{grid-template-columns:1fr;}}
+    .day-section h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem;}
+    .day-section ul{padding-left:1.1rem;}
+    .day-section li{font-size:0.85rem;color:var(--muted);margin-bottom:0.35rem;line-height:1.5;}
+    .day-section li a{color:var(--green);text-decoration:none;}
+    .day-section li a:hover{text-decoration:underline;}
+    .challenge-pills{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.25rem;}
+    .cpill{font-family:var(--mono);font-size:0.62rem;padding:0.2rem 0.5rem;border-radius:3px;background:rgba(0,229,160,0.07);color:var(--green);border:1px solid rgba(0,229,160,0.15);}
+
+    /* STANDARDS NOTE */
+    .standards-note{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin-bottom:2.5rem;font-size:0.875rem;color:var(--muted);}
+    .standards-note strong{color:var(--text);}
+    .standards-note a{color:var(--green);text-decoration:none;}
+    .standards-note a:hover{text-decoration:underline;}
+
+    /* QUICK LINKS */
+    .quick-links{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+    .btn-ghost{font-family:var(--mono);font-size:0.78rem;padding:0.6rem 1.2rem;border-radius:6px;color:var(--muted);text-decoration:none;border:1px solid var(--border);transition:all 0.2s;}
+    .btn-ghost:hover{color:var(--green);border-color:var(--green3);}
+
+    footer{border-top:1px solid var(--border);padding:3rem 2.5rem 2rem;}
+    .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
+    .footer-brand{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .footer-links h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--green);}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy,.footer-ua{font-family:var(--mono);font-size:0.7rem;color:var(--muted);}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span style="color:var(--text)">CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/" class="active">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/ExForCyberEducation/">Home</a> / <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a> / Study Syllabus</p>
+  <h1><span>Study Syllabus</span></h1>
+  <p>A session-by-session plan for facilitating the Ex4CSLearning CTF study. Each session combines a mini-lesson, guided challenges, and reflection activities.</p>
+</div>
+
+<main>
+
+  <div class="standards-note">
+    <strong>Standards aligned:</strong> All lessons map to the <strong>Alabama K–12 Computer Science Standards (2021)</strong> and the <strong>NICE Cybersecurity Workforce Framework (2020)</strong>. See the <a href="/ExForCyberEducation/teachers/mapping.html">Standards Mapping page</a> for full details.
+  </div>
+
+  <span class="section-tag">// session 1</span>
+  <div class="day-card d1">
+    <div class="day-header">
+      <span class="day-badge">Session 1 · OSINT</span>
+      <div>
+        <h2>OSINT &amp; Ethics</h2>
+        <p>Introduction to cybersecurity and the ethical use of publicly available information.</p>
+      </div>
+    </div>
+    <div class="day-sections">
+      <div class="day-section">
+        <h4>Learning Activities</h4>
+        <ul>
+          <li>Review the <a href="/ExForCyberEducation/about/student-agreement.html">Code of Conduct</a> and discuss responsible online research.</li>
+          <li>Students complete the <a href="https://universityofalabama.az1.qualtrics.com/jfe/form/SV_08RDkOMuXCLtjBY" target="_blank">Pre-Test</a> to establish baseline knowledge.</li>
+          <li>Mini-lesson: <em>"What is a CTF?"</em> — overview of challenges and real-world applications.</li>
+          <li>Complete the <strong>OSINT Challenge Set</strong> on CTFd.</li>
+        </ul>
+        <div class="challenge-pills" style="margin-top:0.75rem;">
+          <span class="cpill">Find the Bean</span>
+          <span class="cpill">World Traveler</span>
+          <span class="cpill">Vanished Motto</span>
+        </div>
+      </div>
+      <div class="day-section">
+        <h4>Assessment</h4>
+        <ul>
+          <li>Pre-Test completion (Qualtrics)</li>
+          <li>Submission of OSINT challenge flags in CTFd</li>
+          <li>Brief class discussion on ethical OSINT use</li>
+        </ul>
+        <h4 style="margin-top:1rem;">Resources</h4>
+        <ul>
+          <li><a href="/ExForCyberEducation/learning/osint.html">OSINT Learning Lab</a></li>
+          <li><a href="https://ex4cslearning.ctfd.io" target="_blank">CTFd Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <span class="section-tag">// session 2</span>
+  <div class="day-card d2">
+    <div class="day-header">
+      <span class="day-badge">Session 2 · Cryptography</span>
+      <div>
+        <h2>Cryptography &amp; Secret Messages</h2>
+        <p>Understanding encryption, encoding, and how to decode hidden messages using classical ciphers.</p>
+      </div>
+    </div>
+    <div class="day-sections">
+      <div class="day-section">
+        <h4>Learning Activities</h4>
+        <ul>
+          <li>Mini-lesson: substitution vs. transposition ciphers with hands-on examples.</li>
+          <li>Students complete the <strong>Cryptography Challenge Set</strong> on CTFd.</li>
+          <li>Group discussion: <em>"How does encryption protect data in everyday life?"</em></li>
+        </ul>
+        <div class="challenge-pills" style="margin-top:0.75rem;">
+          <span class="cpill">Secret Scroll</span>
+          <span class="cpill">Hidden Codebook</span>
+          <span class="cpill">Headmaster's Secret</span>
+        </div>
+      </div>
+      <div class="day-section">
+        <h4>Assessment</h4>
+        <ul>
+          <li>Challenge flag submissions in CTFd</li>
+          <li>Participation in group reflection</li>
+        </ul>
+        <h4 style="margin-top:1rem;">Resources</h4>
+        <ul>
+          <li><a href="/ExForCyberEducation/learning/cryptography.html">Cryptography Learning Lab</a></li>
+          <li><a href="https://ex4cslearning.ctfd.io" target="_blank">CTFd Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <span class="section-tag">// session 3</span>
+  <div class="day-card d3">
+    <div class="day-header">
+      <span class="day-badge">Session 3 · Passwords</span>
+      <div>
+        <h2>Password Security &amp; Reflection</h2>
+        <p>Password hashing, salting, cracking ethics — and wrapping up with the post-test and group reflection.</p>
+      </div>
+    </div>
+    <div class="day-sections">
+      <div class="day-section">
+        <h4>Learning Activities</h4>
+        <ul>
+          <li>Mini-lesson: password entropy and hashing — how passwords are stored securely.</li>
+          <li>Complete the <strong>Password Security Challenge Set</strong> on CTFd.</li>
+          <li>Class reflection and completion of the Post-Test.</li>
+          <li>Group discussion: <em>"What makes a password secure, and why does ethical hacking matter?"</em></li>
+        </ul>
+        <div class="challenge-pills" style="margin-top:0.75rem;">
+          <span class="cpill">How Long Until It's Gone</span>
+          <span class="cpill">County Salt</span>
+          <span class="cpill">Coffee Shop Vibes</span>
+        </div>
+      </div>
+      <div class="day-section">
+        <h4>Assessment</h4>
+        <ul>
+          <li>Challenge flag submissions in CTFd</li>
+          <li>Post-Test completion (Qualtrics)</li>
+          <li>Teacher &amp; student feedback form submission</li>
+        </ul>
+        <h4 style="margin-top:1rem;">Resources</h4>
+        <ul>
+          <li><a href="/ExForCyberEducation/learning/passwords.html">Password Security Learning Lab</a></li>
+          <li><a href="/ExForCyberEducation/about/feedback.html">Feedback Forms</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <span class="section-tag">// additional resources</span>
+  <div class="quick-links">
+    <a href="/ExForCyberEducation/teachers/" class="btn-ghost">← Teacher Toolkit</a>
+    <a href="/ExForCyberEducation/teachers/mapping.html" class="btn-ghost">Standards Mapping</a>
+    <a href="/ExForCyberEducation/about/consent.html" class="btn-ghost">Consent Forms</a>
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" rel="noopener" class="btn-ghost">CTFd Portal →</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CTFforCyberLearning</div>
+      <p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Study</h4>
+      <a href="/ExForCyberEducation/about/">About the Study</a>
+      <a href="/ExForCyberEducation/about/team.html">Research Team</a>
+      <a href="/ExForCyberEducation/about/ethics.html">Ethics &amp; IRB</a>
+      <a href="/ExForCyberEducation/about/consent.html">Consent Forms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Learn</h4>
+      <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+      <a href="/ExForCyberEducation/learning/osint.html">OSINT</a>
+      <a href="/ExForCyberEducation/learning/cryptography.html">Cryptography</a>
+      <a href="/ExForCyberEducation/learning/passwords.html">Passwords</a>
+    </div>
+    <div class="footer-links">
+      <h4>Teachers</h4>
+      <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+      <a href="/ExForCyberEducation/teachers/syllabus.html">Syllabus</a>
+      <a href="/ExForCyberEducation/teachers/mapping.html">Standards Mapping</a>
+      <a href="/ExForCyberEducation/about/feedback.html">Give Feedback</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
