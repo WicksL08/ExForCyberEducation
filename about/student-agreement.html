@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Code of Conduct | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#050f0d;--bg2:#0a1f1a;
+      --green:#00e5a0;--green3:#004d35;
+      --amber:#f5a623;--blue:#5ab0ff;--red:#ff6b6b;
+      --text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);
+      --mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;
+    }
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1.05rem;color:var(--muted);max-width:620px;position:relative;z-index:1;}
+    main{max-width:820px;margin:0 auto;padding:3rem 2rem 5rem;}
+    .section-tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:0.75rem;margin-top:2.5rem;}
+    .section-tag:first-child{margin-top:0;}
+    h2{font-size:1.2rem;font-weight:700;margin-bottom:1rem;}
+
+    /* PURPOSE CARD */
+    .purpose-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 2rem;margin-bottom:2.5rem;}
+    .purpose-card p{font-size:0.9rem;color:var(--muted);margin-bottom:0.75rem;}
+    .purpose-card ul{padding-left:1.25rem;}
+    .purpose-card li{font-size:0.875rem;color:var(--muted);margin-bottom:0.4rem;}
+    .purpose-card li strong{color:var(--text);}
+
+    /* GUIDELINES */
+    .guidelines{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2.5rem;}
+    .guideline{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:border-color 0.2s;}
+    .guideline:hover{border-color:rgba(0,229,160,0.25);}
+    .check{width:28px;height:28px;border-radius:6px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .check svg{width:14px;height:14px;stroke:var(--green);}
+    .guideline-text h4{font-size:0.9rem;font-weight:600;margin-bottom:0.25rem;}
+    .guideline-text p{font-size:0.83rem;color:var(--muted);}
+
+    /* PRIVACY */
+    .privacy-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem;}
+    @media(max-width:560px){.privacy-grid{grid-template-columns:1fr;}}
+    .privacy-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;}
+    .privacy-card h4{font-family:var(--mono);font-size:0.68rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem;}
+    .privacy-card p{font-size:0.84rem;color:var(--muted);}
+
+    /* QUOTE */
+    .quote-block{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:2rem 0;font-size:1rem;color:var(--text);font-style:italic;text-align:center;}
+
+    /* TEACHER NOTE */
+    .teacher-note{background:rgba(245,166,35,0.05);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;}
+    .teacher-note h4{font-family:var(--mono);font-size:0.7rem;color:var(--amber);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;}
+    .teacher-note p{font-size:0.875rem;color:var(--muted);}
+
+    .nav-footer{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;}
+    .btn-ghost{font-family:var(--mono);font-size:0.78rem;padding:0.6rem 1.2rem;border-radius:6px;color:var(--muted);text-decoration:none;border:1px solid var(--border);transition:all 0.2s;}
+    .btn-ghost:hover{color:var(--green);border-color:var(--green3);}
+
+    footer{border-top:1px solid var(--border);padding:3rem 2.5rem 2rem;}
+    .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
+    .footer-brand{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .footer-links h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--green);}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy,.footer-ua{font-family:var(--mono);font-size:0.7rem;color:var(--muted);}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/ExForCyberEducation/" class="nav-brand">CTFfor<span style="color:var(--text)">CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/ExForCyberEducation/about/">About</a>
+    <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+    <a href="/ExForCyberEducation/challenges/">Challenges</a>
+    <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/ExForCyberEducation/">Home</a> / <a href="/ExForCyberEducation/about/">About</a> / Code of Conduct</p>
+  <h1>Student <span>Code of Conduct</span></h1>
+  <p>Before participating in any CTF activity, read and understand these expectations. Ethical participation makes this research possible.</p>
+</div>
+
+<main>
+
+  <!-- PURPOSE -->
+  <span class="section-tag">// purpose of this agreement</span>
+  <div class="purpose-card">
+    <p>The goal of this agreement is to ensure all students understand how to:</p>
+    <ul>
+      <li>Participate <strong>ethically and responsibly</strong> in all cybersecurity activities</li>
+      <li>Protect their own <strong>privacy and digital safety</strong></li>
+      <li>Respect others and maintain a <strong>positive learning environment</strong></li>
+      <li>Contribute to research in a <strong>safe and anonymous</strong> way</li>
+    </ul>
+  </div>
+
+  <!-- GUIDELINES -->
+  <span class="section-tag">// participation guidelines</span>
+  <h2>As a participant, I agree to:</h2>
+  <div class="guidelines">
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Use my skills for good</h4>
+        <p>I will not use what I learn to harm people, systems, or data. Cybersecurity knowledge is a responsibility.</p>
+      </div>
+    </div>
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Respect privacy</h4>
+        <p>I will never access, share, or post personal or school information without explicit permission.</p>
+      </div>
+    </div>
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Play fair</h4>
+        <p>I will complete challenges honestly without using outside tools, sharing flags, or using AI to find answers.</p>
+      </div>
+    </div>
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Stay within bounds</h4>
+        <p>I will only test or explore within the CTFd environment provided. No unauthorized access or real-world probing.</p>
+      </div>
+    </div>
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Be respectful and supportive</h4>
+        <p>I will help others learn and maintain a positive, inclusive environment for everyone in the class.</p>
+      </div>
+    </div>
+    <div class="guideline">
+      <div class="check">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <div class="guideline-text">
+        <h4>Ask for help when unsure</h4>
+        <p>If I encounter something that feels wrong or confusing, I will notify my teacher or the project lead immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA & PRIVACY -->
+  <span class="section-tag">// data &amp; privacy notice</span>
+  <div class="privacy-grid">
+    <div class="privacy-card">
+      <h4>IRB Approved</h4>
+      <p>This activity is part of an IRB-approved research study conducted through The University of Alabama.</p>
+    </div>
+    <div class="privacy-card">
+      <h4>Voluntary Participation</h4>
+      <p>All participation is voluntary. Students may stop at any time without penalty or consequence.</p>
+    </div>
+    <div class="privacy-card">
+      <h4>Anonymous &amp; Confidential</h4>
+      <p>Student data is anonymous and confidential. No personal or identifying data is stored or published.</p>
+    </div>
+    <div class="privacy-card">
+      <h4>Aggregate Results Only</h4>
+      <p>Results are analyzed in aggregate to improve cybersecurity education — never linked to individual students.</p>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-block">"Cybersecurity begins with integrity."</div>
+
+  <!-- TEACHER NOTE -->
+  <div class="teacher-note">
+    <h4>// for teachers &amp; guardians</h4>
+    <p>Teachers and guardians may review this agreement with students before participation begins. This document ensures everyone understands how to engage safely and ethically in cybersecurity learning activities.</p>
+  </div>
+
+  <div class="nav-footer">
+    <a href="/ExForCyberEducation/about/ethics.html" class="btn-ghost">Ethics Policy</a>
+    <a href="/ExForCyberEducation/about/ctf-purpose.html" class="btn-ghost">About CTFs</a>
+    <a href="/ExForCyberEducation/about/" class="btn-ghost">← Back to About</a>
+    <a href="/ExForCyberEducation/" class="btn-ghost">Home</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CTFforCyberLearning</div>
+      <p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Study</h4>
+      <a href="/ExForCyberEducation/about/">About the Study</a>
+      <a href="/ExForCyberEducation/about/team.html">Research Team</a>
+      <a href="/ExForCyberEducation/about/ethics.html">Ethics &amp; IRB</a>
+      <a href="/ExForCyberEducation/about/consent.html">Consent Forms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Learn</h4>
+      <a href="/ExForCyberEducation/learning/">Learning Lab</a>
+      <a href="/ExForCyberEducation/learning/osint.html">OSINT</a>
+      <a href="/ExForCyberEducation/learning/cryptography.html">Cryptography</a>
+      <a href="/ExForCyberEducation/learning/passwords.html">Passwords</a>
+    </div>
+    <div class="footer-links">
+      <h4>Teachers</h4>
+      <a href="/ExForCyberEducation/teachers/">Teacher Toolkit</a>
+      <a href="/ExForCyberEducation/teachers/syllabus.html">Syllabus</a>
+      <a href="/ExForCyberEducation/teachers/mapping.html">Standards Mapping</a>
+      <a href="/ExForCyberEducation/about/feedback.html">Give Feedback</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
