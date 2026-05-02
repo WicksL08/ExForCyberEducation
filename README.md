@@ -1,10 +1,10 @@
 # CTFforCyberLearning
 
-A doctoral research project at The University of Alabama exploring how Capture-the-Flag (CTF) cybersecurity challenges can improve student engagement, knowledge, and skill development in Alabama high school classrooms.
+A doctoral research project at The University of Alabama exploring how Capture the Flag (CTF) cybersecurity challenges can improve student engagement, knowledge, and skill development in Alabama high school classrooms.
 
 ## About the Study
 
-CTFforCyberLearning uses the Ex4CSLearning curriculum model to deliver hands-on cybersecurity education through three modules — OSINT, Cryptography, and Password Security — mapped to Alabama K–12 Computer Science Standards and the NICE Cybersecurity Workforce Framework.
+CTFforCyberLearning uses the experiential learning educational model to deliver hands-on cybersecurity education through three modules (OSINT, Cryptography, and Password Security) mapped to Alabama K–12 Computer Science Standards and the NICE Cybersecurity Workforce Framework.
 
 ## Study Website
 
