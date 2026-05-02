@@ -8,7 +8,7 @@ CTFforCyberLearning uses the Ex4CSLearning curriculum model to deliver hands-on 
 
 ## Study Website
 
-🌐 [wicksl08.github.io/CTFforCyberLearning](https://wicksl08.github.io/CTFforCyberLearning/)
+ [wicksl08.github.io/CTFforCyberLearning](https://wicksl08.github.io/CTFforCyberLearning/)
 
 ## Research Team
 
@@ -20,7 +20,7 @@ CTFforCyberLearning uses the Ex4CSLearning curriculum model to deliver hands-on 
 
 ## Contact
 
-📧 lwicks@crimson.ua.edu
+lwicks@crimson.ua.edu
 
 ---
 
