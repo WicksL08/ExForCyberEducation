@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethics & IRB | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;
+      --green:#00e5a0;--green2:rgba(0,229,160,0.12);--green3:#004d35;
+      --amber:#f5a623;--blue:#5ab0ff;--red:#ff6b6b;
+      --text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);
+      --mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;
+    }
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-80px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-bottom:1rem;position:relative;z-index:1;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+    .page-hero h1 span{color:var(--green);}
+    .page-hero p{font-size:1.05rem;color:var(--muted);max-width:620px;position:relative;z-index:1;}
+    main{max-width:900px;margin:0 auto;padding:3rem 2rem 5rem;}
+    .section-tag{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:0.5rem;margin-top:2.5rem;}
+    .section-tag:first-child{margin-top:0;}
+    h2{font-size:1.3rem;font-weight:600;margin-bottom:1.25rem;}
+    .card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 2rem;margin-bottom:1.25rem;}
+    .card h3{font-size:1rem;font-weight:600;margin-bottom:0.75rem;color:var(--green);}
+    .card p,.card li{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+    .card ul{padding-left:1.25rem;}
+    .card li{margin-bottom:0.35rem;}
+    .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+    @media(max-width:600px){.rule-grid{grid-template-columns:1fr;}}
+    .rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;}
+    .rule-card.allowed{border-left:3px solid var(--green);}
+    .rule-card.not-allowed{border-left:3px solid var(--red);}
+    .rule-card h4{font-family:var(--mono);font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem;}
+    .rule-card.allowed h4{color:var(--green);}
+    .rule-card.not-allowed h4{color:var(--red);}
+    .rule-card ul{padding-left:1.1rem;}
+    .rule-card li{font-size:0.85rem;color:var(--muted);margin-bottom:0.3rem;}
+    .irb-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.25);border-radius:8px;padding:0.75rem 1.25rem;font-family:var(--mono);font-size:0.78rem;color:var(--green);margin-bottom:2rem;}
+    .quote-block{background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:0.95rem;color:var(--text);font-style:italic;}
+    .nav-footer{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;}
+    .btn-ghost{font-family:var(--mono);font-size:0.78rem;padding:0.6rem 1.2rem;border-radius:6px;color:var(--muted);text-decoration:none;border:1px solid var(--border);transition:all 0.2s;}
+    .btn-ghost:hover{color:var(--green);border-color:var(--green3);}
+    footer{border-top:1px solid var(--border);padding:3rem 2.5rem 2rem;}
+    .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem;}}
+    .footer-brand{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .footer-links h4{font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--green);}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy,.footer-ua{font-family:var(--mono);font-size:0.7rem;color:var(--muted);}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/CTFforCyberLearning/" class="nav-brand">CTFfor<span style="color:var(--text)">CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/CTFforCyberLearning/about/" class="active">About</a>
+    <a href="/CTFforCyberLearning/learning/">Learning Lab</a>
+    <a href="/CTFforCyberLearning/challenges/">Challenges</a>
+    <a href="/CTFforCyberLearning/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/CTFforCyberLearning/">Home</a> / <a href="/CTFforCyberLearning/about/">About</a> / Ethics &amp; IRB</p>
+  <h1>Ethics &amp; <span>IRB Approval</span></h1>
+  <p>Responsible cybersecurity education means doing the right thing with every skill, every system, and every piece of data.</p>
+</div>
+
+<main>
+
+  <div class="irb-badge">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+    IRB Approved · The University of Alabama · Protocol on file
+  </div>
+
+  <span class="section-tag">// ethical principles</span>
+  <h2>What Does "Ethical" Mean in This Context?</h2>
+  <div class="card">
+    <p style="margin-bottom:1rem;">Ethics in cybersecurity is about <strong style="color:var(--text)">doing the right thing even when no one is watching.</strong> Students are encouraged to:</p>
+    <ul>
+      <li>Use their skills to <strong style="color:var(--text)">protect</strong> systems — never to exploit them.</li>
+      <li>Respect privacy — never access or share information without permission.</li>
+      <li>Ask permission before testing or scanning any system.</li>
+      <li>Report vulnerabilities responsibly to a teacher or administrator.</li>
+      <li>Use cybersecurity challenges to <strong style="color:var(--text)">learn</strong>, not to break rules.</li>
+    </ul>
+  </div>
+
+  <div class="quote-block">
+    "Our goal: to create responsible, informed, and ethical cybersecurity citizens."
+  </div>
+
+  <span class="section-tag">// conduct standards</span>
+  <h2>Participation Rules</h2>
+  <div class="rule-grid">
+    <div class="rule-card allowed">
+      <h4>✓ Allowed</h4>
+      <ul>
+        <li>Solving CTF challenges in the provided platform</li>
+        <li>Collaborating with classmates on challenges</li>
+        <li>Asking teachers or facilitators for hints</li>
+        <li>Reporting bugs or issues with challenges</li>
+        <li>Exploring learning materials and resources</li>
+      </ul>
+    </div>
+    <div class="rule-card not-allowed">
+      <h4>✗ Not Allowed</h4>
+      <ul>
+        <li>Unauthorized hacking or system testing</li>
+        <li>Scraping or collecting personal information</li>
+        <li>Sharing or publishing challenge answers</li>
+        <li>AI-assisted cheating on assessments</li>
+        <li>Accessing systems outside the CTFd platform</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);">All activities occur in <strong style="color:var(--text)">controlled, simulated CTF environments</strong> where students can safely practice without affecting real systems.</p>
+
+  <span class="section-tag">// research standards</span>
+  <h2>IRB &amp; Research Ethics</h2>
+  <div class="card">
+    <p style="margin-bottom:1rem;">This study has been reviewed and approved by the <strong style="color:var(--text)">University of Alabama Institutional Review Board (IRB)</strong>. All data is collected anonymously and used only for educational improvement and research analysis.</p>
+    <ul>
+      <li>Participation is <strong style="color:var(--text)">voluntary</strong> — you may stop at any time without penalty.</li>
+      <li>No identifying information is ever recorded.</li>
+      <li>Teachers act as facilitators only — not evaluators.</li>
+      <li>All results are reported in <strong style="color:var(--text)">aggregate form</strong> to protect privacy.</li>
+      <li>Data is stored securely under UA research compliance policies.</li>
+    </ul>
+  </div>
+
+  <div class="nav-footer">
+    <a href="/CTFforCyberLearning/about/" class="btn-ghost">← Back to About</a>
+    <a href="/CTFforCyberLearning/" class="btn-ghost">Home</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CTFforCyberLearning</div>
+      <p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Study</h4>
+      <a href="/CTFforCyberLearning/about/">About the Study</a>
+      <a href="/CTFforCyberLearning/about/team/">Research Team</a>
+      <a href="/CTFforCyberLearning/about/ethics/">Ethics &amp; IRB</a>
+      <a href="/CTFforCyberLearning/about/consent/">Consent Forms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Learn</h4>
+      <a href="/CTFforCyberLearning/learning/">Learning Lab</a>
+      <a href="/CTFforCyberLearning/learning/osint/">OSINT</a>
+      <a href="/CTFforCyberLearning/learning/cryptography/">Cryptography</a>
+      <a href="/CTFforCyberLearning/learning/passwords/">Passwords</a>
+    </div>
+    <div class="footer-links">
+      <h4>Teachers</h4>
+      <a href="/CTFforCyberLearning/teachers/">Teacher Toolkit</a>
+      <a href="/CTFforCyberLearning/teachers/syllabus/">Syllabus</a>
+      <a href="/CTFforCyberLearning/teachers/mapping/">Standards Mapping</a>
+      <a href="/CTFforCyberLearning/about/feedback/">Give Feedback</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
