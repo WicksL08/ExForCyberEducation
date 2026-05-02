@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cryptography | CTFforCyberLearning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#050f0d;--bg2:#0a1f1a;--bg3:#0d2b24;--green:#00e5a0;--green3:#004d35;--amber:#f5a623;--blue:#5ab0ff;--text:#d4f0e8;--muted:#6fa898;--border:rgba(0,229,160,0.15);--mono:'Share Tech Mono',monospace;--sans:'Outfit',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,15,13,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-brand{font-family:var(--mono);font-size:1.1rem;color:var(--green);letter-spacing:1px;text-decoration:none;}
+    .nav-brand span{color:var(--text);}
+    .nav-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
+    .nav-links a{font-size:0.8rem;font-family:var(--mono);padding:0.3rem 0.85rem;border-radius:4px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green3);background:rgba(0,229,160,0.06);}
+    .page-hero{padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--border);position:relative;z-index:1;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.06) 0%,transparent 65%);pointer-events:none;}
+    .breadcrumb{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:1px;}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 0.5rem;opacity:0.4;}
+    .page-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--amber);text-transform:uppercase;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.25);padding:0.3rem 0.8rem;border-radius:3px;margin-bottom:1.25rem;width:fit-content;}
+    .page-tag::before{content:'//';opacity:0.6;}
+    .page-hero h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+    .page-hero h1 span{color:var(--amber);}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:620px;line-height:1.75;margin-bottom:1.5rem;}
+    .hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;}
+    .btn{padding:0.7rem 1.5rem;border-radius:5px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;border:none;}
+    .btn-amber{background:var(--amber);color:#1a0f00;}
+    .btn-amber:hover{background:#ffc040;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--amber);border:1px solid rgba(245,166,35,0.4);}
+    .btn-outline:hover{background:rgba(245,166,35,0.08);}
+    .section{padding:3rem 2.5rem;position:relative;z-index:1;}
+    .section+.section{border-top:1px solid var(--border);}
+    .section-tag{font-family:var(--mono);font-size:0.68rem;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;display:block;}
+    .section h2{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:0.75rem;}
+    .section p{font-size:0.92rem;color:var(--muted);line-height:1.8;max-width:700px;margin-bottom:1rem;}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1.25rem;}
+    .video-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;text-decoration:none;}
+    .video-card:hover{border-color:rgba(245,166,35,0.4);transform:translateY(-2px);}
+    .v-thumb{height:130px;background:linear-gradient(135deg,rgba(45,30,0,0.9),rgba(245,166,35,0.06));display:flex;align-items:center;justify-content:center;position:relative;}
+    .play-btn{width:46px;height:46px;border-radius:50%;background:rgba(245,166,35,0.2);border:2px solid rgba(245,166,35,0.5);display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+    .video-card:hover .play-btn{transform:scale(1.12);}
+    .v-label{position:absolute;bottom:0.6rem;left:0.75rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:1px;text-transform:uppercase;background:rgba(5,15,13,0.85);padding:0.18rem 0.5rem;border-radius:3px;color:var(--amber);}
+    .v-info{padding:1rem 1.2rem;}
+    .v-info h4{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.3rem;}
+    .v-info p{font-size:0.8rem;color:var(--muted);line-height:1.55;margin-bottom:0.6rem;}
+    .v-link{font-family:var(--mono);font-size:0.72rem;color:var(--amber);text-decoration:none;}
+    .terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.85rem;margin-top:1.25rem;}
+    .term-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.25rem;transition:border-color 0.2s;text-decoration:none;display:block;}
+    .term-card:hover{border-color:rgba(245,166,35,0.3);}
+    .term-name{font-family:var(--mono);font-size:0.78rem;color:var(--amber);margin-bottom:0.3rem;display:block;}
+    .term-card p{font-size:0.82rem;color:var(--muted);line-height:1.55;}
+    .term-example{font-family:var(--mono);font-size:0.7rem;color:var(--muted);margin-top:0.35rem;display:block;opacity:0.7;}
+    .points-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem;}
+    .points-list li{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.9rem;color:var(--text);}
+    .points-list li::before{content:'▸';color:var(--amber);font-family:var(--mono);flex-shrink:0;margin-top:2px;}
+    .cta-strip{background:var(--bg3);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+    .cta-strip p{font-size:0.88rem;color:var(--muted);}
+    .cta-strip strong{color:#fff;}
+    .module-nav-strip{display:flex;gap:1rem;padding:1.25rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2);position:relative;z-index:1;flex-wrap:wrap;}
+    .mnav-link{font-family:var(--mono);font-size:0.78rem;padding:0.4rem 1rem;border-radius:5px;text-decoration:none;border:1px solid var(--border);color:var(--muted);transition:all 0.2s;}
+    .mnav-link:hover{color:var(--amber);border-color:rgba(245,166,35,0.4);}
+    .mnav-link.active{color:var(--amber);border-color:rgba(245,166,35,0.4);background:rgba(245,166,35,0.06);}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem;position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem;}
+    .footer-brand{font-family:var(--mono);color:var(--green);font-size:1rem;margin-bottom:0.5rem;}
+    .footer-desc{font-size:0.82rem;color:var(--muted);max-width:260px;line-height:1.6;}
+    .footer-links h4{font-size:0.78rem;font-family:var(--mono);color:var(--green);letter-spacing:1px;margin-bottom:0.75rem;text-transform:uppercase;}
+    .footer-links a{display:block;font-size:0.82rem;color:var(--muted);text-decoration:none;margin-bottom:0.4rem;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    .footer-copy{font-size:0.78rem;color:var(--muted);font-family:var(--mono);}
+    .footer-ua{font-size:0.78rem;color:var(--muted);}
+    @media(max-width:600px){nav,.page-hero,.section,.module-nav-strip,footer{padding-left:1.25rem;padding-right:1.25rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/CTFforCyberLearning/" class="nav-brand">CTFfor<span>CyberLearning</span></a>
+  <div class="nav-links">
+    <a href="/CTFforCyberLearning/about/">About</a>
+    <a href="/CTFforCyberLearning/learning/" class="active">Learning Lab</a>
+    <a href="/CTFforCyberLearning/challenges/">Challenges</a>
+    <a href="/CTFforCyberLearning/teachers/">Teacher Toolkit</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="breadcrumb"><a href="/CTFforCyberLearning/">Home</a><span>/</span><a href="/CTFforCyberLearning/learning/">Learning Lab</a><span>/</span>Cryptography</div>
+  <div class="page-tag">Module 02</div>
+  <h1>Cryptography &amp;<br><span>Secret Messages</span></h1>
+  <p>Explore how information is encoded, encrypted, and hidden — and how analysts decode messages using classical and modern cipher techniques.</p>
+  <div class="hero-actions">
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-amber">Start Crypto Challenges</a>
+    <a href="/CTFforCyberLearning/learning/tools.html" class="btn btn-outline">Crypto Tools</a>
+  </div>
+</div>
+<div class="module-nav-strip">
+  <a href="/CTFforCyberLearning/learning/osint.html" class="mnav-link">Module 1 — OSINT</a>
+  <a href="/CTFforCyberLearning/learning/cryptography.html" class="mnav-link active">Module 2 — Cryptography</a>
+  <a href="/CTFforCyberLearning/learning/passwords.html" class="mnav-link">Module 3 — Password Security</a>
+</div>
+<div class="section">
+  <span class="section-tag">// what is cryptography</span>
+  <h2>What is Cryptography?</h2>
+  <p>Cryptography is the science of protecting information by transforming it into an unreadable format — so only authorized people can decode it. From ancient Caesar ciphers to modern AES encryption, cryptography has been used for thousands of years to protect secrets, secure communications, and keep data safe.</p>
+  <ul class="points-list">
+    <li>Encoding converts data to a different format — it is not a security measure on its own</li>
+    <li>Encryption uses a key to protect data — only someone with the key can decrypt it</li>
+    <li>Hashing is a one-way transformation — it cannot be reversed</li>
+    <li>Modern Cyber Security relies on cryptography to protect passwords, messages, and transactions</li>
+  </ul>
+</div>
+<div class="section">
+  <span class="section-tag">// video tutorials</span>
+  <h2>Watch Before You Challenge</h2>
+  <div class="video-grid">
+    <a href="https://www.youtube.com/watch?v=GSIDS_lvRv4" target="_blank" class="video-card">
+      <div class="v-thumb"><div class="play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="v-label">Intro</span></div>
+      <div class="v-info"><h4>Public Key Cryptography (Computerphile)</h4><p>What cryptography is, why it matters, and how it protects information in the digital world.</p><span class="v-link">Watch on YouTube →</span></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=b4b8ktEV4Bg" target="_blank" class="video-card">
+      <div class="v-thumb"><div class="play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="v-label">Hashing</span></div>
+      <div class="v-info"><h4>Hashing Algorithms &amp; Security (Computerphile)</h4><p>The critical difference between one-way hashing and two-way encryption.</p><span class="v-link">Watch on YouTube →</span></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=--tnZMuoK3E" target="_blank" class="video-card">
+      <div class="v-thumb"><div class="play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="v-label">Base64</span></div>
+      <div class="v-info"><h4>Password Hashing, Salts &amp; Peppers Explained</h4><p>How Base64 encoding works and how to decode encoded messages.</p><span class="v-link">Watch on YouTube →</span></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=aXHmUHPXwb4" target="_blank" class="video-card">
+      <div class="v-thumb"><div class="play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="v-label">Ciphers</span></div>
+      <div class="v-info"><h4>Adding Salt to Hashing</h4><p>Caesar cipher and letter substitution methods used in CTF challenges.</p><span class="v-link">Watch on YouTube →</span></div>
+    </a>
+  </div>
+</div>
+<div class="section">
+  <span class="section-tag">// key vocabulary</span>
+  <h2>Key Terms to Know</h2>
+  <div class="terms-grid">
+    <div class="term-card"><span class="term-name">Encoding</span><p>Converting data into a different format — not a security measure, easily reversed.</p><span class="term-example">Ex: Base64 encoding</span></div>
+    <div class="term-card"><span class="term-name">Hashing</span><p>A one-way transformation that produces a fixed-length output. Cannot be reversed.</p><span class="term-example">Ex: SHA-256 hash</span></div>
+    <div class="term-card"><span class="term-name">Encryption</span><p>Two-way protection using keys — data can be encrypted and later decrypted.</p><span class="term-example">Ex: AES, RSA encryption</span></div>
+    <div class="term-card"><span class="term-name">Caesar Cipher</span><p>A substitution cipher that shifts each letter by a fixed number of positions in the alphabet.</p><span class="term-example">Ex: A→D, B→E with shift of 3</span></div>
+    <div class="term-card"><span class="term-name">Ciphertext</span><p>The encrypted or encoded version of a message that cannot be read without decoding.</p><span class="term-example">Ex: "Khoor" = "Hello" in Caesar +3</span></div>
+    <div class="term-card"><span class="term-name">Plaintext</span><p>The original readable message before it has been encrypted or encoded.</p><span class="term-example">Ex: "Hello World"</span></div>
+  </div>
+</div>
+<div class="section">
+  <span class="section-tag">// crypto challenges</span>
+  <h2>Your Cryptography Challenges</h2>
+  <div class="terms-grid">
+    <div class="term-card"><span class="term-name" style="color:var(--green);">The Secret Scroll — 100 pts</span><p>Decode a mysterious scroll using classical cipher techniques.</p><span class="term-example">Difficulty: Easy</span></div>
+    <div class="term-card"><span class="term-name" style="color:var(--amber);">The Hidden Codebook — 200 pts</span><p>Find meaning hidden in plain sight — crack the codebook to reveal the message.</p><span class="term-example">Difficulty: Medium</span></div>
+    <div class="term-card"><span class="term-name" style="color:#ff6b6b;">The Headmaster's Secret — 300 pts</span><p>An advanced cryptography puzzle using combined encoding techniques.</p><span class="term-example">Difficulty: Hard</span></div>
+  </div>
+  <div class="cta-strip">
+    <p><strong>Ready?</strong> Head to the CTF portal to start your Cryptography challenges.</p>
+    <a href="https://ex4cslearning.ctfd.io" target="_blank" class="btn btn-amber">Launch CTF Portal →</a>
+  </div>
+</div>
+<div class="section">
+  <span class="section-tag">// continue learning</span>
+  <h2>Continue Learning</h2>
+  <div class="terms-grid">
+    <a href="/CTFforCyberLearning/learning/osint.html" class="term-card">
+      <span class="term-name" style="color:var(--green);">← Module 1 — OSINT</span>
+      <p>Go back to learn about open-source intelligence and digital investigation.</p>
+    </a>
+    <a href="/CTFforCyberLearning/learning/passwords.html" class="term-card">
+      <span class="term-name">Module 3 — Password Security →</span>
+      <p>Explore how passwords are stored, cracked, and protected through real security practices.</p>
+    </a>
+    <a href="/CTFforCyberLearning/learning/tools.html" class="term-card">
+      <span class="term-name">Crypto Tools →</span>
+      <p>CyberChef, dCode, Base64, Caesar Cipher tools and more.</p>
+    </a>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">CTFforCyberLearning</div><p class="footer-desc">Experiential Cyber Security education through CTF challenges, mapped to Alabama K–12 standards.</p></div>
+    <div class="footer-links"><h4>Learn</h4><a href="/CTFforCyberLearning/learning/">Learning Lab</a><a href="/CTFforCyberLearning/learning/osint.html">OSINT</a><a href="/CTFforCyberLearning/learning/cryptography.html">Cryptography</a><a href="/CTFforCyberLearning/learning/passwords.html">Password Security</a></div>
+    <div class="footer-links"><h4>Study</h4><a href="/CTFforCyberLearning/about/">About the Study</a><a href="/CTFforCyberLearning/challenges/">Challenges</a><a href="/CTFforCyberLearning/teachers/">Teacher Toolkit</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Lacey Wicks · CTFforCyberLearning · All rights reserved.</span>
+    <span class="footer-ua">Doctoral Research · Department of Computer Science · The University of Alabama</span>
+  </div>
+</footer>
+</body>
+</html>
